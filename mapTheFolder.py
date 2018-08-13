@@ -1,24 +1,46 @@
-import os, time
+import os, time, sys
 from bytes_converter import bytes_converter
 from Folder import Folder
-from imdb import IMDb
+import imdb
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
 collection = []
-ia = IMDb()
+ia = imdb.IMDb()
+
+def search_director(movie_identifier):
+    director = movie_identifier['director']
+    for dir in director:
+        director_name = dir['name']
+        director_id = dir.personID
+        print(director_name, director_id)
 
 def movie_name(i):
-    movies = ia.search_movie(i)
-    movie = movies[0]
-    title = movie.get('title')
-    return title
+    try:
+        movies = ia.search_movie(i)
+        movie = movies[0]
+        title = movie.get('title')
+        imdbURL = ia.get_imdbURL(movie)
+        movie_id = movie.movieID
+        movie_year = movie['year']
+        movie_identifier = ia.get_movie(movie_id)
+        print('Info on movies\n\n\n')
+        print(title + '\n\n\n' + imdbURL + '\n\n\n' + str(movie_id) + '\n\n\n' + str(movie_year))
+        search_director(movie_identifier)
+
+    except imdb.IMDbError as e:
+        print("Probably you're not connected to Internet.  Complete error report:")
+        print(e)
+        sys.exit(3)
+
+    if not movie:
+        print('It seems that there\'s no movie with movie_id "%s"' % title)
+        sys.exit(4)
 
 def save_info(directory):
     if os.path.exists(directory):
         for i in os.listdir(directory):
 
             film = movie_name(i)
-            print(film)
 
             dir = os.path.join(directory, i)
 
@@ -51,11 +73,5 @@ def save_info(directory):
 save_info(directory)
 
 for i in collection:
-    print(i.home_path)
-    print(i.name)
-    print(i.dir)
-    print(i.atime)
-    print(i.ctime)
-    print(i.size)
-    print(i.ext)
-    print('Bravo\n\n\n\n')
+    print('Info on files\n\n\n')
+    print(i.home_path+'\n\n\n'+i.name+'\n\n\n'+i.dir+'\n\n\n'+str(i.atime)+'\n\n\n'+str(i.ctime)+'\n\n\n'+str(i.size)+'\n\n\n'+i.ext)

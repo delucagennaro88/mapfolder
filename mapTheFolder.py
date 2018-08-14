@@ -8,11 +8,18 @@ collection = []
 ia = imdb.IMDb()
 
 def search_director(movie_identifier):
-    director = movie_identifier['director']
-    for dir in director:
+    directors = movie_identifier['director']
+    for dir in directors:
         director_name = dir['name']
         director_id = dir.personID
         print(director_name, director_id)
+
+def search_cast(movie_identifier):
+    actors = movie_identifier['cast']
+    for actor in actors:
+        actor_name = actor['name']
+        actor_id = actor.personID
+        print(actor_name, actor_id)
 
 def movie_name(i):
     try:
@@ -23,9 +30,13 @@ def movie_name(i):
         movie_id = movie.movieID
         movie_year = movie['year']
         movie_identifier = ia.get_movie(movie_id)
+        plot = movie_identifier.get('plot', [''])[0]
+        plot = plot.split('::')[0]
         print('Info on movies\n\n\n')
         print(title + '\n\n\n' + imdbURL + '\n\n\n' + str(movie_id) + '\n\n\n' + str(movie_year))
         search_director(movie_identifier)
+        search_cast(movie_identifier)
+        print(plot)
 
     except imdb.IMDbError as e:
         print("Probably you're not connected to Internet.  Complete error report:")

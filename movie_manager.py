@@ -5,6 +5,9 @@ from Actor import Actor
 
 ia = imdb.IMDb()
 
+movie_container = {}
+movie_dic = {}
+
 def movie_name(i):
     try:
         movies = ia.search_movie(i)
@@ -32,21 +35,20 @@ def movie_name(i):
 
     return movie_container
 
-
 def search_director(movie_identifier):
     directors = movie_identifier['director']
-    director_collection= []
+    movie_dic['Director'] = []
     for dir in directors:
         director_name = dir['name']
         director_id = dir.personID
-        director_collection.append(Director(director_name, director_id))
-    return director_collection
+        movie_dic['Director'].append({'Name': director_name, 'Id': director_id})
+    return movie_dic['Director']
 
 def search_cast(movie_identifier):
     actors = movie_identifier['cast']
-    actor_collection = []
+    movie_dic['Actor'] = []
     for actor in actors:
         actor_name = actor['name']
         actor_id = actor.personID
-        actor_collection.append(Actor(actor_name, actor_id))
-    return actor_collection
+        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id})
+    return movie_dic['Actor']

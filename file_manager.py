@@ -3,9 +3,12 @@ from movie_manager import movie_name
 from bytes_converter import bytes_converter
 from Movie import Movie
 
-collection = []
+collection = {}
+
 
 def save_info(directory):
+    num = 0
+
     if os.path.exists(directory):
         for i in os.listdir(directory):
 
@@ -26,8 +29,9 @@ def save_info(directory):
                 size = 0
 
             a = os.stat(os.path.join(directory, i))
-
-            collection.append(Movie(directory, i, dir, time.ctime(a.st_atime), time.ctime(a.st_ctime), size, ext, film['Id'], film['Url'], film['Title'], film['Year'], film['Plot'], film['DirectorBox'], film['ActorBox']))
+            collection[num] = []
+            collection[num].append({'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime), 'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'], 'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'], 'Movie Actor': film['ActorBox']})
+            num += 1
 
         return collection
 

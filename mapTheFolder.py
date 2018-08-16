@@ -1,4 +1,5 @@
 from file_manager import save_info
+import csv
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
 
@@ -6,15 +7,20 @@ directory = "C:\\Users\\Utente\\Desktop\\FILM"
 
 collection = save_info(directory)
 
-for i in collection:
-    print(
-        'Informazioni sul file:' + '\n')
-    print(i.home_path + '\n' + i.name + '\n' + i.dir + '\n' + str(i.atime) + '\n' + str(
-            i.ctime) + '\n' + str(i.size) + '\n' + i.ext + '\n\n\n')
-    print('Informazioni sul film:' + '\n')
-    print(str(i.id) + '\n' + i.url + '\n' + i.title + '\n' + str(i.year) + '\n' + i.plot + '\n')
-    for y in i.director_box:
-        print('Regista: ' + y.name + '. Id: ' + y.id + '\n')
-    for x in i.actor_box:
-        print('Attore: ' + x.name + '. Id: ' + x.id + '\n')
-    print('\n\n\n')
+with open('thefile.csv', 'w') as f:
+
+    fnames = ['home_path', 'name', 'dir', 'atime', 'ctime', 'size', 'ext', 'id', 'url', 'title', 'plot', 'director_name', 'director_id', 'actor_name', 'actor_id']  # qui vanno i nomi delle colonne
+    writer = csv.DictWriter(f, fieldnames=fnames)
+
+    writer.writeheader()
+
+    for i in collection:
+        d = i.director_box
+        writer.writerow({'home_path': i.home_path, 'name': i.name, 'dir': i.dir, 'atime': str(i.atime), 'ctime': str(i.ctime), 'id': str(i.id), 'url': i.url, 'title': i.title, 'plot': i.plot, 'director_name': ([y.name for y in i.director_box]), 'director_id': ([y.id for y in i.director_box]), 'actor_name': ([x.name for x in i.actor_box]), 'actor_id': ([x.id for x in i.actor_box]),})
+
+'''
+        for y in i.director_box:
+            writer.writerow({'director_id': str(y.id), 'director_name': y.name})
+        for x in i.actor_box:
+            writer.writerow({'actor_id': str(x.id), 'actor_name': x.name})
+'''

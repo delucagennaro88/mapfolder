@@ -1,0 +1,1850 @@
+{
+    "0": [
+        {
+            "Atime": "Tue Aug 14 12:14:01 2018",
+            "Ctime": "Tue Aug 14 12:14:01 2018",
+            "Extension": ".txt",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\Cado dalle nubi.txt",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "Cado dalle nubi.txt",
+            "Movie Actor": [
+                {
+                    "Id": "2504581",
+                    "Name": "Checco Zalone"
+                },
+                {
+                    "Id": "1323665",
+                    "Name": "Giulia Michelini"
+                },
+                {
+                    "Id": "0008090",
+                    "Name": "Dino Abbrescia"
+                },
+                {
+                    "Id": "0546515",
+                    "Name": "Ivano Marescotti"
+                },
+                {
+                    "Id": "2694273",
+                    "Name": "Claudia Penoni"
+                },
+                {
+                    "Id": "0563686",
+                    "Name": "Peppino Mazzotta"
+                },
+                {
+                    "Id": "2518678",
+                    "Name": "Stefano Chiodaroli"
+                },
+                {
+                    "Id": "0029580",
+                    "Name": "Gigi Angelillo"
+                },
+                {
+                    "Id": "0595343",
+                    "Name": "Ludovica Modugno"
+                },
+                {
+                    "Id": "1314276",
+                    "Name": "Anna Ferruzzo"
+                },
+                {
+                    "Id": "2613113",
+                    "Name": "Francesca Chillemi"
+                },
+                {
+                    "Id": "0187367",
+                    "Name": "Raul Cremona"
+                },
+                {
+                    "Id": "2586196",
+                    "Name": "Ivana Lotito"
+                },
+                {
+                    "Id": "1307209",
+                    "Name": "Alessandro Adriano"
+                },
+                {
+                    "Id": "4895843",
+                    "Name": "Angelique Cavallari"
+                },
+                {
+                    "Id": "5051922",
+                    "Name": "Daniele Di Stefano"
+                },
+                {
+                    "Id": "1420856",
+                    "Name": "Gioia Libardoni"
+                },
+                {
+                    "Id": "3758428",
+                    "Name": "Andrea Midena"
+                },
+                {
+                    "Id": "0660266",
+                    "Name": "Rocco Papaleo"
+                },
+                {
+                    "Id": "0684951",
+                    "Name": "Daniela Piperno"
+                },
+                {
+                    "Id": "3218677",
+                    "Name": "Paolo Riva"
+                },
+                {
+                    "Id": "0873365",
+                    "Name": "Fabio Troiano"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "0638115",
+                    "Name": "Gennaro Nunziante"
+                }
+            ],
+            "Movie Id": "1526741",
+            "Movie Title": "Cado dalle nubi",
+            "Movie Url": "http://www.imdb.com/title/tt1526741/",
+            "Movie Year": 2009,
+            "Movie plot": "A southern italian singer moves to Milan to have more chances with his career, bringing with him a little bit of South.",
+            "Size": "0.0 bytes"
+        }
+    ],
+    "1": [
+        {
+            "Atime": "Tue Aug 14 12:57:17 2018",
+            "Ctime": "Tue Aug 14 12:57:17 2018",
+            "Extension": "directory",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\Gone with the wind",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "Gone with the wind",
+            "Movie Actor": [
+                {
+                    "Id": "0593775",
+                    "Name": "Thomas Mitchell"
+                },
+                {
+                    "Id": "0641966",
+                    "Name": "Barbara O'Neil"
+                },
+                {
+                    "Id": "0000046",
+                    "Name": "Vivien Leigh"
+                },
+                {
+                    "Id": "0450810",
+                    "Name": "Evelyn Keyes"
+                },
+                {
+                    "Id": "0751946",
+                    "Name": "Ann Rutherford"
+                },
+                {
+                    "Id": "0001660",
+                    "Name": "George Reeves"
+                },
+                {
+                    "Id": "0186347",
+                    "Name": "Fred Crane"
+                },
+                {
+                    "Id": "0567408",
+                    "Name": "Hattie McDaniel"
+                },
+                {
+                    "Id": "0689318",
+                    "Name": "Oscar Polk"
+                },
+                {
+                    "Id": "0574335",
+                    "Name": "Butterfly McQueen"
+                },
+                {
+                    "Id": "0430460",
+                    "Name": "Victor Jory"
+                },
+                {
+                    "Id": "0113548",
+                    "Name": "Everett Brown"
+                },
+                {
+                    "Id": "0382730",
+                    "Name": "Howard C. Hickman"
+                },
+                {
+                    "Id": "0722265",
+                    "Name": "Alicia Rhett"
+                },
+                {
+                    "Id": "0001366",
+                    "Name": "Leslie Howard"
+                },
+                {
+                    "Id": "0000014",
+                    "Name": "Olivia de Havilland"
+                },
+                {
+                    "Id": "0112203",
+                    "Name": "Rand Brooks"
+                },
+                {
+                    "Id": "0638560",
+                    "Name": "Carroll Nye"
+                },
+                {
+                    "Id": "0000022",
+                    "Name": "Clark Gable"
+                },
+                {
+                    "Id": "0187711",
+                    "Name": "Laura Hope Crews"
+                },
+                {
+                    "Id": "0026655",
+                    "Name": "Eddie 'Rochester' Anderson"
+                },
+                {
+                    "Id": "0003193",
+                    "Name": "Harry Davenport"
+                },
+                {
+                    "Id": "0731345",
+                    "Name": "Leona Roberts"
+                },
+                {
+                    "Id": "0002034",
+                    "Name": "Jane Darwell"
+                },
+                {
+                    "Id": "0613262",
+                    "Name": "Ona Munson"
+                },
+                {
+                    "Id": "0403636",
+                    "Name": "Paul Hurst"
+                },
+                {
+                    "Id": "0422436",
+                    "Name": "Isabel Jewell"
+                },
+                {
+                    "Id": "0454541",
+                    "Name": "Cammie King Conlon"
+                },
+                {
+                    "Id": "0511599",
+                    "Name": "Eric Linden"
+                },
+                {
+                    "Id": "0449858",
+                    "Name": "J.M. Kerrigan"
+                },
+                {
+                    "Id": "0000955",
+                    "Name": "Ward Bond"
+                },
+                {
+                    "Id": "0602803",
+                    "Name": "Jackie Moran"
+                },
+                {
+                    "Id": "0249893",
+                    "Name": "Cliff Edwards"
+                },
+                {
+                    "Id": "0447180",
+                    "Name": "Lillian Kemble-Cooper"
+                },
+                {
+                    "Id": "0134831",
+                    "Name": "Yakima Canutt"
+                },
+                {
+                    "Id": "0552728",
+                    "Name": "Marcella Martin"
+                },
+                {
+                    "Id": "0382195",
+                    "Name": "Louis Jean Heydt"
+                },
+                {
+                    "Id": "0474139",
+                    "Name": "Mickey Kuhn"
+                },
+                {
+                    "Id": "0398250",
+                    "Name": "Olin Howland"
+                },
+                {
+                    "Id": "0045784",
+                    "Name": "Irving Bacon"
+                },
+                {
+                    "Id": "0254609",
+                    "Name": "Robert Elliott"
+                },
+                {
+                    "Id": "0049055",
+                    "Name": "William Bakewell"
+                },
+                {
+                    "Id": "0027156",
+                    "Name": "Mary Anderson"
+                },
+                {
+                    "Id": "0017021",
+                    "Name": "John Albright"
+                },
+                {
+                    "Id": "0017458",
+                    "Name": "Eric Alden"
+                },
+                {
+                    "Id": "0035138",
+                    "Name": "John Arledge"
+                },
+                {
+                    "Id": "0040374",
+                    "Name": "Roscoe Ates"
+                },
+                {
+                    "Id": "0054253",
+                    "Name": "Trevor Bardette"
+                },
+                {
+                    "Id": "0057118",
+                    "Name": "Dorothy Barrett"
+                },
+                {
+                    "Id": "0057162",
+                    "Name": "Janet Barrett"
+                },
+                {
+                    "Id": "0089591",
+                    "Name": "Lennie Bluett"
+                },
+                {
+                    "Id": "0112201",
+                    "Name": "Ralph Brooks"
+                },
+                {
+                    "Id": "0114319",
+                    "Name": "Morgan Brown"
+                },
+                {
+                    "Id": "0119404",
+                    "Name": "Daisy Bufford"
+                },
+                {
+                    "Id": "0120672",
+                    "Name": "Ann Bupp"
+                },
+                {
+                    "Id": "0124139",
+                    "Name": "James Bush"
+                },
+                {
+                    "Id": "0125846",
+                    "Name": "Ruth Byers"
+                },
+                {
+                    "Id": "0137912",
+                    "Name": "Gary Carlson"
+                },
+                {
+                    "Id": "0139356",
+                    "Name": "Horace B. Carpenter"
+                },
+                {
+                    "Id": "0141782",
+                    "Name": "Louise Carter"
+                },
+                {
+                    "Id": "0150443",
+                    "Name": "Shirley Chambers"
+                },
+                {
+                    "Id": "0151356",
+                    "Name": "Eddy Chandler"
+                },
+                {
+                    "Id": "0164599",
+                    "Name": "Wallis Clark"
+                },
+                {
+                    "Id": "1163884",
+                    "Name": "Richard Clucas"
+                },
+                {
+                    "Id": "0169067",
+                    "Name": "Frank Coghlan Jr."
+                },
+                {
+                    "Id": "0176918",
+                    "Name": "Billy Cook"
+                },
+                {
+                    "Id": "0180679",
+                    "Name": "Gino Corrado"
+                },
+                {
+                    "Id": "0181447",
+                    "Name": "Martina Cortina"
+                },
+                {
+                    "Id": "0181811",
+                    "Name": "Luke Cosgrave"
+                },
+                {
+                    "Id": "0187914",
+                    "Name": "Kernan Cripps"
+                },
+                {
+                    "Id": "0193474",
+                    "Name": "Patrick Curtis"
+                },
+                {
+                    "Id": "0193802",
+                    "Name": "Russell Custer"
+                },
+                {
+                    "Id": "0195595",
+                    "Name": "Yola d'Avril"
+                },
+                {
+                    "Id": "0202635",
+                    "Name": "Ned Davenport"
+                },
+                {
+                    "Id": "0004863",
+                    "Name": "Marvin Davis"
+                },
+                {
+                    "Id": "7913519",
+                    "Name": "Dolores Dean"
+                },
+                {
+                    "Id": "7913518",
+                    "Name": "Dawn Dodd"
+                },
+                {
+                    "Id": "0201728",
+                    "Name": "Lester Dorr"
+                },
+                {
+                    "Id": "0235211",
+                    "Name": "Phyllis Douglas"
+                },
+                {
+                    "Id": "0236932",
+                    "Name": "Joan Drake"
+                },
+                {
+                    "Id": "0238118",
+                    "Name": "F. Driver"
+                },
+                {
+                    "Id": "0254445",
+                    "Name": "Edythe Elliott"
+                },
+                {
+                    "Id": "1977644",
+                    "Name": "Susan Falligant"
+                },
+                {
+                    "Id": "0002070",
+                    "Name": "Richard Farnsworth"
+                },
+                {
+                    "Id": "0269709",
+                    "Name": "Frank Faylen"
+                },
+                {
+                    "Id": "0279978",
+                    "Name": "Geraldine Fissette"
+                },
+                {
+                    "Id": "9532884",
+                    "Name": "Geraldine Fizette"
+                },
+                {
+                    "Id": "0341270",
+                    "Name": "Kelly Griffin"
+                },
+                {
+                    "Id": "0352383",
+                    "Name": "George Hackathorne"
+                },
+                {
+                    "Id": "0357764",
+                    "Name": "Chuck Hamilton"
+                },
+                {
+                    "Id": "0362307",
+                    "Name": "Evelyn Harding"
+                },
+                {
+                    "Id": "5269737",
+                    "Name": "Lucille Harding"
+                },
+                {
+                    "Id": "0368798",
+                    "Name": "Inez Hatchett"
+                },
+                {
+                    "Id": "0374811",
+                    "Name": "Jean Heker"
+                },
+                {
+                    "Id": "1499382",
+                    "Name": "Ricky Holt"
+                },
+                {
+                    "Id": "0396473",
+                    "Name": "Shep Houghton"
+                },
+                {
+                    "Id": "0413931",
+                    "Name": "Peaches Jackson"
+                },
+                {
+                    "Id": "0416371",
+                    "Name": "Claire James"
+                },
+                {
+                    "Id": "0416595",
+                    "Name": "Jerry James"
+                },
+                {
+                    "Id": "0421041",
+                    "Name": "Si Jenks"
+                },
+                {
+                    "Id": "0446921",
+                    "Name": "Tommy Kelly"
+                },
+                {
+                    "Id": "0454695",
+                    "Name": "Emmett King"
+                },
+                {
+                    "Id": "0456236",
+                    "Name": "W. Kirby"
+                },
+                {
+                    "Id": "0518832",
+                    "Name": "Timothy J. Lonergan"
+                },
+                {
+                    "Id": "0528614",
+                    "Name": "Barbara Lynn"
+                },
+                {
+                    "Id": "0542870",
+                    "Name": "Margaret Mann"
+                },
+                {
+                    "Id": "0550514",
+                    "Name": "Caren Marsh"
+                },
+                {
+                    "Id": "0565626",
+                    "Name": "William McClain"
+                },
+                {
+                    "Id": "0568306",
+                    "Name": "Leona McDowell"
+                },
+                {
+                    "Id": "0576120",
+                    "Name": "George Meeker"
+                },
+                {
+                    "Id": "0585481",
+                    "Name": "Charles Middleton"
+                },
+                {
+                    "Id": "7913520",
+                    "Name": "Lola Milliorn"
+                },
+                {
+                    "Id": "0595395",
+                    "Name": "Hans Moebus"
+                },
+                {
+                    "Id": "0605494",
+                    "Name": "Alberto Morin"
+                },
+                {
+                    "Id": "0606343",
+                    "Name": "Adrian Morris"
+                },
+                {
+                    "Id": "0615118",
+                    "Name": "Lee Murray"
+                },
+                {
+                    "Id": "0625086",
+                    "Name": "H. Nellman"
+                },
+                {
+                    "Id": "0627789",
+                    "Name": "David Newell"
+                },
+                {
+                    "Id": "3472246",
+                    "Name": "Jeanette Noeson"
+                },
+                {
+                    "Id": "0679687",
+                    "Name": "Naomi Pharr"
+                },
+                {
+                    "Id": "0679814",
+                    "Name": "Lee Phelps"
+                },
+                {
+                    "Id": "1124727",
+                    "Name": "Spencer Quinn"
+                },
+                {
+                    "Id": "0721799",
+                    "Name": "Jolane Reynolds"
+                },
+                {
+                    "Id": "0721851",
+                    "Name": "Marjorie Reynolds"
+                },
+                {
+                    "Id": "0725920",
+                    "Name": "Suzanne Ridgway"
+                },
+                {
+                    "Id": "1977215",
+                    "Name": "Louisa Robert"
+                },
+                {
+                    "Id": "0736727",
+                    "Name": "Azarene Rogers"
+                },
+                {
+                    "Id": "0780844",
+                    "Name": "Scott Seaton"
+                },
+                {
+                    "Id": "0782377",
+                    "Name": "Tom Seidel"
+                },
+                {
+                    "Id": "0792623",
+                    "Name": "Terry Shero"
+                },
+                {
+                    "Id": "0821054",
+                    "Name": "William Stack"
+                },
+                {
+                    "Id": "0826354",
+                    "Name": "William Stelling"
+                },
+                {
+                    "Id": "0833340",
+                    "Name": "Harry Strang"
+                },
+                {
+                    "Id": "0838694",
+                    "Name": "Dirk Wayne Summers"
+                },
+                {
+                    "Id": "7913521",
+                    "Name": "Stephanie Toler"
+                },
+                {
+                    "Id": "0871551",
+                    "Name": "Emerson Treacy"
+                },
+                {
+                    "Id": "0872165",
+                    "Name": "Phillip Trent"
+                },
+                {
+                    "Id": "0875771",
+                    "Name": "Julia Ann Tuck"
+                },
+                {
+                    "Id": "0878927",
+                    "Name": "Tom Tyler"
+                },
+                {
+                    "Id": "0887975",
+                    "Name": "Dale Van Sickel"
+                },
+                {
+                    "Id": "0912810",
+                    "Name": "E. Alyn Warren"
+                },
+                {
+                    "Id": "0913405",
+                    "Name": "Blue Washington"
+                },
+                {
+                    "Id": "1138600",
+                    "Name": "Rita Waterhouse"
+                },
+                {
+                    "Id": "3955325",
+                    "Name": "John Joseph Waterman Jr."
+                },
+                {
+                    "Id": "0924643",
+                    "Name": "Dan White"
+                },
+                {
+                    "Id": "0926074",
+                    "Name": "Sarah Whitley"
+                },
+                {
+                    "Id": "0926137",
+                    "Name": "Ernest Whitman"
+                },
+                {
+                    "Id": "0929116",
+                    "Name": "Guy Wilkerson"
+                },
+                {
+                    "Id": "0931956",
+                    "Name": "Zack Williams"
+                },
+                {
+                    "Id": "0940976",
+                    "Name": "Phyllis Woodward"
+                },
+                {
+                    "Id": "0942046",
+                    "Name": "John Wray"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "0281808",
+                    "Name": "Victor Fleming"
+                },
+                {
+                    "Id": "0002030",
+                    "Name": "George Cukor"
+                },
+                {
+                    "Id": "0939992",
+                    "Name": "Sam Wood"
+                }
+            ],
+            "Movie Id": "0031381",
+            "Movie Title": "Gone with the Wind",
+            "Movie Url": "http://www.imdb.com/title/tt0031381/",
+            "Movie Year": 1939,
+            "Movie plot": "Scarlett is a woman who can deal with a nation at war, Atlanta burning, the Union Army carrying off everything from her beloved Tara, the carpetbaggers who arrive after the war. Scarlett is beautiful. She has vitality. But Ashley, the man she has wanted for so long, is going to marry his placid cousin, Melanie. Mammy warns Scarlett to behave herself at the party at Twelve Oaks. There is a new man there that day, the day the Civil War begins. Rhett Butler. Scarlett does not know he is in the room when she pleads with Ashley to choose her instead of Melanie.",
+            "Size": 0
+        }
+    ],
+    "2": [
+        {
+            "Atime": "Tue Aug 14 13:00:19 2018",
+            "Ctime": "Tue Aug 14 13:00:19 2018",
+            "Extension": ".txt",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\La dolce vita.txt",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "La dolce vita.txt",
+            "Movie Actor": [
+                {
+                    "Id": "0000052",
+                    "Name": "Marcello Mastroianni"
+                },
+                {
+                    "Id": "0001179",
+                    "Name": "Anita Ekberg"
+                },
+                {
+                    "Id": "0000733",
+                    "Name": "Anouk Aimée"
+                },
+                {
+                    "Id": "0299014",
+                    "Name": "Yvonne Furneaux"
+                },
+                {
+                    "Id": "0637649",
+                    "Name": "Magali Noël"
+                },
+                {
+                    "Id": "0192490",
+                    "Name": "Alain Cuny"
+                },
+                {
+                    "Id": "0632423",
+                    "Name": "Annibale Ninchi"
+                },
+                {
+                    "Id": "0763492",
+                    "Name": "Walter Santesso"
+                },
+                {
+                    "Id": "0161850",
+                    "Name": "Valeria Ciangottini"
+                },
+                {
+                    "Id": "0308523",
+                    "Name": "Riccardo Garrone"
+                },
+                {
+                    "Id": "0302837",
+                    "Name": "Ida Galli"
+                },
+                {
+                    "Id": "0567654",
+                    "Name": "Audrey McDonald"
+                },
+                {
+                    "Id": "0689113",
+                    "Name": "Polidor"
+                },
+                {
+                    "Id": "0226657",
+                    "Name": "Alain Dijon"
+                },
+                {
+                    "Id": "0233946",
+                    "Name": "Mino Doro"
+                },
+                {
+                    "Id": "0320935",
+                    "Name": "Giulio Girola"
+                },
+                {
+                    "Id": "0079341",
+                    "Name": "Laura Betti"
+                },
+                {
+                    "Id": "0630113",
+                    "Name": "Nico"
+                },
+                {
+                    "Id": "9084472",
+                    "Name": "Domino"
+                },
+                {
+                    "Id": "0615999",
+                    "Name": "Carlo Musto"
+                },
+                {
+                    "Id": "0148851",
+                    "Name": "Enzo Cerusico"
+                },
+                {
+                    "Id": "0660873",
+                    "Name": "Giulio Paradisi"
+                },
+                {
+                    "Id": "0233617",
+                    "Name": "Enzo Doria"
+                },
+                {
+                    "Id": "0323010",
+                    "Name": "Enrico Glori"
+                },
+                {
+                    "Id": "0597897",
+                    "Name": "Adriana Moneta"
+                },
+                {
+                    "Id": "0124074",
+                    "Name": "Massimo Busetti"
+                },
+                {
+                    "Id": "0000851",
+                    "Name": "Lex Barker"
+                },
+                {
+                    "Id": "0785286",
+                    "Name": "Jacques Sernas"
+                },
+                {
+                    "Id": "0336842",
+                    "Name": "Nadia Gray"
+                },
+                {
+                    "Id": "0011732",
+                    "Name": "Giuseppe Addobbati"
+                },
+                {
+                    "Id": "1595545",
+                    "Name": "Conte Brunoro Serego Aligheri"
+                },
+                {
+                    "Id": "1601312",
+                    "Name": "Federika André"
+                },
+                {
+                    "Id": "0030433",
+                    "Name": "Armando Annuale"
+                },
+                {
+                    "Id": "0030778",
+                    "Name": "Joan Antequera"
+                },
+                {
+                    "Id": "1601044",
+                    "Name": "Juan Antequero"
+                },
+                {
+                    "Id": "0046673",
+                    "Name": "Gianni Baghino"
+                },
+                {
+                    "Id": "0049331",
+                    "Name": "Nadia Balabine"
+                },
+                {
+                    "Id": "0051110",
+                    "Name": "Ignazio Balsamo"
+                },
+                {
+                    "Id": "1595631",
+                    "Name": "Remo Benedetti"
+                },
+                {
+                    "Id": "0098625",
+                    "Name": "Leonardo Botta"
+                },
+                {
+                    "Id": "1855777",
+                    "Name": "Ida Bracci Dorati"
+                },
+                {
+                    "Id": "0111146",
+                    "Name": "Ferdinando Brofferio"
+                },
+                {
+                    "Id": "0124073",
+                    "Name": "Giovanna Busetti"
+                },
+                {
+                    "Id": "0125658",
+                    "Name": "Tito Buzzo"
+                },
+                {
+                    "Id": "0130900",
+                    "Name": "Daniela Calvino"
+                },
+                {
+                    "Id": "1854504",
+                    "Name": "Tony Campanino"
+                },
+                {
+                    "Id": "0135742",
+                    "Name": "Fabrizio Capucci"
+                },
+                {
+                    "Id": "0144659",
+                    "Name": "Donato Castellaneta"
+                },
+                {
+                    "Id": "0147983",
+                    "Name": "Adriano Celentano"
+                },
+                {
+                    "Id": "0162446",
+                    "Name": "Elisabetta Cini"
+                },
+                {
+                    "Id": "0162949",
+                    "Name": "Giulio Citti"
+                },
+                {
+                    "Id": "0173069",
+                    "Name": "Nani Colombo"
+                },
+                {
+                    "Id": "0175557",
+                    "Name": "Mario Conocchia"
+                },
+                {
+                    "Id": "0175886",
+                    "Name": "Francesco Consalvo"
+                },
+                {
+                    "Id": "0181465",
+                    "Name": "Tiziano Cortini"
+                },
+                {
+                    "Id": "0188095",
+                    "Name": "Decimo Cristiani"
+                },
+                {
+                    "Id": "0208689",
+                    "Name": "Mario De Grenet"
+                },
+                {
+                    "Id": "0210978",
+                    "Name": "Andrea De Pino"
+                },
+                {
+                    "Id": "1596967",
+                    "Name": "Adele De Rossi"
+                },
+                {
+                    "Id": "0217372",
+                    "Name": "Donatella Della Nora"
+                },
+                {
+                    "Id": "0219187",
+                    "Name": "Christine Denise"
+                },
+                {
+                    "Id": "0219190",
+                    "Name": "Katherine Denise"
+                },
+                {
+                    "Id": "0224006",
+                    "Name": "Carlo Di Maggio"
+                },
+                {
+                    "Id": "0226390",
+                    "Name": "François Dieudonné"
+                },
+                {
+                    "Id": "0229873",
+                    "Name": "Venceslao Dobrzenski"
+                },
+                {
+                    "Id": "1597007",
+                    "Name": "Donatella Esparmer"
+                },
+                {
+                    "Id": "1595869",
+                    "Name": "Paolo Fadda"
+                },
+                {
+                    "Id": "0271224",
+                    "Name": "Umberto Felici"
+                },
+                {
+                    "Id": "0280677",
+                    "Name": "Oretta Fiume"
+                },
+                {
+                    "Id": "0289953",
+                    "Name": "Rina Franchetti"
+                },
+                {
+                    "Id": "0300341",
+                    "Name": "Giacomo Gabrielli"
+                },
+                {
+                    "Id": "0316004",
+                    "Name": "Franco Giacobini"
+                },
+                {
+                    "Id": "0316426",
+                    "Name": "Angela Giavalisco"
+                },
+                {
+                    "Id": "0320304",
+                    "Name": "Romolo Giordani"
+                },
+                {
+                    "Id": "1597060",
+                    "Name": "Christine Graefeck"
+                },
+                {
+                    "Id": "0334624",
+                    "Name": "Lily Granado"
+                },
+                {
+                    "Id": "0334863",
+                    "Name": "Libero Grandi"
+                },
+                {
+                    "Id": "0345791",
+                    "Name": "Maurizio Guelfi"
+                },
+                {
+                    "Id": "1222854",
+                    "Name": "Gloria Hendy"
+                },
+                {
+                    "Id": "0377278",
+                    "Name": "April Hennessy"
+                },
+                {
+                    "Id": "0389805",
+                    "Name": "Nina Hohenlohe"
+                },
+                {
+                    "Id": "0415049",
+                    "Name": "Antonio Jacono"
+                },
+                {
+                    "Id": "0428152",
+                    "Name": "Gloria Jones"
+                },
+                {
+                    "Id": "0444249",
+                    "Name": "Carlo Kechler"
+                },
+                {
+                    "Id": "1597157",
+                    "Name": "Else Knorr"
+                },
+                {
+                    "Id": "1596172",
+                    "Name": "Paolo Labia"
+                },
+                {
+                    "Id": "0485392",
+                    "Name": "John Francis Lane"
+                },
+                {
+                    "Id": "0214227",
+                    "Name": "Sondra Lee"
+                },
+                {
+                    "Id": "0500033",
+                    "Name": "Marianne Leibl"
+                },
+                {
+                    "Id": "0502853",
+                    "Name": "Guglielmo Leoncini"
+                },
+                {
+                    "Id": "0518057",
+                    "Name": "Giuliana Lojodice"
+                },
+                {
+                    "Id": "0519257",
+                    "Name": "Renée Longarini"
+                },
+                {
+                    "Id": "0520913",
+                    "Name": "Francisco Lori"
+                },
+                {
+                    "Id": "0527785",
+                    "Name": "Francesco Luzi"
+                },
+                {
+                    "Id": "0539896",
+                    "Name": "Mario Mallarno"
+                },
+                {
+                    "Id": "0541042",
+                    "Name": "Renato Mambor"
+                },
+                {
+                    "Id": "0542077",
+                    "Name": "Vittorio Manfrino"
+                },
+                {
+                    "Id": "0547375",
+                    "Name": "Maria Marigliano"
+                },
+                {
+                    "Id": "0548022",
+                    "Name": "Carlo Mariotti"
+                },
+                {
+                    "Id": "0554370",
+                    "Name": "Gino Marturano"
+                },
+                {
+                    "Id": "0563487",
+                    "Name": "Maria Mazzanti"
+                },
+                {
+                    "Id": "0575616",
+                    "Name": "Harriet Medin"
+                },
+                {
+                    "Id": "1081878",
+                    "Name": "Marta Melocco"
+                },
+                {
+                    "Id": "0579635",
+                    "Name": "Nello Meniconi"
+                },
+                {
+                    "Id": "1596293",
+                    "Name": "Alex Messoyedoff"
+                },
+                {
+                    "Id": "0591308",
+                    "Name": "Gianfranco Mingozzi"
+                },
+                {
+                    "Id": "1597256",
+                    "Name": "Lucia Modigliani"
+                },
+                {
+                    "Id": "0603005",
+                    "Name": "Maite Morand"
+                },
+                {
+                    "Id": "0621316",
+                    "Name": "Aurelio Nardi"
+                },
+                {
+                    "Id": "0641093",
+                    "Name": "Desmond O'Grady"
+                },
+                {
+                    "Id": "0649752",
+                    "Name": "Liana Orfei"
+                },
+                {
+                    "Id": "0650753",
+                    "Name": "Umberto Orsini"
+                },
+                {
+                    "Id": "1597317",
+                    "Name": "Contessa Cristina Paolozzi"
+                },
+                {
+                    "Id": "0664863",
+                    "Name": "Ada Passari"
+                },
+                {
+                    "Id": "0665186",
+                    "Name": "Franca Pasut"
+                },
+                {
+                    "Id": "1597326",
+                    "Name": "Loretta Pepi"
+                },
+                {
+                    "Id": "0678033",
+                    "Name": "Paola Petrini"
+                },
+                {
+                    "Id": "0681428",
+                    "Name": "Cesarino Miceli Picardi"
+                },
+                {
+                    "Id": "0683071",
+                    "Name": "Princess Doris Pignatelli"
+                },
+                {
+                    "Id": "0687092",
+                    "Name": "Alberto Plebani"
+                },
+                {
+                    "Id": "0699249",
+                    "Name": "Oliviero Prunas"
+                },
+                {
+                    "Id": "0703289",
+                    "Name": "Giovanni Querrel"
+                },
+                {
+                    "Id": "0703368",
+                    "Name": "Giulio Questi"
+                },
+                {
+                    "Id": "0706635",
+                    "Name": "Concetta Ragusa"
+                },
+                {
+                    "Id": "0707905",
+                    "Name": "Loretta Ramaciotti"
+                },
+                {
+                    "Id": "0720025",
+                    "Name": "Leonida Repaci"
+                },
+                {
+                    "Id": "0729866",
+                    "Name": "Alfredo Rizzo"
+                },
+                {
+                    "Id": "0734459",
+                    "Name": "Rosemary Rennel Rodd"
+                },
+                {
+                    "Id": "0738819",
+                    "Name": "Giancarlo Romani"
+                },
+                {
+                    "Id": "0744017",
+                    "Name": "Franco Rossellini"
+                },
+                {
+                    "Id": "1855311",
+                    "Name": "Prince Eugenio Ruspoli Suasa di Poggio"
+                },
+                {
+                    "Id": "0751683",
+                    "Name": "Margherita Russo"
+                },
+                {
+                    "Id": "0758054",
+                    "Name": "Anna Maria Salerno"
+                },
+                {
+                    "Id": "0759347",
+                    "Name": "Anna Salvatore"
+                },
+                {
+                    "Id": "0767246",
+                    "Name": "Archie Savage"
+                },
+                {
+                    "Id": "0767890",
+                    "Name": "Leopoldo Savona"
+                },
+                {
+                    "Id": "0773923",
+                    "Name": "Lisa Schneider"
+                },
+                {
+                    "Id": "1601415",
+                    "Name": "Maria Pia Serafini"
+                },
+                {
+                    "Id": "0791067",
+                    "Name": "Noel Sheldon"
+                },
+                {
+                    "Id": "1597418",
+                    "Name": "Isabella Soldani"
+                },
+                {
+                    "Id": "0816547",
+                    "Name": "Letizia Spadini"
+                },
+                {
+                    "Id": "0821536",
+                    "Name": "Giò Stajano"
+                },
+                {
+                    "Id": "0847790",
+                    "Name": "Gino Talamo"
+                },
+                {
+                    "Id": "1597453",
+                    "Name": "Sandra Tesi"
+                },
+                {
+                    "Id": "0858306",
+                    "Name": "Henry Thody"
+                },
+                {
+                    "Id": "0868842",
+                    "Name": "Tomás Torres"
+                },
+                {
+                    "Id": "0871678",
+                    "Name": "Iris Tree"
+                },
+                {
+                    "Id": "0872266",
+                    "Name": "Vando Tress"
+                },
+                {
+                    "Id": "0873995",
+                    "Name": "Gondrano Trucchi"
+                },
+                {
+                    "Id": "0874727",
+                    "Name": "Teresa Tsao"
+                },
+                {
+                    "Id": "0883094",
+                    "Name": "Winie Vagliani"
+                },
+                {
+                    "Id": "0888061",
+                    "Name": "Leontine Van Strein"
+                },
+                {
+                    "Id": "0890339",
+                    "Name": "Aldo Vasco"
+                },
+                {
+                    "Id": "0890524",
+                    "Name": "Lucia Vasilicò"
+                },
+                {
+                    "Id": "0895713",
+                    "Name": "Maria Teresa Vianello"
+                },
+                {
+                    "Id": "1597544",
+                    "Name": "Sandy von Normand"
+                },
+                {
+                    "Id": "0923421",
+                    "Name": "Antoinette Weynen"
+                },
+                {
+                    "Id": "0933007",
+                    "Name": "Angela Wilson"
+                },
+                {
+                    "Id": "0938526",
+                    "Name": "Vadim Wolkonsky"
+                },
+                {
+                    "Id": "1601434",
+                    "Name": "Maria Teresa Wolodimeroff"
+                },
+                {
+                    "Id": "0956953",
+                    "Name": "Italo Zingarelli"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "0000019",
+                    "Name": "Federico Fellini"
+                }
+            ],
+            "Movie Id": "0053779",
+            "Movie Title": "La Dolce Vita",
+            "Movie Url": "http://www.imdb.com/title/tt0053779/",
+            "Movie Year": 1960,
+            "Movie plot": "Journalist and man-about-town Marcello struggles to find his place in the world, torn between the allure of Rome's elite social scene and the stifling domesticity offered by his girlfriend, all the while searching for a way to become a serious writer.",
+            "Size": "0.0 bytes"
+        }
+    ],
+    "3": [
+        {
+            "Atime": "Mon Aug 13 12:02:40 2018",
+            "Ctime": "Mon Aug 13 12:02:31 2018",
+            "Extension": ".txt",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\Letto a tre piazze.txt",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "Letto a tre piazze.txt",
+            "Movie Actor": [
+                {
+                    "Id": "0869451",
+                    "Name": "Totò"
+                },
+                {
+                    "Id": "0208375",
+                    "Name": "Peppino De Filippo"
+                },
+                {
+                    "Id": "0336842",
+                    "Name": "Nadia Gray"
+                },
+                {
+                    "Id": "0301398",
+                    "Name": "Cristina Gaioni"
+                },
+                {
+                    "Id": "0862904",
+                    "Name": "Aroldo Tieri"
+                },
+                {
+                    "Id": "0864081",
+                    "Name": "Gabriele Tinti"
+                },
+                {
+                    "Id": "0266945",
+                    "Name": "Cesare Fantoni"
+                },
+                {
+                    "Id": "0524399",
+                    "Name": "Angela Luce"
+                },
+                {
+                    "Id": "0273998",
+                    "Name": "Paolo Ferrara"
+                },
+                {
+                    "Id": "0144674",
+                    "Name": "Mario Castellani"
+                },
+                {
+                    "Id": "0728967",
+                    "Name": "Winni Riva"
+                },
+                {
+                    "Id": "0672496",
+                    "Name": "Nico Pepe"
+                },
+                {
+                    "Id": "0778508",
+                    "Name": "Bruno Scipioni"
+                },
+                {
+                    "Id": "0274767",
+                    "Name": "Liana Ferri"
+                },
+                {
+                    "Id": "0274783",
+                    "Name": "Riccardo Ferri"
+                },
+                {
+                    "Id": "0080698",
+                    "Name": "Thea Fleming"
+                },
+                {
+                    "Id": "0333867",
+                    "Name": "Pier Ugo Gragnani"
+                },
+                {
+                    "Id": "5184111",
+                    "Name": "Ombretta Valmozi"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "0826642",
+                    "Name": "Steno"
+                }
+            ],
+            "Movie Id": "0054023",
+            "Movie Title": "Letto a tre piazze",
+            "Movie Url": "http://www.imdb.com/title/tt0054023/",
+            "Movie Year": 1960,
+            "Movie plot": "Antonio married Amalia and went to fight in Russia during World War II. Since he didn't return Amalia thought he was dead, so she married another man. Many year after the war end, Antonio returned. Amalia has to choose between two husbands.",
+            "Size": "0.0 bytes"
+        }
+    ],
+    "4": [
+        {
+            "Atime": "Mon Aug 13 12:02:31 2018",
+            "Ctime": "Mon Aug 13 12:02:31 2018",
+            "Extension": ".txt",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\Titanic (1997).txt",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "Titanic (1997).txt",
+            "Movie Actor": [
+                {
+                    "Id": "8535787",
+                    "Name": "Jayme Schmitt"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "8535787",
+                    "Name": "Jayme Schmitt"
+                }
+            ],
+            "Movie Id": "6357484",
+            "Movie Title": "Titanic (1997)",
+            "Movie Url": "http://www.imdb.com/title/tt6357484/",
+            "Movie Year": 2012,
+            "Movie plot": "",
+            "Size": "0.0 bytes"
+        }
+    ],
+    "5": [
+        {
+            "Atime": "Mon Aug 13 12:02:55 2018",
+            "Ctime": "Mon Aug 13 12:02:55 2018",
+            "Extension": "directory",
+            "File Name": "C:\\Users\\Utente\\Desktop\\FILM\\Viale del tramonto",
+            "Home Directory": "C:\\Users\\Utente\\Desktop\\FILM",
+            "Id": "Viale del tramonto",
+            "Movie Actor": [
+                {
+                    "Id": "0000034",
+                    "Name": "William Holden"
+                },
+                {
+                    "Id": "0841797",
+                    "Name": "Gloria Swanson"
+                },
+                {
+                    "Id": "0002233",
+                    "Name": "Erich von Stroheim"
+                },
+                {
+                    "Id": "0647970",
+                    "Name": "Nancy Olson"
+                },
+                {
+                    "Id": "0163939",
+                    "Name": "Fred Clark"
+                },
+                {
+                    "Id": "0332221",
+                    "Name": "Lloyd Gough"
+                },
+                {
+                    "Id": "0916131",
+                    "Name": "Jack Webb"
+                },
+                {
+                    "Id": "0267916",
+                    "Name": "Franklyn Farnum"
+                },
+                {
+                    "Id": "0086627",
+                    "Name": "Larry J. Blake"
+                },
+                {
+                    "Id": "0206742",
+                    "Name": "Charles Dayton"
+                },
+                {
+                    "Id": "0001124",
+                    "Name": "Cecil B. DeMille"
+                },
+                {
+                    "Id": "0394407",
+                    "Name": "Hedda Hopper"
+                },
+                {
+                    "Id": "0000036",
+                    "Name": "Buster Keaton"
+                },
+                {
+                    "Id": "0632160",
+                    "Name": "Anna Q. Nilsson"
+                },
+                {
+                    "Id": "0912478",
+                    "Name": "H.B. Warner"
+                },
+                {
+                    "Id": "0263143",
+                    "Name": "Ray Evans"
+                },
+                {
+                    "Id": "0515254",
+                    "Name": "Jay Livingston"
+                },
+                {
+                    "Id": "0017674",
+                    "Name": "Fred Aldrich"
+                },
+                {
+                    "Id": "0020665",
+                    "Name": "Joel Allen"
+                },
+                {
+                    "Id": "0040090",
+                    "Name": "Gertrude Astor"
+                },
+                {
+                    "Id": "0061640",
+                    "Name": "Anne Bauchens"
+                },
+                {
+                    "Id": "0080930",
+                    "Name": "Edward Biby"
+                },
+                {
+                    "Id": "0097647",
+                    "Name": "Danny Borzage"
+                },
+                {
+                    "Id": "0160701",
+                    "Name": "Ken Christy"
+                },
+                {
+                    "Id": "0166681",
+                    "Name": "Ruth Clifford"
+                },
+                {
+                    "Id": "0181215",
+                    "Name": "John Cortay"
+                },
+                {
+                    "Id": "0198535",
+                    "Name": "Archie R. Dalzell"
+                },
+                {
+                    "Id": "0223014",
+                    "Name": "Eddie Dew"
+                },
+                {
+                    "Id": "0238759",
+                    "Name": "Peter Drynan"
+                },
+                {
+                    "Id": "0269671",
+                    "Name": "Julia Faye"
+                },
+                {
+                    "Id": "0272360",
+                    "Name": "Al Ferguson"
+                },
+                {
+                    "Id": "0304683",
+                    "Name": "Gerry Ganzer"
+                },
+                {
+                    "Id": "0314510",
+                    "Name": "Rudy Germane"
+                },
+                {
+                    "Id": "0317064",
+                    "Name": "Kenneth Gibson"
+                },
+                {
+                    "Id": "0336724",
+                    "Name": "Joe Gray"
+                },
+                {
+                    "Id": "0339255",
+                    "Name": "Sanford E. Greenwald"
+                },
+                {
+                    "Id": "0354878",
+                    "Name": "Creighton Hale"
+                },
+                {
+                    "Id": "0357764",
+                    "Name": "Chuck Hamilton"
+                },
+                {
+                    "Id": "0370322",
+                    "Name": "James Hawley"
+                },
+                {
+                    "Id": "0376921",
+                    "Name": "Len Hendry"
+                },
+                {
+                    "Id": "0394399",
+                    "Name": "E. Mason Hopper"
+                },
+                {
+                    "Id": "0426250",
+                    "Name": "Stan Johnson"
+                },
+                {
+                    "Id": "0429361",
+                    "Name": "Tiny Jones"
+                },
+                {
+                    "Id": "0430863",
+                    "Name": "Howard Joslin"
+                },
+                {
+                    "Id": "0485233",
+                    "Name": "Arthur Lane"
+                },
+                {
+                    "Id": "0490951",
+                    "Name": "Perc Launders"
+                },
+                {
+                    "Id": "0551348",
+                    "Name": "Alan Marston"
+                },
+                {
+                    "Id": "0574990",
+                    "Name": "William Meader"
+                },
+                {
+                    "Id": "0582211",
+                    "Name": "Gertrude Messinger"
+                },
+                {
+                    "Id": "0588443",
+                    "Name": "Harold Miller"
+                },
+                {
+                    "Id": "0588629",
+                    "Name": "John 'Skins' Miller"
+                },
+                {
+                    "Id": "0588795",
+                    "Name": "Lee Miller"
+                },
+                {
+                    "Id": "0599892",
+                    "Name": "Ralph Montgomery"
+                },
+                {
+                    "Id": "0602100",
+                    "Name": "Bert Moorhouse"
+                },
+                {
+                    "Id": "0605895",
+                    "Name": "Jay Morley"
+                },
+                {
+                    "Id": "0608729",
+                    "Name": "Bernice Mosk"
+                },
+                {
+                    "Id": "0624384",
+                    "Name": "Howard Negley"
+                },
+                {
+                    "Id": "0626453",
+                    "Name": "Ottola Nesmith"
+                },
+                {
+                    "Id": "0636834",
+                    "Name": "Eva Novak"
+                },
+                {
+                    "Id": "0175410",
+                    "Name": "Frank O'Connor"
+                },
+                {
+                    "Id": "0640495",
+                    "Name": "Robert Emmett O'Connor"
+                },
+                {
+                    "Id": "0674741",
+                    "Name": "Jack Perrin"
+                },
+                {
+                    "Id": "0709940",
+                    "Name": "Virginia L. Randolph"
+                },
+                {
+                    "Id": "0790568",
+                    "Name": "Bill Sheehan"
+                },
+                {
+                    "Id": "0804623",
+                    "Name": "Sidney Skolsky"
+                },
+                {
+                    "Id": "0808139",
+                    "Name": "Emmett Smith"
+                },
+                {
+                    "Id": "0860667",
+                    "Name": "Roy Thompson"
+                },
+                {
+                    "Id": "0878613",
+                    "Name": "Archie Twitchell"
+                },
+                {
+                    "Id": "0896035",
+                    "Name": "Yvette Vickers"
+                },
+                {
+                    "Id": "0906382",
+                    "Name": "Edward Wahrman"
+                },
+                {
+                    "Id": "0928295",
+                    "Name": "Henry Wilcoxon"
+                }
+            ],
+            "Movie Director": [
+                {
+                    "Id": "0000697",
+                    "Name": "Billy Wilder"
+                }
+            ],
+            "Movie Id": "0043014",
+            "Movie Title": "Sunset Boulevard",
+            "Movie Url": "http://www.imdb.com/title/tt0043014/",
+            "Movie Year": 1950,
+            "Movie plot": "In Hollywood of the 50's, the obscure screenplay writer Joe Gillis is not able to sell his work to the studios, is full of debts and is thinking in returning to his hometown to work in an office. While trying to escape from his creditors, he has a flat tire and parks his car in a decadent mansion in Sunset Boulevard. He meets the owner and former silent-movie star Norma Desmond, who lives alone with her butler and driver Max Von Mayerling. Norma is demented and believes she will return to the cinema industry, and is protected and isolated from the world by Max, who was her director and husband in the past and still loves her. Norma proposes Joe to move to the mansion and help her in writing a screenplay for her comeback to the cinema, and the small-time writer becomes her lover and gigolo. When Joe falls in love for the young aspirant writer Betty Schaefer, Norma becomes jealous and completely insane and her madness leads to a tragic end.",
+            "Size": 0
+        }
+    ]
+}

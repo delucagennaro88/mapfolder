@@ -1,26 +1,30 @@
 from file_manager import save_info
 import json, os
-from Folder import Folder
-from Movie import Movie
+import datetime, time
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
-json_file = 'cinema.json'
+json_directory = "C:\\Users\\Utente\\Desktop\\HD"
 
-json_dir = os.path.join(directory, json_file)
+json_file = "cinema.json"
+json_dir = os.path.join(json_directory, json_file)
+
+def start():
+    if not os.path.exists(json_dir):
+        update = False
+        print('Il file non esiste!')
+        last_update = datetime.datetime.now()
+        save_info(directory, last_update, update, json_dir)
+
+    else:
+        update = True
+        print('Il file esiste!')
+
+        file_modified = os.stat(json_dir).st_mtime
+        save_info(directory, file_modified, update, json_dir)
+
 # Qui comincia il programma
 
-if not os.path.exists(directory):
-    print('Il file non esiste!')
-    collection = save_info(directory)
-
-    with open('cinema.json', 'w') as outfile:
-        json.dump(collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
-
-else:
-    print('Il file esiste!')
-    #creare funzione save_info_lite() che verifica gli aggiornamenti rispetto all'ultima versione
-    #e inserisce solo quelli
-    #il file json deve essere solo aggiornato
+start()
 
 def open_json():
     movie_json= json.load(open('cinema.json'))

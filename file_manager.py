@@ -15,14 +15,14 @@ def check_updates(dir, last_update):
     return dir_box
 
 def save_info(directory, last_update, update, json_dir):
-
     if os.path.exists(directory):
         num = 0
         if update == False:
 
             for i in os.listdir(directory):
 
-                film = movie_name(i)
+                filename, file_extension = os.path.splitext(i)
+                film = movie_name(filename)
 
                 dir = os.path.join(directory, i)
 
@@ -31,8 +31,8 @@ def save_info(directory, last_update, update, json_dir):
                     size = bytes_converter(os.path.getsize(dir))
 
                 elif os.path.isdir(dir):
-                    ext = 'directory' #qui andrebbe messa una funzione che apre la cartella e analizza i file interni
-                    size = 0 #qui andrebbe messa una funzione che quantifica i file nella cartella
+                    ext = 'directory'  # qui andrebbe messa una funzione che apre la cartella e analizza i file interni
+                    size = 0  # qui andrebbe messa una funzione che quantifica i file nella cartella
 
                 else:
                     ext = 'unknown'
@@ -40,7 +40,12 @@ def save_info(directory, last_update, update, json_dir):
 
                 a = os.stat(os.path.join(directory, i))
                 collection[num] = []
-                collection[num].append({'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime), 'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'], 'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'], 'Movie Actor': film['ActorBox']})
+                collection[num].append(
+                    {'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
+                     'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
+                     'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
+                     'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
+                     'Movie Actor': film['ActorBox']})
                 num += 1
 
             with open(json_dir, 'w') as outfile:
@@ -67,8 +72,8 @@ def save_info(directory, last_update, update, json_dir):
                         size = bytes_converter(os.path.getsize(dir))
 
                     elif os.path.isdir(dir):
-                        ext = 'directory' #qui andrebbe messa una funzione che apre la cartella e analizza i file interni
-                        size = 0 #qui andrebbe messa una funzione che quantifica i file nella cartella
+                        ext = 'directory'  # qui andrebbe messa una funzione che apre la cartella e analizza i file interni
+                        size = 0  # qui andrebbe messa una funzione che quantifica i file nella cartella
 
                     else:
                         ext = 'unknown'
@@ -81,7 +86,12 @@ def save_info(directory, last_update, update, json_dir):
                     film = movie_name(filename)
 
                     collection[num] = []
-                    collection[num].append({'Home Directory': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime), 'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'], 'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'], 'Movie Actor': film['ActorBox']})
+                    collection[num].append(
+                        {'Home Directory': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
+                         'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
+                         'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
+                         'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
+                         'Movie Actor': film['ActorBox']})
                     num += 1
 
                 with open(json_dir, 'a') as outfile:

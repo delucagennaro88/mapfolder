@@ -1,6 +1,6 @@
 import os, json
 
-json_directory = "C:\\Users\\Utente\\Desktop\\HD"
+json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
 json_data_dir = os.path.join(json_directory, json_data)
 

@@ -1,9 +1,8 @@
 from file_manager import save_info
-import json, os
-import datetime, time
+import json, os, datetime
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
-json_directory = "C:\\Users\\Utente\\Desktop\\HD"
+json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 
 json_file = "cinema.json"
 json_dir = os.path.join(json_directory, json_file)
@@ -27,18 +26,18 @@ def start():
 start()
 
 def open_json():
-    movie_json= json.load(open('cinema.json'))
+    movie_json = json.load(open(json_dir))
 
     for i in movie_json.values():
         for x in i:
             home_path = x['Home Directory']
             file_name = x['File Name']
-            id = x['Id'] #nome del File senza Directory
+            id = x['Id']  # nome del File senza Directory
             ext = x['Extension']
             atime = x['Atime']
             ctime = x['Ctime']
             size = x['Size']
-            #folder_class = Folder(home_path, file_name, id, atime, ctime, size, ext)
+            # folder_class = Folder(home_path, file_name, id, atime, ctime, size, ext)
             movie_id = x['Movie Id']
             movie_title = x['Movie Title']
             movie_url = x['Movie Url']
@@ -56,4 +55,4 @@ def open_json():
                 print(z['Id'])
                 print('\n')
             '''
-            #movie_class = Movie(folder_class, movie_id, movie_url, movie_title, movie_year, movie_plot, movie_director, movie_cast)
+            # movie_class = Movie(folder_class, movie_id, movie_url, movie_title, movie_year, movie_plot, movie_director, movie_cast)

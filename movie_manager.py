@@ -1,5 +1,4 @@
-import sys
-import imdb
+import sys, imdb
 
 ia = imdb.IMDb()
 movie_container = {}
@@ -31,7 +30,8 @@ def movie_name(i):
             print('It seems that there\'s no movie with movie_id "%s"' % title)
             sys.exit(4)
 
-        movie_container = {'Title': title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Plot': plot, 'DirectorBox': director_box, 'ActorBox': actor_box}
+        movie_container = {'Title': title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Plot': plot,
+                           'DirectorBox': director_box, 'ActorBox': actor_box}
 
         return movie_container
 
@@ -43,6 +43,7 @@ def search_director(movie_identifier):
         director_id = dir.personID
         movie_dic['Director'].append({'Name': director_name, 'Id': director_id})
     return movie_dic['Director']
+
 
 def search_cast(movie_identifier):
     actors = movie_identifier['cast']

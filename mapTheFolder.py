@@ -1,5 +1,7 @@
 from file_manager import save_info
 import json, os, datetime
+from flask import Flask, flash, url_for, redirect, render_template
+from json_manager import open_json
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
@@ -23,5 +25,19 @@ def start():
 
 # Qui comincia il programma
 
-start()
+#start()
+
+app = Flask(__name__)
+
+data_collection = open_json(json_dir)
+
+data = data_collection.values()
+
+@app.route('/')
+def show_all():
+    return render_template('show_all.html', data=data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 

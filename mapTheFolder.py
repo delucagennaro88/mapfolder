@@ -25,34 +25,3 @@ def start():
 
 start()
 
-def open_json():
-    movie_json = json.load(open(json_dir))
-
-    for i in movie_json.values():
-        for x in i:
-            home_path = x['Home Directory']
-            file_name = x['File Name']
-            id = x['Id']  # nome del File senza Directory
-            ext = x['Extension']
-            atime = x['Atime']
-            ctime = x['Ctime']
-            size = x['Size']
-            # folder_class = Folder(home_path, file_name, id, atime, ctime, size, ext)
-            movie_id = x['Movie Id']
-            movie_title = x['Movie Title']
-            movie_url = x['Movie Url']
-            movie_year = x['Movie Year']
-            movie_plot = x['Movie plot']
-
-            '''
-            for y in x['Movie Director']:
-                print(y['Name'])
-                print(y['Id'])
-                print('\n')
-    
-            for z in x['Movie Actor']:
-                print(z['Name'])
-                print(z['Id'])
-                print('\n')
-            '''
-            # movie_class = Movie(folder_class, movie_id, movie_url, movie_title, movie_year, movie_plot, movie_director, movie_cast)

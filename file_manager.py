@@ -39,8 +39,8 @@ def save_info(directory, last_update, update, json_dir):
                     size = 0
 
                 a = os.stat(os.path.join(directory, i))
-                collection[num] = []
-                collection[num].append(
+                collection[filename] = []
+                collection[filename].append(
                     {'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
                      'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
                      'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
@@ -85,8 +85,8 @@ def save_info(directory, last_update, update, json_dir):
                     filename, file_extension = os.path.splitext(name_file)
                     film = movie_name(filename)
 
-                    collection[num] = []
-                    collection[num].append(
+                    collection[filename] = []
+                    collection[filename].append(
                         {'Home Directory': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
                          'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
                          'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
@@ -94,8 +94,24 @@ def save_info(directory, last_update, update, json_dir):
                          'Movie Actor': film['ActorBox']})
                     num += 1
 
-                with open(json_dir, 'a') as outfile:
-                    json.dump(collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
+                with open(json_dir, 'r') as outfile:
+                    data = json.load(outfile)
+
+                data_str = str(data)
+                no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
+
+                # facciamo lo stesso con collection
+                collection_str = str(collection)
+                no_brackets_coll = collection_str[collection_str.find("{") + 1:collection_str.rfind("}")]
+
+                # ora concateniamo le due stringhe
+                new_str = '{' + no_brackets + ', ' + no_brackets_coll + '}'
+
+                # qui ritorna dictionary
+                dict1 = eval(new_str)
+
+                with open(json_dir, 'w') as outfile:
+                    json.dump(dict1, outfile, indent=4, ensure_ascii=False)
 
                 updateJsonFile(num)
 

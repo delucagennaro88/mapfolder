@@ -9,15 +9,28 @@ def movie_name(i):
         print("Il file è vuoto")
     else:
         try:
-            movies = ia.search_movie(i)
+            filename = i
+
+            movies = ia.search_movie(filename)
             movie = movies[0]
-            title = movie.get('title')
             imdbURL = ia.get_imdbURL(movie)
             movie_id = movie.movieID
             movie_year = movie['year']
             movie_identifier = ia.get_movie(movie_id)
+
+            lang = movie_identifier.get('language')
+            lingua = lang[0]
+
+            title = movie_identifier.get('title')
+            if lingua != "Italian":
+                movie_title = title + ' (' + filename + ')'
+
+            else:
+                movie_title = title
+
             plot = movie_identifier.get('plot', [''])[0]
             plot = plot.split('::')[0]
+
             director_box = search_director(movie_identifier)
             actor_box = search_cast(movie_identifier)
 
@@ -30,7 +43,7 @@ def movie_name(i):
             print('It seems that there\'s no movie with movie_id "%s"' % title)
             sys.exit(4)
 
-        movie_container = {'Title': title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Plot': plot,
+        movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Plot': plot,
                            'DirectorBox': director_box, 'ActorBox': actor_box}
 
         return movie_container

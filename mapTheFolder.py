@@ -25,9 +25,9 @@ def start():
 
 # Qui comincia il programma
 
-#start()
-
 app = Flask(__name__)
+
+start()
 
 data_collection = open_json(json_dir)
 

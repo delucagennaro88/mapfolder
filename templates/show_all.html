@@ -1,58 +1,35 @@
 <!DOCTYPE html>
-<html lang = "en">
-   <head></head>
-   <body>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
 
-      <h3>
-         <a href = "{{ url_for('show_all') }}">Map the Movie Folder</a>
-      </h3>
+<h1>Welcome to Map to the Movie Folder</h1>
 
-      <hr/>
-      {%- for message in get_flashed_messages() %}
-         {{ message }}
-      {%- endfor %}
+<div style="width:100%;margin:20px auto;text-align:center;">
 
-<table>
-{% for a in data %}
+  {% for a in data %}
    {% for b in a %}
-        Informazioni sul FILE: <br>
-        Home Path: {{b['Home path']}}
-        <br>
-        File Name: {{b['File Name']}}
-        <br>
-        Id: {{b['Id']}}
-        <br>
-        Atime: {{b['Atime']}}
-        <br>
-        Ctime: {{b['Ctime']}}
-        <br>
-        Size: {{b['Size']}}
-        <br>
-        Extension: {{b['Extension']}}
-        <br><br><br>
 
+  <!--Start Of Expander Div-->
+  <div class="expander-container" style="background-image: url('http://lorempixel.com/g/220/220/people/');">
+    <div id="{{b['Movie Year']}}" class="expander-content-collapsed" onclick="expand('{{b['Movie Id']}}','{{b['Movie Year']}}','{{b['Movie Url']}}')">
+      <h2 id="{{b['Movie Url']}}" class="expander-inactive">{{b['Movie Title']}}</h2>
+      <div id="{{b['Movie Id']}}" class="expander-invisible">
+        <p>{{b['Movie Year']}}</p>
+        <a class="button" href="#">More Info</a>
+      </div>
+    </div>
+  </div>
+  <!--END of Expander-->
 
-        Informazioni sul FILM: <br>
-        Movie Id: {{b['Movie Id']}}
-        <br>
-        Movie Url: {{b['Movie Url']}}
-        <br>
-        Movie Title: {{b['Movie Title']}}
-        <br>
-        Movie Year: {{b['Movie Year']}}
-        <br>
-        Movie Plot: {{b['Movie Plot']}}<br>
-        {% for director in b['Director List'] %}
-			Director: {{director['Name']}}<br>
-		{% endfor %}
-        {% for actor in b['Actor List'] %}
-			Actor: {{actor['Name']}}<br>
-		{% endfor %}
-        <br><br><br>
-{% endfor %}
+  {% endfor %}
    {% endfor %}
 
-</table>
+  </div>
 
-   </body>
+<script src="../static/js/index.js"></script>
+
+</body>
 </html>

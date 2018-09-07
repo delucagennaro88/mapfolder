@@ -1,8 +1,10 @@
-import sys, imdb
+import imdb
+import sys
 
 ia = imdb.IMDb()
 movie_container = {}
 movie_dic = {}
+
 
 def movie_name(i):
     if not i:
@@ -47,6 +49,7 @@ def movie_name(i):
                            'DirectorBox': director_box, 'ActorBox': actor_box}
 
         return movie_container
+
 
 def search_director(movie_identifier):
     directors = movie_identifier['director']

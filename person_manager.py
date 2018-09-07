@@ -1,4 +1,9 @@
-import os, sys, time, json, imdb
+import imdb
+import json
+import os
+import sys
+import time
+
 from json_manager import open_json, open_json_data
 
 actor_dictionary = {}
@@ -6,10 +11,11 @@ actor_collection = {}
 
 ia = imdb.IMDb()
 
+
 def search_filmography(filmography):
     for a in filmography:
         for key, value in a.items():
-            key_index = str(key) #qui va salvato l'indice della categoria
+            key_index = str(key)  # qui va salvato l'indice della categoria
             actor_dictionary[key_index] = []
             time.sleep(5)
             for b in value:
@@ -18,20 +24,23 @@ def search_filmography(filmography):
                 movie_id = movie.movieID
                 title = movie.get('title')
                 movie_year = movie['year']
-                actor_dictionary[key_index].append({'Title': title, 'Year': movie_year, 'Id': movie_id, 'Present': False})
+                actor_dictionary[key_index].append(
+                    {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Present': False})
                 time.sleep(5)
     return actor_dictionary
+
 
 def check_presence(cinema_json, json_actor_dir):
     change = False
     cinema_file = open_json(cinema_json)
-    attori_file = open_json_data(json_actor_dir)#Occorre creare una funzione apposita per aprire il File. OPEN_JSOn non va bene!
+    attori_file = open_json_data(
+        json_actor_dir)  # Occorre creare una funzione apposita per aprire il File. OPEN_JSOn non va bene!
 
     cinema_data = cinema_file.values()
 
     for z in attori_file.values():
         for w in z:
-            #print(w['Name'])
+            # print(w['Name'])
             for y, (key, value) in enumerate(w['Filmography'].items()):
                 for x in value:
                     for a in cinema_data:
@@ -49,10 +58,11 @@ def check_presence(cinema_json, json_actor_dir):
         print("Non ci sono cambiamenti")
         return
 
+
 def attori_amati(cinema_json, json_actor_dir, actor_name):
-#1. Dato il nome di un attore, restituisce l'elenco di tutti i suoi film (solo titoli e date)
-#2. L'elenco viene salvato in JSON
-#3. Scorre l'elenco e verifica quali sono i film già posseduti e quali no.
+    # 1. Dato il nome di un attore, restituisce l'elenco di tutti i suoi film (solo titoli e date)
+    # 2. L'elenco viene salvato in JSON
+    # 3. Scorre l'elenco e verifica quali sono i film già posseduti e quali no.
     try:
         actors = ia.search_person(actor_name)
         actor = actors[0]
@@ -77,9 +87,9 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
         actor_collection[actor_name_str] = []
         actor_collection[actor_name_str].append({'Name': actor_name_str, 'Date': dates, 'Filmography': filmography_box})
 
-        #qui si verifica se il JSON esiste
-        #se non esiste si crea e si scrive con W
-        #se esiste si aggiorna col metodo inventato
+        # qui si verifica se il JSON esiste
+        # se non esiste si crea e si scrive con W
+        # se esiste si aggiorna col metodo inventato
         if not os.path.exists(json_actor_dir):
             with open(json_actor_dir, 'w') as outfile:
                 json.dump(actor_collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
@@ -96,7 +106,8 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
                 data = json.load(outfile)
 
             data_str = str(data)
-            no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
+            no_brackets = data_str[
+                          data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
 
             # facciamo lo stesso con collection
             collection_str = str(actor_collection)

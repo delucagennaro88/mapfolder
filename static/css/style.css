@@ -1,0 +1,138 @@
+  @import url(https://fonts.googleapis.com/css?family=Cabin|Oswald);
+
+/*Overall CSS*/
+  body {
+    background-color:#111;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    font-family:'Oswald', sans-serif;
+    line-height:26px;
+  }
+
+  p {
+    font-family: 'Share Tech', sans-serif;
+  }
+
+/*Expander CSS*/
+  .expander-container {
+				width:220px;
+				height:220px;
+				margin: 0 auto;
+				background-color:#666;
+				background-size:100% 100%;
+				border:#FFF solid 2px;
+				overflow: hidden;
+				display:inline-block;
+			}
+
+  .expander-content-collapsed {
+				width:100%;
+				height:70px;
+				background-color: rgba(255,193,4,0.6); /*Color of banner with 60% opacity - RGB for IE*/
+				margin-top:70px; /*Change this if you have a different number of lines in the headding text*/
+				text-align:center;
+				-webkit-transition: all 0.4s;
+				-o-transition: all 0.4s;
+				-ms-transition: all 0.4s;
+				transition: all 0.4s;
+				overflow:hidden;
+        cursor:pointer;
+			}
+
+  .expander-content-expanded {
+				width:100%;
+				height:100%;
+				background-color: rgba(255,255,255,0.5);
+				margin-top:0;
+				text-align:center;
+				-webkit-transition: all .4s;
+				-o-transition: all .4s;
+				-ms-transition: all .4s;
+				transition: all .4s;
+				overflow:hidden;
+        cursor:pointer;
+			}
+			
+  .expander-visible p, .expander-invisible p{
+				color:#333;
+				font-size:15px;
+				margin:10px;
+				text-align:center;
+				text-shadow: 0px 0px 5px #ffffff;
+			}
+			
+	.expander-visible {
+				opacity: 1;
+				height: auto;
+				-webkit-transition: all .4s;
+				-o-transition: all .4s;
+				-ms-transition: all .4s;
+				transition: all .4s;
+
+			}
+
+	.expander-invisible {
+				opacity: 0;
+				height: 0px;
+				-webkit-transition: all .4s;
+				-o-transition: all .4s;
+				-ms-transition: all .4s;
+				transition: all .4s;
+
+			}
+			
+	h2.expander-active {
+				color:#333;
+        font-size:22px;
+				margin:10px 20px 10px 20px;
+				font-weight:normal;
+				text-transform:uppercase;
+				-webkit-transition: all 0.4s;
+				-o-transition: all 0.4s;
+				-ms-transition: all 0.4s;
+				transition: all 0.4s;
+
+			}
+			
+	h2.expander-inactive{
+				color:#333;
+        font-size:20px;
+				margin:10px 20px 10px 20px;
+				font-weight:normal;
+				text-transform:uppercase;
+				-webkit-transition: all 0.4s;
+				-o-transition: all 0.4s;
+				-ms-transition: all 0.4s;
+				transition: all 0.4s;
+
+			}
+
+/*CSS Button Style*/
+
+  .button {
+    border-bottom: none;
+    color: #333;
+    display: inline-block;
+    font-family:'Oswald', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #FFC104;
+    -moz-transition: all .4s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -ms-transition: all .4s;
+    transition: all .4s;
+    border-radius:0px;
+  }
+
+  .button:hover {
+    background:#333;
+    color:#FFF;
+    text-decoration:none;
+  }

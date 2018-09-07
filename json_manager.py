@@ -9,6 +9,7 @@ movie_dic = {}
 filmography_dic = {}
 film = {}
 
+
 def search_director(movie_list):
     directors = movie_list
     movie_dic['Director'] = []
@@ -64,6 +65,7 @@ def open_json(json_dir):
 
         return movie_class
 
+
 # create Json File for NR. of saved files
 def createJsonFile(data_saved):
     json_dic = {'Directory': json_data_dir, 'Saved Files': data_saved}
@@ -71,6 +73,7 @@ def createJsonFile(data_saved):
         json.dump(json_dic, outfile, sort_keys=True, indent=4, ensure_ascii=False)
 
     print('Creato il file')
+
 
 # read Json File with NR. of saved files
 def read_saved_files():
@@ -82,6 +85,7 @@ def read_saved_files():
     print('Letto il file')
 
     return tmp
+
 
 # update Json File with NR. of saved files
 def updateJsonFile(num):
@@ -100,6 +104,7 @@ def updateJsonFile(num):
 
     print("Aggiornato il file")
 
+
 def search_filmography(filmography):
     films = filmography
 
@@ -114,6 +119,7 @@ def search_filmography(filmography):
             filmography_dic[key_index].append({'Title': title, 'Id': id, 'Present': present, 'Year': year})
 
     return filmography_dic
+
 
 def open_json_data(json_dir):
     with open(json_dir, encoding='cp1252') as data_file:

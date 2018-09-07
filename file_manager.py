@@ -1,9 +1,13 @@
-import os, time, json
-from movie_manager import movie_name
+import json
+import os
+import time
+
 from bytes_converter import bytes_converter
 from json_manager import createJsonFile, read_saved_files, updateJsonFile
+from movie_manager import movie_name
 
 collection = {}
+
 
 def check_updates(dir, last_update):
     dir_box = []
@@ -13,6 +17,7 @@ def check_updates(dir, last_update):
         if last_update < os.stat(directory).st_mtime:
             dir_box.append(directory)
     return dir_box
+
 
 def save_info(directory, last_update, update, json_dir):
     if os.path.exists(directory):
@@ -98,7 +103,8 @@ def save_info(directory, last_update, update, json_dir):
                     data = json.load(outfile)
 
                 data_str = str(data)
-                no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
+                no_brackets = data_str[
+                              data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
 
                 # facciamo lo stesso con collection
                 collection_str = str(collection)

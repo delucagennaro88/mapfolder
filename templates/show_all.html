@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
 
-<h1>Welcome to Map to the Movie Folder</h1>
+<div id="movie-card-list">
+	  {% for a in data %}
+		{% for b in a %}
+	<!-- Card: Movie -->
+	<div class="movie-card">
+		<div class="color-overlay">
+			<div class="movie-share">
+					<a class="movie-share__icon" href="{{b['Movie Url']}}">
+						<i class="material-icons">&#xe87d</i>
+					</a>
+					<a class="movie-share__icon" href="#">
+						<i class="material-icons">&#xe253</i>
+					</a>
+					<a class="movie-share__icon" href="#">
+						<i class="material-icons">&#xe80d</i>
+					</a>
+				</div>
+			<div class="movie-content">
+				<div class="movie-header">
 
-<div style="width:100%;margin:20px auto;text-align:center;">
+                {% if b['Movie Title'] | length > 21 %}
 
-  {% for a in data %}
-   {% for b in a %}
+                <h1 class="long-title" >{{ b['Movie Title']}}</h1>
 
-  <!--Start Of Expander Div-->
-  <div class="expander-container" style="background-image: url('http://lorempixel.com/g/220/220/people/');">
-    <div id="{{b['Movie Year']}}" class="expander-content-collapsed" onclick="expand('{{b['Movie Id']}}','{{b['Movie Year']}}','{{b['Movie Url']}}')">
-      <h2 id="{{b['Movie Url']}}" class="expander-inactive">{{b['Movie Title']}}</h2>
-      <div id="{{b['Movie Id']}}" class="expander-invisible">
-        <p>{{b['Movie Year']}}</p>
-        <a class="button" href="#">More Info</a>
-      </div>
-    </div>
-  </div>
-  <!--END of Expander-->
+                {% else %}
 
-  {% endfor %}
+                <h1 class="movie-title">{{b['Movie Title']}}</h1>
+
+                {% endif %}
+
+					<h4 class="movie-info">({{b['Movie Year']}}) {% for director in b['Director List'] %} {{director['Name']}} {% endfor %}</h4>
+				</div>
+
+				{% if b['Movie Plot'] | length > 135 %}
+
+				<p class="movie-desc">{{b['Movie Plot'] | replace(b['Movie Plot'][135:], "...") }}</p>
+
+                {% else %}
+
+                <p class="movie-desc">{{b['Movie Plot']}}</p>
+
+                {% endif %}
+
+				<a class="btn btn-outline" href="#">Watch Trailer</a>
+
+			</div>
+		</div>
+	</div>
+
+	{% endfor %}
    {% endfor %}
 
-  </div>
 
-<script src="../static/js/index.js"></script>
+</div>
 
 </body>
 </html>

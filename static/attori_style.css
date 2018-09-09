@@ -53,7 +53,7 @@
 				overflow:hidden;
         cursor:pointer;
 			}
-			
+
   .expander-visible p, .expander-invisible p{
 				color:#333;
 				font-size:15px;
@@ -61,7 +61,7 @@
 				text-align:center;
 				text-shadow: 0px 0px 5px #ffffff;
 			}
-			
+
 	.expander-visible {
 				opacity: 1;
 				height: auto;
@@ -81,7 +81,7 @@
 				transition: all .4s;
 
 			}
-			
+
 	h2.expander-active {
 				color:#333;
         font-size:22px;
@@ -94,7 +94,7 @@
 				transition: all 0.4s;
 
 			}
-			
+
 	h2.expander-inactive{
 				color:#333;
         font-size:20px;

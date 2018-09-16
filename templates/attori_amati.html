@@ -6,9 +6,9 @@
    </head>
    <body>
 
-      <h3>
-         <a href = "{{ url_for('show_all_people') }}">Map the Movie Folder</a>
-      </h3>
+<h3><a href = "{{ url_for('show_all') }}">Film</a></h3>
+<h3><a href = "{{ url_for('show_all_people') }}">Attori amati</a></h3>
+
 
       <hr/>
       {%- for message in get_flashed_messages() %}

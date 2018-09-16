@@ -1,4 +1,5 @@
-import os, json
+import json
+import os
 
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
@@ -8,7 +9,6 @@ movie_class = {}
 movie_dic = {}
 filmography_dic = {}
 film = {}
-
 
 
 def search_director(movie_list):
@@ -132,6 +132,7 @@ def open_json_data(json_dir):
                 film[a['Name']].append({'Name': a['Name'], 'Date': a['Date'], 'Filmography': a['Filmography']})
         return film
 
+
 def query_actor(actor_name, json_dir):
     query_dic = {}
     movie_file = open_json(json_dir)
@@ -144,11 +145,25 @@ def query_actor(actor_name, json_dir):
                 if c['Name'] == actor_name:
                     query_dic[b['Movie Id']] = []
                     query_dic[b['Movie Id']].append(
-                        {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'], 'Ctime': b['Ctime'],
-                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'], 'Movie Url': b['Movie Url'],
+                        {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
+                         'Ctime': b['Ctime'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'],
-                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'], 'Actor List': b['Actor List']})
+                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Actor List': b['Actor List']})
 
+            for d in b['Director List']:
+                if d['Name'] == actor_name:
+                    query_dic[b['Movie Id']] = []
+                    query_dic[b['Movie Id']].append(
+                        {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
+                         'Ctime': b['Ctime'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Movie Url': b['Movie Url'],
+                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'],
+                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Actor List': b['Actor List']})
 
     query_raw = query_dic.values()
     return query_raw

@@ -1,1 +1,32 @@
-{{data}}
+        {{data['Home Directory']}}
+        <br>
+        {{data['File Name']}}
+        <br>
+        {{data['Id']}}
+        <br>
+        {{data['Atime']}}
+        <br>
+        {{data['Ctime']}}
+        <br>
+        {{data['Size']}}
+        <br>
+        {{data['Extension']}}
+        <br><br><br>
+
+
+        {{data['Movie Id']}}
+        <br>
+        {{data['Movie Url']}}
+        <br>
+        {{data['Movie Title']}}
+        <br>
+        {{data['Movie Year']}}
+        <br>
+        {{data['Movie Plot']}}<br>
+        {% for director in data['Director List'] %}
+			{{director['Name']}}<br>
+		{% endfor %}
+        {% for actor in data['Actor List'] %}
+			{{actor['Name']}}<br>
+		{% endfor %}
+        <br><br><br>

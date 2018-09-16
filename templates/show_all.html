@@ -6,6 +6,80 @@
 </head>
 <body>
 
+<div>
+    {% block content %}
+    <h1>Cerca Nuovi Personaggi</h1>
+    <form action="{{ url_for('query') }}" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.actor_name.label }}<br>
+            {{ form.actor_name(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
+ </div>
+
+{%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+<div id="movie-card-list-2">
+	  {% for a in query_data %}
+
+   {% for b in a %}
+
+	<!-- Card: Movie -->
+	<div class="movie-card">
+		<div class="color-overlay">
+			<div class="movie-share">
+					<a class="movie-share__icon" href="{{b['Movie Url']}}">
+						<i class="material-icons">&#xe87d</i>
+					</a>
+					<a class="movie-share__icon" href="#">
+						<i class="material-icons">&#xe253</i>
+					</a>
+					<a class="movie-share__icon" href="#">
+						<i class="material-icons">&#xe80d</i>
+					</a>
+				</div>
+			<div class="movie-content">
+				<div class="movie-header">
+
+                {% if b['Movie Title'] | length > 21 %}
+
+                <h1 class="long-title" >{{ b['Movie Title']}}</h1>
+
+                {% else %}
+
+                <h1 class="movie-title">{{b['Movie Title']}}</h1>
+
+                {% endif %}
+
+					<h4 class="movie-info">({{b['Movie Year']}}) {% for director in b['Director List'] %} {{director['Name']}} {% endfor %}</h4>
+				</div>
+
+				{% if b['Movie Plot'] | length > 135 %}
+
+				<p class="movie-desc">{{b['Movie Plot'] | replace(b['Movie Plot'][135:], "...") }}</p>
+
+                {% else %}
+
+                <p class="movie-desc">{{b['Movie Plot']}}</p>
+
+                {% endif %}
+
+				<a class="btn btn-outline" href="show_movie_infos('{{b['Movie Id']}}')">Watch Trailer</a>
+
+			</div>
+		</div>
+	</div>
+
+	{% endfor %}
+   {% endfor %}
+
+</div>
+
 <div id="movie-card-list">
 	  {% for a in data %}
 		{% for b in a %}
@@ -49,7 +123,7 @@
 
                 {% endif %}
 
-				<a class="btn btn-outline" href="#">Watch Trailer</a>
+				<a class="btn btn-outline" href="{{ url_for('show_movie_infos', movie_id=b['Movie Id']) }}">Watch Trailer</a>
 
 			</div>
 		</div>

@@ -1,0 +1,18 @@
+{{data['Name']}}
+{{data['Date']}}
+
+{% for key, value in data['Filmography'].items() %}
+                Key: {{key}}<br><br>
+            {% for c in value %}
+                Titolo: {{c['Title']}}
+                <br>
+                Year: {{c['Year']}}
+                <br>
+                Id: {{c['Id']}}
+                <br>
+                Present: {{c['Present']}}
+                <br><br><br>
+            {% endfor %}
+
+{% endfor %}
+

@@ -37,11 +37,11 @@
 
   <!--Start Of Expander Div-->
   <div class="expander-container" style="background-image: url('http://lorempixel.com/g/220/220/people/');">
-    <div id="{{b['Date']}}" class="expander-content-collapsed" onclick="expand('{{b['Name']}}','{{b['Date']}}','{{b['Filmography']}}')">
-      <h2 id="{{b['Filmography']}}" class="expander-inactive">{{b['Name']}}</h2>
+    <div id="{{b['Id']}}" class="expander-content-collapsed" onclick="expand('{{b['Name']}}','{{b['Id']}}','{{b['Date']}}')">
+      <h2 id="{{b['Date']}}" class="expander-inactive">{{b['Name']}}</h2>
       <div id="{{b['Name']}}" class="expander-invisible">
         <p>{{b['Date']}}</p>
-        <a class="button" href="#">More Info</a>
+        <a class="button" href="{{ url_for('show_actor_infos', actor_id=b['Id']) }}">More Info</a>
       </div>
     </div>
   </div>

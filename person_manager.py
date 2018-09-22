@@ -11,6 +11,31 @@ actor_collection = {}
 
 ia = imdb.IMDb()
 
+def define_dates(actor_identifier):
+    birth = ""
+    death = ""
+
+    for key, value in actor_identifier.items():
+        if key == "birth date":
+            birth = actor_identifier['birth date'][:4]
+        elif key == "death date":
+            death = actor_identifier['death date'][:4]
+        else:
+            pass
+
+    if birth and death:
+        dates = '(' + str(birth) + '-' + str(death) + ')'
+
+    elif not birth:
+        dates = '(' + '-' + str(death) + ')'
+
+    elif not death:
+        dates = '(' + str(birth) + '-' + ')'
+
+    else:
+        dates = "(-)"
+
+    return dates
 
 def search_filmography(filmography):
     for a in filmography:
@@ -69,23 +94,14 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
         actor_id = actor.personID
         actor_identifier = ia.get_person(actor_id)
 
-        for key, value in actor_identifier.items():
-            if key == "birth date":
-                birth = actor_identifier['birth date'][:4]
-                if key == "death date":
-                    death = actor_identifier['death date'][:4]
-                    dates = '(' + str(birth) + '-' + str(death) + ')'
-                else:
-                    dates = '(' + str(birth) + '-' + ')'
-            else:
-                dates = '(-)'
+        dates = define_dates(actor_identifier)
 
         filmography = actor_identifier['filmography']
         filmography_box = search_filmography(filmography)
 
         actor_name_str = str(actor)
         actor_collection[actor_name_str] = []
-        actor_collection[actor_name_str].append({'Name': actor_name_str, 'Date': dates, 'Filmography': filmography_box})
+        actor_collection[actor_name_str].append({'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Filmography': filmography_box})
 
         # qui si verifica se il JSON esiste
         # se non esiste si crea e si scrive con W

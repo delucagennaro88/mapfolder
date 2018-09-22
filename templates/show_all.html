@@ -73,7 +73,7 @@
 
                 {% endif %}
 
-				<a class="btn btn-outline" href="show_movie_infos('{{b['Movie Id']}}')">Watch Trailer</a>
+				<a class="btn btn-outline" href="{{ url_for('show_movie_infos', movie_id=b['Movie Id']) }}">Watch Trailer</a>
 
 			</div>
 		</div>

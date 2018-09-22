@@ -1,5 +1,6 @@
 import datetime
-import os, json
+import json
+import os
 
 from flask import Flask, flash, render_template
 from flask_wtf import FlaskForm
@@ -20,6 +21,7 @@ json_dir = os.path.join(json_directory, cinema_json_file)
 
 query_dic = {}
 
+
 def show_movie_linked(json_dir, movie_id):
     movie_link = {}
     with open(json_dir, encoding='cp1252') as data_file:
@@ -28,12 +30,29 @@ def show_movie_linked(json_dir, movie_id):
         for i in movie_json.values():
             for x in i:
                 if x['Movie Id'] == movie_id:
-                    movie_link = {'Home path': x['Home Directory'], 'File Name': x['File Name'], 'Id': x['Id'], 'Atime': x['Atime'], 'Ctime': x['Ctime'],
-                     'Size': x['Size'], 'Extension': x['Extension'], 'Movie Id': x['Movie Id'], 'Movie Url': x['Movie Url'],
-                     'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],
-                     'Movie Plot': x['Movie plot'], 'Director List': x['Movie Director'], 'Actor List': x['Movie Actor']}
+                    movie_link = {'Home path': x['Home Directory'], 'File Name': x['File Name'], 'Id': x['Id'],
+                                  'Atime': x['Atime'], 'Ctime': x['Ctime'],
+                                  'Size': x['Size'], 'Extension': x['Extension'], 'Movie Id': x['Movie Id'],
+                                  'Movie Url': x['Movie Url'],
+                                  'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],
+                                  'Movie Plot': x['Movie plot'], 'Director List': x['Movie Director'],
+                                  'Actor List': x['Movie Actor']}
 
     return movie_link
+
+
+def show_actor_linked(json_dir, actor_id):
+    actor_link = {}
+    with open(json_dir, encoding='cp1252') as data_file:
+        actor_json = json.load(data_file)
+
+        for i in actor_json.values():
+            for x in i:
+                if x['Id'] == actor_id:
+                    actor_link = {'Name': x['Name'], 'Date': x['Date'], 'Filmography': x['Filmography']}
+
+    return actor_link
+
 
 class ActorForm(FlaskForm):
     actor_name = StringField('Personaggio', validators=[DataRequired()])
@@ -77,7 +96,6 @@ def show_all():
 
 @app.route('/movie/<string:movie_id>', methods=['GET', 'POST'])
 def show_movie_infos(movie_id):
-
     linked_movie = show_movie_linked(json_dir, movie_id)
 
     return render_template("movie.html", data=linked_movie)
@@ -123,6 +141,13 @@ def new():
             actor_data = {}
 
     return render_template('attori_amati.html', title='Cerca', form=form, data=actor_data)
+
+
+@app.route('/actor/<string:actor_id>', methods=['GET', 'POST'])
+def show_actor_infos(actor_id):
+    linked_actor = show_actor_linked(json_actor_dir, actor_id)
+    print(linked_actor)
+    return render_template("actor.html", data=linked_actor)
 
 
 if __name__ == '__main__':

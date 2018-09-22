@@ -146,7 +146,6 @@ def new():
 @app.route('/actor/<string:actor_id>', methods=['GET', 'POST'])
 def show_actor_infos(actor_id):
     linked_actor = show_actor_linked(json_actor_dir, actor_id)
-    print(linked_actor)
     return render_template("actor.html", data=linked_actor)
 
 

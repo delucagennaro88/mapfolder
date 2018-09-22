@@ -6,10 +6,11 @@ import time
 
 from json_manager import open_json, open_json_data
 
-actor_dictionary = {}
+
 actor_collection = {}
 
 ia = imdb.IMDb()
+
 
 def define_dates(actor_identifier):
     birth = ""
@@ -37,7 +38,9 @@ def define_dates(actor_identifier):
 
     return dates
 
+
 def search_filmography(filmography):
+    actor_dictionary = {}
     for a in filmography:
         for key, value in a.items():
             key_index = str(key)  # qui va salvato l'indice della categoria
@@ -100,8 +103,10 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
         filmography_box = search_filmography(filmography)
 
         actor_name_str = str(actor)
+
         actor_collection[actor_name_str] = []
-        actor_collection[actor_name_str].append({'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Filmography': filmography_box})
+        actor_collection[actor_name_str].append(
+            {'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Filmography': filmography_box})
 
         # qui si verifica se il JSON esiste
         # se non esiste si crea e si scrive con W
@@ -110,40 +115,27 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
             with open(json_actor_dir, 'w') as outfile:
                 json.dump(actor_collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
             print("Creato!")
-
             check_presence(cinema_json, json_actor_dir)
-
             print("Aggiornato con le presenze")
-
             return
-
         else:
             with open(json_actor_dir, 'r') as outfile:
                 data = json.load(outfile)
-
             data_str = str(data)
             no_brackets = data_str[
                           data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
-
             # facciamo lo stesso con collection
             collection_str = str(actor_collection)
             no_brackets_coll = collection_str[collection_str.find("{") + 1:collection_str.rfind("}")]
-
             # ora concateniamo le due stringhe
             new_str = '{' + no_brackets + ', ' + no_brackets_coll + '}'
-
             # qui ritorna dictionary
             dict1 = eval(new_str)
-
             with open(json_actor_dir, 'w') as outfile:
                 json.dump(dict1, outfile, indent=4, ensure_ascii=False)
-
             print("Modificato!")
-
             check_presence(cinema_json, json_actor_dir)
-
             print("Aggiornato con le presenze")
-
     except imdb.IMDbError as e:
         print("Probably you're not connected to Internet.  Complete error report:")
         print(e)

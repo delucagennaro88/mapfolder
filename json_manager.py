@@ -105,23 +105,6 @@ def updateJsonFile(num):
 
     print("Aggiornato il file")
 
-
-def search_filmography(filmography):
-    films = filmography
-
-    for key, a in films.items():
-        key_index = key
-        filmography_dic[key_index] = []
-        for b in a:
-            title = b['Title']
-            id = b['Id']
-            year = b['Year']
-            present = b['Present']
-            filmography_dic[key_index].append({'Title': title, 'Id': id, 'Present': present, 'Year': year})
-
-    return filmography_dic
-
-
 def open_json_data(json_dir):
     with open(json_dir, encoding='cp1252') as data_file:
         movie_json = json.load(data_file)

@@ -48,9 +48,9 @@ def save_info(directory, last_update, update, json_dir):
                 collection[filename].append(
                     {'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
                      'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
-                     'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
+                     'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
                      'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
-                     'Movie Actor': film['ActorBox']})
+                     'Movie Actor': film['ActorBox'], 'Movie Writer': film['WriterBox']})
                 num += 1
 
             with open(json_dir, 'w') as outfile:
@@ -94,9 +94,9 @@ def save_info(directory, last_update, update, json_dir):
                     collection[filename].append(
                         {'Home Directory': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
                          'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
-                         'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'],
+                         'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
                          'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
-                         'Movie Actor': film['ActorBox']})
+                         'Movie Actor': film['ActorBox'], 'Movie Writer': film['WriterBox']})
                     num += 1
 
                 with open(json_dir, 'r') as outfile:

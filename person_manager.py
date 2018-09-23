@@ -6,7 +6,6 @@ import time
 
 from json_manager import open_json, open_json_data
 
-
 actor_collection = {}
 
 ia = imdb.IMDb()

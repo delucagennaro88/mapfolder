@@ -34,9 +34,9 @@ def show_movie_linked(json_dir, movie_id):
                                   'Atime': x['Atime'], 'Ctime': x['Ctime'],
                                   'Size': x['Size'], 'Extension': x['Extension'], 'Movie Id': x['Movie Id'],
                                   'Movie Url': x['Movie Url'],
-                                  'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],
+                                  'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],  'Seasons': x['Seasons'],
                                   'Movie Plot': x['Movie plot'], 'Director List': x['Movie Director'],
-                                  'Actor List': x['Movie Actor']}
+                                  'Actor List': x['Movie Actor'], 'Writer List': x['Movie Writer']}
 
     return movie_link
 

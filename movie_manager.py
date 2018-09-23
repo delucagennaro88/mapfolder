@@ -17,24 +17,31 @@ def movie_name(i):
             movie = movies[0]
             imdbURL = ia.get_imdbURL(movie)
             movie_id = movie.movieID
-            movie_year = movie['year']
             movie_identifier = ia.get_movie(movie_id)
 
-            lang = movie_identifier.get('language')
-            lingua = lang[0]
+            genre = movie_identifier.get('kind')
 
-            title = movie_identifier.get('title')
+            if genre == 'tv series' or genre == 'tv mini series':
+                movie_year = movie_identifier.get('series years')
+                seasons = movie_identifier.get('number of seasons')
+            else:
+                movie_year = movie_identifier.get('year')
+                seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
+
+            movie_title = filename
+            '''
             if lingua != "Italian":
                 movie_title = title + ' (' + filename + ')'
 
             else:
                 movie_title = title
-
+            '''
             plot = movie_identifier.get('plot', [''])[0]
             plot = plot.split('::')[0]
 
             director_box = search_director(movie_identifier)
             actor_box = search_cast(movie_identifier)
+            writer_box = search_writer(movie_identifier)
 
         except imdb.IMDbError as e:
             print("Probably you're not connected to Internet.  Complete error report:")
@@ -42,11 +49,11 @@ def movie_name(i):
             sys.exit(3)
 
         if not movie:
-            print('It seems that there\'s no movie with movie_id "%s"' % title)
+            print('It seems that there\'s no movie with movie_id "%s"' % movie_title)
             sys.exit(4)
 
-        movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Plot': plot,
-                           'DirectorBox': director_box, 'ActorBox': actor_box}
+        movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Seasons': seasons, 'Plot': plot,
+                           'DirectorBox': director_box, 'ActorBox': actor_box, 'WriterBox': writer_box}
 
         return movie_container
 
@@ -57,7 +64,7 @@ def search_director(movie_identifier):
     for dir in directors:
         director_name = dir['name']
         director_id = dir.personID
-        movie_dic['Director'].append({'Name': director_name, 'Id': director_id})
+        movie_dic['Director'].append({'Name': director_name, 'Id': director_id, 'Present': False})
     return movie_dic['Director']
 
 
@@ -67,5 +74,14 @@ def search_cast(movie_identifier):
     for actor in actors:
         actor_name = actor['name']
         actor_id = actor.personID
-        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id})
+        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id, 'Present': False})
     return movie_dic['Actor']
+
+def search_writer(movie_identifier):
+    writers = movie_identifier['writer']
+    movie_dic['Writer'] = []
+    for writ in writers:
+        writer_name = writ['name']
+        writer_id = writ.personID
+        movie_dic['Writer'].append({'Name': writer_name, 'Id': writer_id, 'Present': False})
+    return movie_dic['Writer']

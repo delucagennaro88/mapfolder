@@ -17,7 +17,8 @@ def search_director(movie_list):
     for dir in directors:
         director_name = dir['Name']
         director_id = dir['Id']
-        movie_dic['Director'].append({'Name': director_name, 'Id': director_id})
+        director_presence = dir['Present']
+        movie_dic['Director'].append({'Name': director_name, 'Id': director_id, 'Present': director_presence})
     return movie_dic['Director']
 
 
@@ -27,8 +28,19 @@ def search_cast(movie_list):
     for dir in actors:
         actor_name = dir['Name']
         actor_id = dir['Id']
-        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id})
+        actor_presence = dir['Present']
+        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id, 'Present': actor_presence})
     return movie_dic['Actor']
+
+def search_writer(movie_list):
+    writers = movie_list
+    movie_dic['Writer'] = []
+    for dir in writers:
+        writer_name = dir['Name']
+        writer_id = dir['Id']
+        writer_presence = dir['Present']
+        movie_dic['Writer'].append({'Name': writer_name, 'Id': writer_id, 'Present': writer_presence})
+    return movie_dic['Writer']
 
 
 def open_json(json_dir):
@@ -48,6 +60,7 @@ def open_json(json_dir):
                 movie_title = x['Movie Title']
                 movie_url = x['Movie Url']
                 movie_year = x['Movie Year']
+                movie_seasons = x['Seasons']
                 movie_plot = x['Movie plot']
                 movie_directors = x['Movie Director']
                 movie_dir_list = search_director(movie_directors)
@@ -55,12 +68,15 @@ def open_json(json_dir):
                 movie_actors = x['Movie Actor']
                 movie_act_list = search_cast(movie_actors)
 
+                movie_writers = x['Movie Writer']
+                movie_writ_list = search_writer(movie_writers)
+
                 movie_class[xx] = []
                 movie_class[xx].append(
                     {'Home path': home_path, 'File Name': file_name, 'Id': id, 'Atime': atime, 'Ctime': ctime,
                      'Size': size, 'Extension': ext, 'Movie Id': movie_id, 'Movie Url': movie_url,
-                     'Movie Title': movie_title, 'Movie Year': movie_year,
-                     'Movie Plot': movie_plot, 'Director List': movie_dir_list, 'Actor List': movie_act_list})
+                     'Movie Title': movie_title, 'Movie Year': movie_year, 'Seasons': movie_seasons,
+                     'Movie Plot': movie_plot, 'Director List': movie_dir_list, 'Actor List': movie_act_list, 'Writer List': movie_writ_list})
 
                 xx += 1
 
@@ -132,7 +148,7 @@ def query_actor(actor_name, json_dir):
                          'Ctime': b['Ctime'],
                          'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
-                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'],
+                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
                          'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
                          'Actor List': b['Actor List']})
 
@@ -144,7 +160,19 @@ def query_actor(actor_name, json_dir):
                          'Ctime': b['Ctime'],
                          'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
-                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'],
+                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
+                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Actor List': b['Actor List']})
+
+            for e in b['Writer List']:
+                if e['Name'] == actor_name:
+                    query_dic[b['Movie Id']] = []
+                    query_dic[b['Movie Id']].append(
+                        {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
+                         'Ctime': b['Ctime'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Movie Url': b['Movie Url'],
+                         'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
                          'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
                          'Actor List': b['Actor List']})
 

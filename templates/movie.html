@@ -21,12 +21,22 @@
         {{data['Movie Title']}}
         <br>
         {{data['Movie Year']}}
+
+        {% if data['Seasons']  %}
+
+        Stagioni: {{data['Seasons']}}
+
+        {% endif %}
+
         <br>
         {{data['Movie Plot']}}<br>
         {% for director in data['Director List'] %}
 			{{director['Name']}}<br>
 		{% endfor %}
         {% for actor in data['Actor List'] %}
+			{{actor['Name']}}<br>
+		{% endfor %}
+        {% for actor in data['Writer List'] %}
 			{{actor['Name']}}<br>
 		{% endfor %}
         <br><br><br>

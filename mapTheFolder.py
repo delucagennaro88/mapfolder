@@ -30,13 +30,13 @@ def show_movie_linked(json_dir, movie_id):
         for i in movie_json.values():
             for x in i:
                 if x['Movie Id'] == movie_id:
-                    movie_link = {'Home path': x['Home Directory'], 'File Name': x['File Name'], 'Id': x['Id'],
+                    movie_link = {'Home path': x['Home path'], 'File Name': x['File Name'], 'Id': x['Id'],
                                   'Atime': x['Atime'], 'Ctime': x['Ctime'],
                                   'Size': x['Size'], 'Extension': x['Extension'], 'Movie Id': x['Movie Id'],
                                   'Movie Url': x['Movie Url'],
                                   'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],  'Seasons': x['Seasons'],
-                                  'Movie Plot': x['Movie plot'], 'Director List': x['Movie Director'],
-                                  'Actor List': x['Movie Actor'], 'Writer List': x['Movie Writer']}
+                                  'Movie plot': x['Movie plot'], 'Director List': x['Director List'],
+                                  'Actor List': x['Actor List'], 'Writer List': x['Writer List']}
 
     return movie_link
 

@@ -3,15 +3,18 @@
 
 {% for key, value in data['Filmography'].items() %}
                 Key: {{key}}<br><br>
+
             {% for c in value %}
-                Titolo: {{c['Title']}}
-                <br>
-                Year: {{c['Year']}}
-                <br>
-                Id: {{c['Id']}}
-                <br>
-                Present: {{c['Present']}}
-                <br><br><br>
+                {% if c['Present'] == True  %}
+
+                <a href="{{ url_for('show_movie_infos', movie_id=c['Id']) }}">Titolo: {{c['Title']}} ({{c['Year']}})</a>
+
+                {% else  %}
+
+                Titolo: {{c['Title']}} ({{c['Year']}})
+
+                {% endif %}
+
             {% endfor %}
 
 {% endfor %}

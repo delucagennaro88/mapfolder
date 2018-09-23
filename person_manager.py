@@ -4,7 +4,7 @@ import os
 import sys
 import time
 
-from json_manager import open_json, open_json_data
+from json_manager import open_json, open_json_data, check_filmographies
 
 actor_collection = {}
 
@@ -106,6 +106,9 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
         actor_collection[actor_name_str] = []
         actor_collection[actor_name_str].append(
             {'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Filmography': filmography_box})
+
+        #UPDATE presences nei cast dei film
+        check_filmographies(actor_id)
 
         # qui si verifica se il JSON esiste
         # se non esiste si crea e si scrive con W

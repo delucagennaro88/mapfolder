@@ -29,14 +29,41 @@
         {% endif %}
 
         <br>
-        {{data['Movie Plot']}}<br>
+        {{data['Movie plot']}}<br>
         {% for director in data['Director List'] %}
-			{{director['Name']}}<br>
+			{% if director['Present'] == True  %}
+
+                <a href="{{ url_for('show_actor_infos', actor_id=director['Id']) }}">{{director['Name']}}</a>
+
+                {% else  %}
+
+                {{director['Name']}}
+
+                {% endif %}
 		{% endfor %}
+
         {% for actor in data['Actor List'] %}
-			{{actor['Name']}}<br>
+                {% if actor['Present'] == True  %}
+
+                <a href="{{ url_for('show_actor_infos', actor_id=actor['Id']) }}">{{actor['Name']}}</a>
+
+                {% else  %}
+
+                {{actor['Name']}}
+
+                {% endif %}
+
+
 		{% endfor %}
         {% for actor in data['Writer List'] %}
-			{{actor['Name']}}<br>
+			{% if actor['Present'] == True  %}
+
+                <a href="{{ url_for('show_actor_infos', actor_id=actor['Id']) }}">{{actor['Name']}}</a>
+
+                {% else  %}
+
+                {{actor['Name']}}
+
+                {% endif %}
 		{% endfor %}
         <br><br><br>

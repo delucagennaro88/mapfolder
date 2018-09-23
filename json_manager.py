@@ -4,6 +4,10 @@ import os
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
 json_data_dir = os.path.join(json_directory, json_data)
+cinema_json_file = "cinema.json"
+json_file = "attori_amati.json"
+json_actor_dir = os.path.join(json_directory, json_file)
+json_dir = os.path.join(json_directory, cinema_json_file)
 
 movie_class = {}
 movie_dic = {}
@@ -49,7 +53,7 @@ def open_json(json_dir):
         xx = 0
         for i in movie_json.values():
             for x in i:
-                home_path = x['Home Directory']
+                home_path = x['Home path']
                 file_name = x['File Name']
                 id = x['Id']  # nome del File senza Directory
                 ext = x['Extension']
@@ -62,21 +66,21 @@ def open_json(json_dir):
                 movie_year = x['Movie Year']
                 movie_seasons = x['Seasons']
                 movie_plot = x['Movie plot']
-                movie_directors = x['Movie Director']
+                movie_directors = x['Director List']
                 movie_dir_list = search_director(movie_directors)
 
-                movie_actors = x['Movie Actor']
+                movie_actors = x['Actor List']
                 movie_act_list = search_cast(movie_actors)
 
-                movie_writers = x['Movie Writer']
+                movie_writers = x['Writer List']
                 movie_writ_list = search_writer(movie_writers)
 
-                movie_class[xx] = []
-                movie_class[xx].append(
+                movie_class[movie_title] = []
+                movie_class[movie_title].append(
                     {'Home path': home_path, 'File Name': file_name, 'Id': id, 'Atime': atime, 'Ctime': ctime,
                      'Size': size, 'Extension': ext, 'Movie Id': movie_id, 'Movie Url': movie_url,
                      'Movie Title': movie_title, 'Movie Year': movie_year, 'Seasons': movie_seasons,
-                     'Movie Plot': movie_plot, 'Director List': movie_dir_list, 'Actor List': movie_act_list, 'Writer List': movie_writ_list})
+                     'Movie plot': movie_plot, 'Director List': movie_dir_list, 'Actor List': movie_act_list, 'Writer List': movie_writ_list})
 
                 xx += 1
 
@@ -149,7 +153,7 @@ def query_actor(actor_name, json_dir):
                          'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
-                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Movie plot': b['Movie plot'], 'Director List': b['Director List'],
                          'Actor List': b['Actor List']})
 
             for d in b['Director List']:
@@ -161,7 +165,7 @@ def query_actor(actor_name, json_dir):
                          'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
-                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Movie plot': b['Movie plot'], 'Director List': b['Director List'],
                          'Actor List': b['Actor List']})
 
             for e in b['Writer List']:
@@ -173,8 +177,45 @@ def query_actor(actor_name, json_dir):
                          'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
-                         'Movie Plot': b['Movie Plot'], 'Director List': b['Director List'],
+                         'Movie plot': b['Movie plot'], 'Director List': b['Director List'],
                          'Actor List': b['Actor List']})
 
     query_raw = query_dic.values()
     return query_raw
+
+def check_attori_amati(id):
+    if not os.path.exists(json_actor_dir):
+        return
+    else:
+        with open(json_actor_dir, encoding='cp1252') as data_file:
+            movie_json = json.load(data_file)
+
+        for i, (key, value) in enumerate(movie_json.items()):
+            for a in value:
+                if a['Id'] == id:
+                    return True
+                else:
+                    pass
+
+def check_filmographies(actor_id):
+    change = False
+    cinema_file = open_json(json_dir)
+    cinema_data = cinema_file.values()
+
+    for a in cinema_data:
+        for b in a:
+
+            for c in b['Actor List']:
+                if c['Id'] == actor_id and c['Present'] == False:
+                    print(c['Name'])
+                    c['Present'] = True
+                    change = True
+
+
+    if change == True:
+        print('Updated')
+        with open(json_dir, 'w') as outfile:
+            json.dump(cinema_file, outfile, indent=4, ensure_ascii=False)
+    else:
+        print("Non ci sono cambiamenti")
+        return

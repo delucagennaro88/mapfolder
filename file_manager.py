@@ -46,11 +46,11 @@ def save_info(directory, last_update, update, json_dir):
                 a = os.stat(os.path.join(directory, i))
                 collection[filename] = []
                 collection[filename].append(
-                    {'Home Directory': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
+                    {'Home path': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
                      'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
                      'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
-                     'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
-                     'Movie Actor': film['ActorBox'], 'Movie Writer': film['WriterBox']})
+                     'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],
+                     'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})
                 num += 1
 
             with open(json_dir, 'w') as outfile:
@@ -92,11 +92,11 @@ def save_info(directory, last_update, update, json_dir):
 
                     collection[filename] = []
                     collection[filename].append(
-                        {'Home Directory': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
+                        {'Home path': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
                          'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
                          'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
-                         'Movie plot': film['Plot'], 'Movie Director': film['DirectorBox'],
-                         'Movie Actor': film['ActorBox'], 'Movie Writer': film['WriterBox']})
+                         'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],
+                         'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})
                     num += 1
 
                 with open(json_dir, 'r') as outfile:

@@ -1,5 +1,6 @@
 import imdb
 import sys
+from json_manager import check_attori_amati
 
 ia = imdb.IMDb()
 movie_container = {}
@@ -58,13 +59,17 @@ def movie_name(i):
         return movie_container
 
 
+
 def search_director(movie_identifier):
     directors = movie_identifier['director']
     movie_dic['Director'] = []
     for dir in directors:
         director_name = dir['name']
         director_id = dir.personID
-        movie_dic['Director'].append({'Name': director_name, 'Id': director_id, 'Present': False})
+        presence = check_attori_amati(director_id)
+        if not presence:
+            presence = False
+        movie_dic['Director'].append({'Name': director_name, 'Id': director_id, 'Present': presence})
     return movie_dic['Director']
 
 
@@ -74,7 +79,10 @@ def search_cast(movie_identifier):
     for actor in actors:
         actor_name = actor['name']
         actor_id = actor.personID
-        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id, 'Present': False})
+        presence = check_attori_amati(actor_id)
+        if not presence:
+            presence = False
+        movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id, 'Present': presence})
     return movie_dic['Actor']
 
 def search_writer(movie_identifier):
@@ -83,5 +91,8 @@ def search_writer(movie_identifier):
     for writ in writers:
         writer_name = writ['name']
         writer_id = writ.personID
-        movie_dic['Writer'].append({'Name': writer_name, 'Id': writer_id, 'Present': False})
+        presence = check_attori_amati(writer_id)
+        if not presence:
+            presence = False
+        movie_dic['Writer'].append({'Name': writer_name, 'Id': writer_id, 'Present': presence})
     return movie_dic['Writer']

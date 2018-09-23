@@ -117,13 +117,13 @@
 					<h4 class="movie-info">({{b['Movie Year']}}) {% for director in b['Director List'] %} {{director['Name']}} {% endfor %}</h4>
 				</div>
 
-				{% if b['Movie Plot'] | length > 135 %}
+				{% if b['Movie plot'] | length > 135 %}
 
-				<p class="movie-desc">{{b['Movie Plot'] | replace(b['Movie Plot'][135:], "...") }}</p>
+				<p class="movie-desc">{{b['Movie plot'] | replace(b['Movie plot'][135:], "...") }}</p>
 
                 {% else %}
 
-                <p class="movie-desc">{{b['Movie Plot']}}</p>
+                <p class="movie-desc">{{b['Movie plot']}}</p>
 
                 {% endif %}
 

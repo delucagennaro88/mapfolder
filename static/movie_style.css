@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,800');
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.page {
+  witdh: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+  padding-right:25px;
+  padding-bottom:25px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu {
+  width: 100%;
+  height: 10%;
+}
+
+.menu h3 {
+  font-size: 1em;
+  margin-left: 25px;
+  font-weight: 800;
+  float: left;
+}
+
+i {
+  float: right;
+  font-size: 0.8em;
+  margin: 20px 25px;
+  transition: font-size 0.2s;
+}
+
+i:hover {
+  font-size: 1em;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .text {
+  margin: 30px;
+}
+
+.text h1 {
+margin-top: 110px;
+  font-size: 2.5em;
+  line-height: 1;
+}
+
+.text h3{
+margin-top: 1px;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.text p {
+  color: rgb(0,0,0,0.5);
+  margin-bottom: 40px;
+  margin-top: -5px;
+  font-size: 0.9em;
+}
+
+.text div.director{
+  margin-bottom: 40px;
+  margin-top: -5px;
+  font-size: 0.8em;
+}
+
+.photo {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.pexels.com/photos/33041/antelope-canyon-lower-canyon-arizona.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}

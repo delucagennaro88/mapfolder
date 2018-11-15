@@ -1,36 +1,27 @@
-        {{data['Home Directory']}}
-        <br>
-        {{data['File Name']}}
-        <br>
-        {{data['Id']}}
-        <br>
-        {{data['Atime']}}
-        <br>
-        {{data['Ctime']}}
-        <br>
-        {{data['Size']}}
-        <br>
-        {{data['Extension']}}
-        <br><br><br>
+        <!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='movie_style.css') }}">
 
+</head>
+<body>
 
-        {{data['Movie Id']}}
-        <br>
-        {{data['Movie Url']}}
-        <br>
-        {{data['Movie Title']}}
-        <br>
-        {{data['Movie Year']}}
+		<div class="page">
+  <div class="card">
+    <div class="container">
+      <div class="content">
+        <div class="text">
+          <h1>{{data['Movie Title']}}</h1>
+		  <h3>{{data['Movie Year']}}</h3>
+			{% if data['Seasons']  %}
 
-        {% if data['Seasons']  %}
+			<h3>{{data['Seasons']}}:stagioni</h3>
 
-        Stagioni: {{data['Seasons']}}
+			{% endif %}
 
-        {% endif %}
-
-        <br>
-        {{data['Movie plot']}}<br>
-        {% for director in data['Director List'] %}
+          <p>{{data['Movie plot']}}</p>
+		  <div class="director">
+              {% for director in data['Director List'] %}
 			{% if director['Present'] == True  %}
 
                 <a href="{{ url_for('show_actor_infos', actor_id=director['Id']) }}">{{director['Name']}}</a>
@@ -41,7 +32,7 @@
 
                 {% endif %}
 		{% endfor %}
-
+<br>
         {% for actor in data['Actor List'] %}
                 {% if actor['Present'] == True  %}
 
@@ -55,6 +46,7 @@
 
 
 		{% endfor %}
+              <br>
         {% for actor in data['Writer List'] %}
 			{% if actor['Present'] == True  %}
 
@@ -66,4 +58,16 @@
 
                 {% endif %}
 		{% endfor %}
-        <br><br><br>
+              <br>
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="photo"></div>
+  </div>
+</div>
+
+
+</body>
+</html>

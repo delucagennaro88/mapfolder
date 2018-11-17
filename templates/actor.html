@@ -18,19 +18,20 @@
                 {{data['Name']}}
             </div>
             <div class="text">{% for key, value in data['Filmography'].items() %}
-                {{key}}<br><br>
+                <br>
+                {{key.upper()}}:
 
                 {% for c in value %}
                 {% if c['Present'] == True %}
 
-                <a href="{{ url_for('show_movie_infos', movie_id=c['Id']) }}">{{c['Title']}} ({{c['Year']}})</a>
+                <a href="{{ url_for('show_movie_infos', movie_id=c['Id']) }}" class="linked">{{c['Title']}} ({{c['Year']}})</a>
 
                 {% else %}
 
                 {{c['Title']}} ({{c['Year']}})
 
                 {% endif %}
-                |
+                /
                 {% endfor %}
 
                 {% endfor %}

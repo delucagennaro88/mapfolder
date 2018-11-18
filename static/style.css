@@ -157,3 +157,38 @@ h1, h2, h3 {
     width: 100%;
   }
 }
+
+form div{
+text-align: center;
+width: 800px;
+margin: 100px auto;
+}
+
+form div p.form input#actor_name{
+    width: 670px;
+    padding: 10px 5px;float: left;
+    margin-right:10px;
+    border-radius: 3px 0 0 3px;
+    }
+
+form div p.form input#actor_name:focus{
+outline: 0;background:transparent;
+}
+
+
+form div p.button input#submit{
+    position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 120px;
+    border-left: 1px solid #fff;
+    border-radius: 0 3px 3px 0;
+    }
+
+form div p.button input#submit:hover {background: #fff;color:#444;}
+form div p.button input#submit:active {box-shadow: 0px 0px 12px 0px rgba(225, 225, 225, 1);}
+
+form div p.button input#submit:focus {outline: 0;}

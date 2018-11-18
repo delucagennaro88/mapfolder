@@ -6,9 +6,10 @@
 </head>
 <body>
 
-
-<h3><a href="{{ url_for('show_all') }}">Film</a></h3>
-<h3><a href="{{ url_for('show_all_people') }}">Attori amati</a></h3>
+<nav>
+      <p><a href="{{ url_for('show_all') }}">Film</a></p>
+      <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
+</nav>
 
 <div>
     {% block content %}
@@ -64,13 +65,13 @@
                         {{director['Name']}} {% endfor %}</h4>
                 </div>
 
-                {% if b['Movie Plot'] | length > 135 %}
+                {% if b['Movie plot'] | length > 135 %}
 
-                <p class="movie-desc">{{b['Movie Plot'] | replace(b['Movie Plot'][135:], "...") }}</p>
+                <p class="movie-desc">{{b['Movie plot'] | replace(b['Movie plot'][135:], "...") }}</p>
 
                 {% else %}
 
-                <p class="movie-desc">{{b['Movie Plot']}}</p>
+                <p class="movie-desc">{{b['Movie plot']}}</p>
 
                 {% endif %}
 

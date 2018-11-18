@@ -55,12 +55,12 @@ def show_actor_linked(json_dir, actor_id):
 
 
 class ActorForm(FlaskForm):
-    actor_name = StringField('Personaggio', validators=[DataRequired()])
+    actor_name = StringField('Cerca nuovi Personaggi', validators=[DataRequired()])
     submit = SubmitField('Cerca')
 
 
 class QueryForm(FlaskForm):
-    actor_name = StringField('Personaggio', validators=[DataRequired()])
+    actor_name = StringField('Seleziona Personaggio', validators=[DataRequired()])
     submit = SubmitField('Cerca')
 
 

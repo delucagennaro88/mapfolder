@@ -66,6 +66,9 @@ def open_json(json_dir):
                 movie_year = x['Movie Year']
                 movie_seasons = x['Seasons']
                 movie_plot = x['Movie plot']
+                movie_banner = x['Banner Pic']
+                movie_poster = x['Movie Poster']
+
                 movie_directors = x['Director List']
                 movie_dir_list = search_director(movie_directors)
 
@@ -78,7 +81,7 @@ def open_json(json_dir):
                 movie_class[movie_title] = []
                 movie_class[movie_title].append(
                     {'Home path': home_path, 'File Name': file_name, 'Id': id, 'Atime': atime, 'Ctime': ctime,
-                     'Size': size, 'Extension': ext, 'Movie Id': movie_id, 'Movie Url': movie_url,
+                     'Size': size, 'Extension': ext, 'Banner Pic': movie_banner, 'Movie Poster': movie_poster, 'Movie Id': movie_id, 'Movie Url': movie_url,
                      'Movie Title': movie_title, 'Movie Year': movie_year, 'Seasons': movie_seasons,
                      'Movie plot': movie_plot, 'Director List': movie_dir_list, 'Actor List': movie_act_list, 'Writer List': movie_writ_list})
 
@@ -132,7 +135,7 @@ def open_json_data(json_dir):
         for i, (key, value) in enumerate(movie_json.items()):
             for a in value:
                 film[a['Name']] = []
-                film[a['Name']].append({'Name': a['Name'], 'Id': a['Id'], 'Date': a['Date'], 'Filmography': a['Filmography']})
+                film[a['Name']].append({'Name': a['Name'], 'Id': a['Id'], 'Date': a['Date'], 'Gif': a['Gif'], 'Poster': a['Poster'], 'Filmography': a['Filmography']})
         return film
 
 
@@ -150,7 +153,7 @@ def query_actor(actor_name, json_dir):
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
                          'Ctime': b['Ctime'],
-                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Banner Pic': b['Banner Pic'], 'Movie Poster': b['Movie Poster'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
                          'Movie plot': b['Movie plot'], 'Director List': b['Director List'],
@@ -162,7 +165,7 @@ def query_actor(actor_name, json_dir):
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
                          'Ctime': b['Ctime'],
-                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Banner Pic': b['Banner Pic'], 'Movie Poster': b['Movie Poster'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
                          'Movie plot': b['Movie plot'], 'Director List': b['Director List'],
@@ -174,7 +177,7 @@ def query_actor(actor_name, json_dir):
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
                          'Ctime': b['Ctime'],
-                         'Size': b['Size'], 'Extension': b['Extension'], 'Movie Id': b['Movie Id'],
+                         'Size': b['Size'], 'Extension': b['Extension'], 'Banner Pic': b['Banner Pic'], 'Movie Poster': b['Movie Poster'], 'Movie Id': b['Movie Id'],
                          'Movie Url': b['Movie Url'],
                          'Movie Title': b['Movie Title'], 'Movie Year': b['Movie Year'], 'Seasons': b['Seasons'],
                          'Movie plot': b['Movie plot'], 'Director List': b['Director List'],

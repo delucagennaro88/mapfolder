@@ -44,10 +44,14 @@ def save_info(directory, last_update, update, json_dir):
                     size = 0
 
                 a = os.stat(os.path.join(directory, i))
+
+                movie_banner = "static/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                movie_poster = filename.lower().replace(" ", "") + "_poster.jpg"
+
                 collection[filename] = []
                 collection[filename].append(
                     {'Home path': directory, 'Id': i, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
-                     'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
+                     'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Banner Pic': movie_banner, 'Movie Poster': movie_poster, 'Movie Id': film['Id'],
                      'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
                      'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],
                      'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})
@@ -90,10 +94,13 @@ def save_info(directory, last_update, update, json_dir):
                     filename, file_extension = os.path.splitext(name_file)
                     film = movie_name(filename)
 
+                    movie_banner = "static/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                    movie_poster = filename.lower().replace(" ", "") + "_poster.jpg"
+
                     collection[filename] = []
                     collection[filename].append(
                         {'Home path': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
-                         'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Movie Id': film['Id'],
+                         'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Banner Pic': movie_banner, 'Movie Poster': movie_poster, 'Movie Id': film['Id'],
                          'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
                          'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],
                          'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})

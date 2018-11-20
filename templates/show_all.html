@@ -35,7 +35,7 @@
     {% for b in a %}
 
     <!-- Card: Movie -->
-    <div style="background-image: url(http://digitalspyuk.cdnds.net/15/47/1600x800/landscape-1447754794-harrison-ford-blade-runner.jpg)" class="movie-card">
+    <div style="background-image: url('{{b['Banner Pic']}}')" class="movie-card">
         <div class="color-overlay">
             <div class="movie-share">
                 <a class="movie-share__icon" href="{{b['Movie Url']}}">
@@ -91,7 +91,7 @@
     {% for a in data %}
     {% for b in a %}
     <!-- Card: Movie -->
-    <div style="background-image: url(http://digitalspyuk.cdnds.net/15/47/1600x800/landscape-1447754794-harrison-ford-blade-runner.jpg)" class="movie-card">
+    <div style="background-image: url('{{b['Banner Pic']}}')" class="movie-card">
         <div class="color-overlay">
             <div class="movie-share">
                 <a class="movie-share__icon" href="{{b['Movie Url']}}">

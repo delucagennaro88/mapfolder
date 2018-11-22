@@ -4,6 +4,8 @@ import os
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
 json_data_dir = os.path.join(json_directory, json_data)
+json_views = "views.json"
+json_views_dir = os.path.join(json_directory, json_views)
 cinema_json_file = "cinema.json"
 json_file = "attori_amati.json"
 json_actor_dir = os.path.join(json_directory, json_file)
@@ -222,3 +224,37 @@ def check_filmographies(actor_id):
     else:
         print("Non ci sono cambiamenti")
         return
+
+
+#Json file of Views
+def create_json_views(movie_title):
+    # salva le views
+    json_dic = {movie_title: [{"Views": 0, "Data Views": 0}]}
+
+    with open(json_views_dir, 'a') as outfile:
+        json.dump(json_dic, outfile, sort_keys=True, indent=4, ensure_ascii=False)
+
+    print('Creato il file VIEWS')
+
+#Aggiorna il file Views con il nuovo film
+def update_json_views(movie_title):
+    # aggiorna lista con nuovo film
+
+    with open(json_views_dir, 'r') as outfile:
+        data = json.load(outfile)
+
+    data_str = str(data)
+    no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
+
+    json_views_dic = {movie_title: [{"Views": 0, "Data Views": 0}]}
+    json_views_str = str(json_views_dic)
+    no_brackets_coll = json_views_str[json_views_str.find("{") + 1:json_views_str.rfind("}")]
+
+    new_str = '{' + no_brackets + ', ' + no_brackets_coll + '}'
+    print(new_str)
+    dict1 = eval(new_str)
+
+    with open(json_views_dir, 'w') as outfile:
+        json.dump(dict1, outfile, indent=4, ensure_ascii=False)
+
+    print('Aggiornato il file VIEWS')

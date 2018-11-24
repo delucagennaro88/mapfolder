@@ -8,7 +8,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 from file_manager import save_info
-from json_manager import open_json, open_json_data, query_actor
+from json_manager import open_json, open_json_data, query_actor, update_views
 from person_manager import check_presence, attori_amati
 
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
@@ -18,6 +18,9 @@ cinema_json_file = "cinema.json"
 json_file = "attori_amati.json"
 json_actor_dir = os.path.join(json_directory, json_file)
 json_dir = os.path.join(json_directory, cinema_json_file)
+
+json_views = "views.json"
+json_views_dir = os.path.join(json_directory, json_views)
 
 query_dic = {}
 
@@ -100,7 +103,6 @@ def show_movie_infos(movie_id):
 
     return render_template("movie.html", data=linked_movie)
 
-
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     form = QueryForm()
@@ -112,7 +114,6 @@ def query():
         flash('Non ci sono film di {} nel database'.format(actor))
 
     return render_template('show_all.html', title='Cerca', form=form, query_data=query_dic)
-
 
 @app.route('/attoriamati')
 def show_all_people():
@@ -148,6 +149,11 @@ def show_actor_infos(actor_id):
     linked_actor = show_actor_linked(json_actor_dir, actor_id)
     return render_template("actor.html", data=linked_actor)
 
+@app.route('/views/<string:movie_id>', methods=['GET', 'POST'])
+def show_movie_views(movie_id):
+    current_movie = update_views(movie_id)
+
+    return render_template("views.html", data=current_movie)
 
 if __name__ == '__main__':
     app.run(debug=True)

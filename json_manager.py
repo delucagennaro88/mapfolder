@@ -1,5 +1,5 @@
 import json
-import os
+import os, datetime
 
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
@@ -15,7 +15,8 @@ movie_class = {}
 movie_dic = {}
 filmography_dic = {}
 film = {}
-
+views_collection = {}
+json_views_dic = {}
 
 def search_director(movie_list):
     directors = movie_list
@@ -227,34 +228,97 @@ def check_filmographies(actor_id):
 
 
 #Json file of Views
-def create_json_views(movie_title):
+def create_json_views(movie_id, movie_title):
     # salva le views
-    json_dic = {movie_title: [{"Views": 0, "Data Views": 0}]}
 
-    with open(json_views_dir, 'a') as outfile:
-        json.dump(json_dic, outfile, sort_keys=True, indent=4, ensure_ascii=False)
+    if not os.path.exists(json_views_dir):
+        views_collection[movie_id] = []
+        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
+        print(views_collection)
+        with open(json_views_dir, 'a') as outfile:
+            json.dump(views_collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
 
-    print('Creato il file VIEWS')
+        print('Creato il file VIEWS')
+
+    else:
+        views_collection[movie_id] = []
+        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
+
+        with open(json_views_dir, 'r') as outfile:
+            data = json.load(outfile)
+
+        data_str = str(data)
+        no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
+
+        # facciamo lo stesso con collection
+        collection_str = str(views_collection)
+        no_brackets_coll = collection_str[collection_str.find("{") + 1:collection_str.rfind("}")]
+
+        # ora concateniamo le due stringhe
+        new_str = '{' + no_brackets + ', ' + no_brackets_coll + '}'
+
+        # qui ritorna dictionary
+        dict1 = eval(new_str)
+
+        with open(json_views_dir, 'w') as outfile:
+            json.dump(dict1, outfile, indent=4, ensure_ascii=False)
+
+        print('Creato il file VIEWS')
 
 #Aggiorna il file Views con il nuovo film
-def update_json_views(movie_title):
+def update_json_views(movie_id, movie_title):
     # aggiorna lista con nuovo film
+
+    json_views_dic[movie_id] = []
+    json_views_dic[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
 
     with open(json_views_dir, 'r') as outfile:
         data = json.load(outfile)
 
     data_str = str(data)
+
     no_brackets = data_str[data_str.find("{") + 1:data_str.rfind("}")]  # ora non è un dizionario, ma una stringa
 
-    json_views_dic = {movie_title: [{"Views": 0, "Data Views": 0}]}
-    json_views_str = str(json_views_dic)
-    no_brackets_coll = json_views_str[json_views_str.find("{") + 1:json_views_str.rfind("}")]
+    # facciamo lo stesso con collection
+    collection_str = str(json_views_dic)
+    no_brackets_coll = collection_str[collection_str.find("{") + 1:collection_str.rfind("}")]
 
+    # ora concateniamo le due stringhe
     new_str = '{' + no_brackets + ', ' + no_brackets_coll + '}'
-    print(new_str)
+
+    # qui ritorna dictionary
     dict1 = eval(new_str)
 
     with open(json_views_dir, 'w') as outfile:
         json.dump(dict1, outfile, indent=4, ensure_ascii=False)
 
     print('Aggiornato il file VIEWS')
+
+#Aggiorna il nr di Views e la Data di Visione
+def update_views(movie_id):
+    # aggiornamento delle views.
+    # questo viene chiamato quando copio il Video nell'altra cartella
+    current_movie = {}
+    # 1. Aprire il FILE
+    with open(json_views_dir, 'r') as outfile:
+        data = json.load(outfile)
+
+    # 2. Cercare il titolo giusto e Aggiornare le Views
+    for i, (key, value) in enumerate(data.items()):
+        if key == movie_id:
+            for b in value:
+                current_views = b['Views']
+                b['Views'] = current_views + 1
+
+                b['Data Views'] = datetime.datetime.now()
+
+                current_movie = {"Title": b['Title'], "Views": b['Views'], "Data Views": b['Data Views']}
+
+
+    # 3. Salvare
+    with open(json_views_dir, 'w') as outfile:
+        json.dump(data, outfile, indent=4, ensure_ascii=False, default=str)
+
+    print("Updated Json Views File")
+
+    return current_movie

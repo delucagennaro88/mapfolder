@@ -56,7 +56,7 @@ def save_info(directory, last_update, update, json_dir):
                      'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],
                      'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})
                 num += 1
-                create_json_views(film['Title'])
+                create_json_views(film['Id'], film['Title'])
 
             with open(json_dir, 'w') as outfile:
                 json.dump(collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
@@ -108,7 +108,7 @@ def save_info(directory, last_update, update, json_dir):
                          'Actor List': film['ActorBox'], 'Writer List': film['WriterBox']})
                     num += 1
 
-                    update_json_views(film['Title'])
+                    update_json_views(film['Id'], film['Title'])
 
                 with open(json_dir, 'r') as outfile:
                     data = json.load(outfile)

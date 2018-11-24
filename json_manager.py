@@ -231,9 +231,11 @@ def check_filmographies(actor_id):
 def create_json_views(movie_id, movie_title):
     # salva le views
 
+    movie_gif = movie_title.lower().replace(" ", "") + ".gif"
+
     if not os.path.exists(json_views_dir):
         views_collection[movie_id] = []
-        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
+        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif})
         print(views_collection)
         with open(json_views_dir, 'a') as outfile:
             json.dump(views_collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
@@ -242,7 +244,7 @@ def create_json_views(movie_id, movie_title):
 
     else:
         views_collection[movie_id] = []
-        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
+        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif})
 
         with open(json_views_dir, 'r') as outfile:
             data = json.load(outfile)
@@ -269,8 +271,10 @@ def create_json_views(movie_id, movie_title):
 def update_json_views(movie_id, movie_title):
     # aggiorna lista con nuovo film
 
+    movie_gif = movie_title.lower().replace(" ", "") + ".gif"
+
     json_views_dic[movie_id] = []
-    json_views_dic[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0})
+    json_views_dic[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif})
 
     with open(json_views_dir, 'r') as outfile:
         data = json.load(outfile)
@@ -312,8 +316,7 @@ def update_views(movie_id):
 
                 b['Data Views'] = datetime.datetime.now()
 
-                current_movie = {"Title": b['Title'], "Views": b['Views'], "Data Views": b['Data Views']}
-
+                current_movie = {"Title": b['Title'], "Views": b['Views'], "Data Views": b['Data Views'], "Gif": b['Gif']}
 
     # 3. Salvare
     with open(json_views_dir, 'w') as outfile:

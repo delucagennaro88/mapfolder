@@ -1,5 +1,5 @@
 import json
-import os, datetime
+import os, datetime, shutil
 
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 json_data = "data.json"
@@ -10,6 +10,7 @@ cinema_json_file = "cinema.json"
 json_file = "attori_amati.json"
 json_actor_dir = os.path.join(json_directory, json_file)
 json_dir = os.path.join(json_directory, cinema_json_file)
+destination_directory = "C:\\Users\\Utente\\Desktop\\Foto Cinema"
 
 movie_class = {}
 movie_dic = {}
@@ -301,6 +302,30 @@ def update_json_views(movie_id, movie_title):
 #Aggiorna il nr di Views e la Data di Visione
 def update_views(movie_id):
     # aggiornamento delle views.
+
+    # aprire il file Cinema.json e recuperare la directory del film
+    with open(json_dir, 'r') as outfile:
+        movie_data = json.load(outfile)
+
+    for i in movie_data.values():
+        for x in i:
+            if x['Movie Id'] == movie_id:
+                print(x['File Name'])
+
+                file_dir = x['File Name']
+
+                if os.path.isdir(file_dir):
+                    file = os.path.basename(file_dir) #estrapoliamo nome cartella dalla Directory
+                    dest_file_dir = os.path.join(destination_directory, file) #creaiamo directory con destinazione e nome vecchia cartella
+                    os.mkdir(dest_file_dir) #creiamo effetticamente la cartella
+
+                    for i in os.listdir(file_dir): #per ogni file contenuto, creiamo una copia
+                        current_file_dir = os.path.join(file_dir, i)
+                        print(current_file_dir)
+                        shutil.copy(current_file_dir, dest_file_dir)
+                else:
+                    shutil.copy(file_dir, destination_directory)
+
     # questo viene chiamato quando copio il Video nell'altra cartella
     current_movie = {}
     # 1. Aprire il FILE

@@ -19,7 +19,7 @@
             </div>
             <div class="text">{% for key, value in data['Filmography'].items() %}
                 <br>
-                {{key.upper()}}:
+                <b>{{key.upper()}}:</b>
 
                 {% for c in value %}
                 {% if c['Present'] == True %}
@@ -31,7 +31,7 @@
                 {{c['Title']}} ({{c['Year']}})
 
                 {% endif %}
-                /
+                <b>/</b>
                 {% endfor %}
 
                 {% endfor %}

@@ -38,7 +38,7 @@ Landing
   position: relative;
   z-index: 2;
   width: 910px;
-  height: 910px;
+  height: 1210px;
   margin: auto;
   box-shadow: 0 3px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -108,8 +108,8 @@ Overlay
 --------------------*/
 .base.overlay {
   z-index: 2;
-  -webkit-clip-path: polygon(395px 0, 1000px 0, 1000px 900px, 600px 1000px);
-          clip-path: polygon(395px 0, 1000px 0, 1000px 900px, 600px 1000px);
+  -webkit-clip-path: polygon(405px 0, 1000px 0, 1000px 1800px, 700px 1200px);
+          clip-path: polygon(405px 0, 1000px 0, 1000px 1800px, 700px 1210px);
   color: #fff;
   background: linear-gradient(45deg, #082352, #6f2d52);
   transition: all .6s ease-in-out;
@@ -117,8 +117,8 @@ Overlay
           transform-origin: 0 0;
 }
 .base.overlay.over {
-  -webkit-clip-path: polygon(-1750px 0, 910px 0, 910px 1000px, 0 1000px);
-          clip-path: polygon(-1750px 0, 910px 0, 910px 1000px, 0 1000px);
+  -webkit-clip-path: polygon(-1750px 0, 910px 0, 910px 2500px, 0 1500px);
+          clip-path: polygon(-1750px 0, 910px 0, 910px 2500px, 0 1500px);
 }
 
 .base.overlay .image {

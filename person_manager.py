@@ -43,17 +43,23 @@ def search_filmography(filmography):
     for a in filmography:
         for key, value in a.items():
             key_index = str(key)  # qui va salvato l'indice della categoria
-            actor_dictionary[key_index] = []
-            time.sleep(5)
-            for b in value:
-                movie_film = ia.search_movie(str(b))
-                movie = movie_film[0]
-                movie_id = movie.movieID
-                title = movie.get('title')
-                movie_year = movie['year']
-                actor_dictionary[key_index].append(
-                    {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Present': False})
+            if key_index == "director" or key_index == "writer" or key_index == "actor":
+                actor_dictionary[key_index] = []
                 time.sleep(5)
+                for b in value:
+                    print(b)
+                    movie_film = ia.search_movie(str(b))
+                    print(movie_film)
+                    movie = movie_film[0]
+                    print(movie)
+                    movie_id = movie.movieID
+                    title = movie.get('title')
+                    movie_year = movie['year']
+                    actor_dictionary[key_index].append(
+                        {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Present': False})
+                    time.sleep(5)
+            else:
+                pass
     return actor_dictionary
 
 

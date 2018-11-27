@@ -22,6 +22,9 @@
 
                 {{data['Movie Title']}}
             </div>
+            <a class="cta" target="_blank">IMDB</a>
+            <a class="cta" href="{{ url_for('show_movie_views', movie_id=data['Movie Id']) }}">Save Video</a>
+            <a class="cta" target="_blank">Edit</a>
             <div class="text">
 
                 <div class="plot">
@@ -71,7 +74,7 @@
                 <br>
 </div>
             </div>
-            <a class="cta" href="{{ url_for('show_movie_views', movie_id=data['Movie Id']) }}">play video</a>
+
         </div>
     </div>
 </div>

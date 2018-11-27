@@ -152,7 +152,7 @@ def query_actor(actor_name, json_dir):
         for b in a:
 
             for c in b['Actor List']:
-                if c['Name'] == actor_name:
+                if c['Name'].lower() == actor_name.lower() or actor_name.lower() in c['Name'].lower():
                     query_dic[b['Movie Id']] = []
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
@@ -164,7 +164,7 @@ def query_actor(actor_name, json_dir):
                          'Actor List': b['Actor List']})
 
             for d in b['Director List']:
-                if d['Name'] == actor_name:
+                if d['Name'].lower() == actor_name.lower() or actor_name.lower() in d['Name'].lower():
                     query_dic[b['Movie Id']] = []
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],
@@ -176,7 +176,7 @@ def query_actor(actor_name, json_dir):
                          'Actor List': b['Actor List']})
 
             for e in b['Writer List']:
-                if e['Name'] == actor_name:
+                if e['Name'].lower() == actor_name.lower() or actor_name.lower() in e['Name'].lower():
                     query_dic[b['Movie Id']] = []
                     query_dic[b['Movie Id']].append(
                         {'Home path': b['Home path'], 'File Name': b['File Name'], 'Id': b['Id'], 'Atime': b['Atime'],

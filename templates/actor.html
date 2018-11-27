@@ -17,6 +17,9 @@
                 <small>{{data['Date']}}</small>
                 {{data['Name']}}
             </div>
+            <a class="cta" target="_blank">IMDB</a>
+            <a class="cta" target="_blank">Edit</a>
+
             <div class="text">{% for key, value in data['Filmography'].items() %}
                 <br>
                 <b>{{key.upper()}}:</b>
@@ -36,7 +39,7 @@
 
                 {% endfor %}
             </div>
-            <a class="cta" target="_blank">play video</a>
+
         </div>
     </div>
 </div>

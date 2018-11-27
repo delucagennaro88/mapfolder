@@ -92,7 +92,8 @@ Copy
 }
 .copy .cta {
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: -5px;
+  margin-bottom: 10px;
   background: linear-gradient(25deg, #2f2d56, #6e355b);
   color: #fff;
   text-transform: uppercase;
@@ -151,6 +152,8 @@ Overlay
   background: #fff;
   color: #0A2452;
 }
+.base.overlay a {
+color:white;}
 
 .plot {
 margin-top: 30px;

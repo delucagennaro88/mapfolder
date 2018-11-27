@@ -24,7 +24,7 @@
             </div>
             <a class="cta" target="_blank">IMDB</a>
             <a class="cta" href="{{ url_for('show_movie_views', movie_id=data['Movie Id']) }}">Save Video</a>
-            <a class="cta" target="_blank">Edit</a>
+            <a class="cta" href="{{ url_for('edit_movie_info', movie_id=data['Movie Id']) }}">Edit</a>
             <div class="text">
 
                 <div class="plot">

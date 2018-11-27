@@ -1,0 +1,31 @@
+form div p.form input#movie_info{
+     height:120px;
+     width: 97%;
+
+     }
+
+/* Menu*/
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav p {
+    float: left;
+}
+
+nav p a {
+    display: block;
+    color: white;
+    text-align: center;
+    margin: 0 20px 0 30px;
+    text-decoration: none;
+}
+
+nav p a:hover:not(.active) {
+    background-color: #111;
+}

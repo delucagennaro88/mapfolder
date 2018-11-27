@@ -155,5 +155,31 @@ def show_movie_views(movie_id):
 
     return render_template("views.html", data=current_movie)
 
+
+class EditMovieForm(FlaskForm):
+    movie_info = StringField('Modifica', validators=[DataRequired()])
+    submit = SubmitField('Salva')
+
+@app.route('/edit/<string:movie_id>', methods=['GET', 'POST'])
+def edit_movie_info(movie_id):
+    linked_movie = show_movie_linked(json_dir, movie_id)
+    form = EditMovieForm()
+
+    return render_template("edit.html", data=linked_movie, form=form)
+
+edit_file = "edit.json"
+json_edit_dir = os.path.join(json_directory, edit_file)
+
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+    data = {}
+    form = EditMovieForm()
+    data = form.movie_info.data
+
+    with open(json_edit_dir, 'w') as outfile:
+        json.dump(data, outfile, indent=4, ensure_ascii=False)
+
+    return render_template('edit.html', title='Edit', form=form, data=data)
+
 if __name__ == '__main__':
     app.run(debug=True)

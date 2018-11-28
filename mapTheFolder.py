@@ -157,7 +157,8 @@ def show_movie_views(movie_id):
 
 
 class EditMovieForm(FlaskForm):
-    movie_info = StringField('Modifica', validators=[DataRequired()])
+    movie_year = StringField('Anno', validators=[DataRequired()])
+    movie_title = StringField('Titolo', validators=[DataRequired()])
     submit = SubmitField('Salva')
 
 @app.route('/edit/<string:movie_id>', methods=['GET', 'POST'])
@@ -174,11 +175,15 @@ json_edit_dir = os.path.join(json_directory, edit_file)
 def edit():
     data = {}
     form = EditMovieForm()
-    data = form.movie_info.data
+    m_year = form.movie_year.data
+    m_title = form.movie_title.data
+    data = {"Movie Title": m_title, "Movie Year": m_year}
 
+    '''
     with open(json_edit_dir, 'w') as outfile:
         json.dump(data, outfile, indent=4, ensure_ascii=False)
-
+'''
+    print(data)
     return render_template('edit.html', title='Edit', form=form, data=data)
 
 if __name__ == '__main__':

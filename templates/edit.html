@@ -14,12 +14,27 @@
 <form action="{{ url_for('edit') }}" method="post">
         {{ form.hidden_tag() }}
         <div>
-            <p class="label">{{ form.movie_info.label }}</p>
-            <p class="form">{{ form.movie_info(size=2232, value=data)  }}</p>
-			<p class="buttons">{{ form.submit() }}</p>
+            <p class="label">{{ form.movie_title.label }}</p>
+            <p class="form">{{ form.movie_title(size=2232, value=data["Movie Title"])  }}</p>
+            <p class="label">{{ form.movie_year.label }}</p>
+            <p class="form">{{ form.movie_year(size=2232, value=data["Movie Year"])  }}</p>
+            <p class="buttons">{{ form.submit() }}</p>
 		</div>
 </form>
 
+
+{{data['Movie Year']}}
+{{data['Movie Title']}}
+{{data['Movie plot']}}
+{% for director in data['Director List'] %}
+    {{director['Name']}}
+{% endfor %}
+{% for actor in data['Actor List'] %}
+   {{actor['Name']}}
+{% endfor %}
+{% for actor in data['Writer List'] %}
+    {{actor['Name']}}
+{% endfor %}
 
 </body>
 </html>

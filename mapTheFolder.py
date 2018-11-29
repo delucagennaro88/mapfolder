@@ -56,6 +56,23 @@ def show_actor_linked(json_dir, actor_id):
 
     return actor_link
 
+def show_filmography(json_actor_dir, movie_id):
+    movie_link = {}
+    with open(json_actor_dir, encoding='cp1252') as data_file:
+        actor_json = json.load(data_file)
+
+        for i in actor_json.values():
+            for x in i:
+                #qui si può recuperare l'Id dell'Attore e fare l'If
+                for y in x.values():
+                    if type(y) == dict:
+                        for z in y.values():
+                            for w in z:
+                                if w['Id'] == movie_id:
+                                    print(w['Title'])#qui vanno create le variabili
+                                    movie_link = {'Title': w['Title'], 'Id': w['Id'], 'Present': w['Present'], 'Year':w['Year'], 'Original':w['Original']}
+
+    return movie_link
 
 class ActorForm(FlaskForm):
     actor_name = StringField('Cerca nuovi Personaggi', validators=[DataRequired()])
@@ -66,6 +83,17 @@ class QueryForm(FlaskForm):
     actor_name = StringField('Seleziona Personaggio', validators=[DataRequired()])
     submit = SubmitField('Cerca')
 
+class EditMovieForm(FlaskForm):
+    movie_plot = StringField('Trama', validators=[DataRequired()])
+    submit = SubmitField('Salva')
+
+
+class EditFilmography(FlaskForm):
+    movie_title = StringField('Titolo', validators=[DataRequired()])
+    movie_original = StringField('Titolo originale', validators=[DataRequired()])
+    movie_id = StringField('Id', validators=[DataRequired()])
+    movie_year = StringField('Anno', validators=[DataRequired()])
+    submit = SubmitField('Salva')
 
 def start():
     if not os.path.exists(json_dir):
@@ -155,36 +183,42 @@ def show_movie_views(movie_id):
 
     return render_template("views.html", data=current_movie)
 
-
-class EditMovieForm(FlaskForm):
-    movie_year = StringField('Anno', validators=[DataRequired()])
-    movie_title = StringField('Titolo', validators=[DataRequired()])
-    submit = SubmitField('Salva')
-
 @app.route('/edit/<string:movie_id>', methods=['GET', 'POST'])
 def edit_movie_info(movie_id):
     linked_movie = show_movie_linked(json_dir, movie_id)
+    linked_movie_plot = linked_movie['Movie plot']
+    linked_movie_id = linked_movie['Movie Id']
     form = EditMovieForm()
 
-    return render_template("edit.html", data=linked_movie, form=form)
+    if form.validate_on_submit():
+        linked_movie_plot = form.movie_plot.data
 
-edit_file = "edit.json"
-json_edit_dir = os.path.join(json_directory, edit_file)
+        with open(json_dir) as data_file:
+            movie_data_json = json.load(data_file)
 
-@app.route('/edit', methods=['GET', 'POST'])
-def edit():
-    data = {}
-    form = EditMovieForm()
-    m_year = form.movie_year.data
-    m_title = form.movie_title.data
-    data = {"Movie Title": m_title, "Movie Year": m_year}
+        for i in movie_data_json.values():
+            for x in i:
+                if x['Movie Id'] == movie_id:
+                    x['Movie plot'] = linked_movie_plot
 
-    '''
-    with open(json_edit_dir, 'w') as outfile:
-        json.dump(data, outfile, indent=4, ensure_ascii=False)
-'''
-    print(data)
-    return render_template('edit.html', title='Edit', form=form, data=data)
+        with open(json_dir, 'w') as outfile:
+            json.dump(movie_data_json, outfile, indent=4, ensure_ascii=False)
+
+    return render_template("edit.html", data=linked_movie_plot, movie_id=linked_movie_id, form=form)
+
+
+@app.route('/edit_film/<string:movie_id>', methods=['GET', 'POST'])
+def edit_filmography(movie_id):
+    # recuperare dati dal file Json
+    movie_link = show_filmography(json_actor_dir, movie_id)
+    film_title = movie_link['Title']
+    film_original = movie_link['Original']
+    film_id = movie_link['Id']
+    film_year = movie_link['Year']
+
+    form = EditFilmography()
+
+    return render_template("edit_film.html", title=film_title, original=film_original, id=film_id, year=film_year, form=form)
 
 if __name__ == '__main__':
     app.run(debug=True)

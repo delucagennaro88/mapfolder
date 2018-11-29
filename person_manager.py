@@ -56,7 +56,7 @@ def search_filmography(filmography):
                     title = movie.get('title')
                     movie_year = movie['year']
                     actor_dictionary[key_index].append(
-                        {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Present': False})
+                        {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Original': str(b), 'Present': False})
                     time.sleep(5)
             else:
                 pass

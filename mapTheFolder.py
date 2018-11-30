@@ -35,9 +35,11 @@ def show_movie_linked(json_dir, movie_id):
                 if x['Movie Id'] == movie_id:
                     movie_link = {'Home path': x['Home path'], 'File Name': x['File Name'], 'Id': x['Id'],
                                   'Atime': x['Atime'], 'Ctime': x['Ctime'],
-                                  'Size': x['Size'], 'Extension': x['Extension'], 'Banner Pic': x['Banner Pic'], 'Movie Poster': x['Movie Poster'], 'Movie Id': x['Movie Id'],
+                                  'Size': x['Size'], 'Extension': x['Extension'], 'Banner Pic': x['Banner Pic'],
+                                  'Movie Poster': x['Movie Poster'], 'Movie Id': x['Movie Id'],
                                   'Movie Url': x['Movie Url'],
-                                  'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],  'Seasons': x['Seasons'],
+                                  'Movie Title': x['Movie Title'], 'Movie Year': x['Movie Year'],
+                                  'Seasons': x['Seasons'],
                                   'Movie plot': x['Movie plot'], 'Director List': x['Director List'],
                                   'Actor List': x['Actor List'], 'Writer List': x['Writer List']}
 
@@ -52,9 +54,11 @@ def show_actor_linked(json_dir, actor_id):
         for i in actor_json.values():
             for x in i:
                 if x['Id'] == actor_id:
-                    actor_link = {'Name': x['Name'], 'Date': x['Date'], 'Gif': x['Gif'], 'Poster': x['Poster'], 'Filmography': x['Filmography']}
+                    actor_link = {'Name': x['Name'], 'Date': x['Date'], 'Gif': x['Gif'], 'Poster': x['Poster'],
+                                  'Filmography': x['Filmography'], 'Url': x['Url']}
 
     return actor_link
+
 
 def show_filmography(json_actor_dir, movie_id):
     movie_link = {}
@@ -63,16 +67,18 @@ def show_filmography(json_actor_dir, movie_id):
 
         for i in actor_json.values():
             for x in i:
-                #qui si può recuperare l'Id dell'Attore e fare l'If
+                # qui si può recuperare l'Id dell'Attore e fare l'If
                 for y in x.values():
                     if type(y) == dict:
                         for z in y.values():
                             for w in z:
                                 if w['Id'] == movie_id:
-                                    print(w['Title'])#qui vanno create le variabili
-                                    movie_link = {'Title': w['Title'], 'Id': w['Id'], 'Present': w['Present'], 'Year':w['Year'], 'Original':w['Original']}
+                                    print(w['Title'])  # qui vanno create le variabili
+                                    movie_link = {'Title': w['Title'], 'Id': w['Id'], 'Present': w['Present'],
+                                                  'Year': w['Year'], 'Original': w['Original']}
 
     return movie_link
+
 
 class ActorForm(FlaskForm):
     actor_name = StringField('Cerca nuovi Personaggi', validators=[DataRequired()])
@@ -82,6 +88,7 @@ class ActorForm(FlaskForm):
 class QueryForm(FlaskForm):
     actor_name = StringField('Seleziona Personaggio', validators=[DataRequired()])
     submit = SubmitField('Cerca')
+
 
 class EditMovieForm(FlaskForm):
     movie_plot = StringField('Trama', validators=[DataRequired()])
@@ -94,6 +101,7 @@ class EditFilmography(FlaskForm):
     movie_id = StringField('Id', validators=[DataRequired()])
     movie_year = StringField('Anno', validators=[DataRequired()])
     submit = SubmitField('Salva')
+
 
 def start():
     if not os.path.exists(json_dir):
@@ -131,6 +139,7 @@ def show_movie_infos(movie_id):
 
     return render_template("movie.html", data=linked_movie)
 
+
 @app.route('/query', methods=['GET', 'POST'])
 def query():
     form = QueryForm()
@@ -142,6 +151,7 @@ def query():
         flash('Non ci sono film di {} nel database'.format(actor))
 
     return render_template('show_all.html', title='Cerca', form=form, query_data=query_dic)
+
 
 @app.route('/attoriamati')
 def show_all_people():
@@ -177,11 +187,13 @@ def show_actor_infos(actor_id):
     linked_actor = show_actor_linked(json_actor_dir, actor_id)
     return render_template("actor.html", data=linked_actor)
 
+
 @app.route('/views/<string:movie_id>', methods=['GET', 'POST'])
 def show_movie_views(movie_id):
     current_movie = update_views(movie_id)
 
     return render_template("views.html", data=current_movie)
+
 
 @app.route('/edit/<string:movie_id>', methods=['GET', 'POST'])
 def edit_movie_info(movie_id):
@@ -209,7 +221,6 @@ def edit_movie_info(movie_id):
 
 @app.route('/edit_film/<string:movie_id>', methods=['GET', 'POST'])
 def edit_filmography(movie_id):
-    # recuperare dati dal file Json
     movie_link = show_filmography(json_actor_dir, movie_id)
     film_title = movie_link['Title']
     film_original = movie_link['Original']
@@ -218,7 +229,33 @@ def edit_filmography(movie_id):
 
     form = EditFilmography()
 
-    return render_template("edit_film.html", title=film_title, original=film_original, id=film_id, year=film_year, form=form)
+    if form.validate_on_submit():
+        film_title = form.movie_title.data
+        film_id = form.movie_id.data
+        film_year = form.movie_year.data
+        film_original = form.movie_original.data
+
+        with open(json_actor_dir, encoding='cp1252') as data_file:
+            actor_json = json.load(data_file)
+
+        for i in actor_json.values():
+            for x in i:
+                # qui si può recuperare l'Id dell'Attore e fare l'If
+                for y in x.values():
+                    if type(y) == dict:
+                        for z in y.values():
+                            for w in z:
+                                if w['Id'] == movie_id:
+                                    w['Title'] = film_title
+                                    w['Id'] = film_id
+                                    w['Year'] = film_year
+
+        with open(json_actor_dir, 'w') as outfile:
+            json.dump(actor_json, outfile, indent=4, ensure_ascii=False)
+
+    return render_template("edit_film.html", title=film_title, original=film_original, id=film_id, year=film_year,
+                           movie_id=movie_id, form=form)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -26,7 +26,7 @@ $(document).ready(function(){
                 <small>{{data['Date']}}</small>
                 {{data['Name']}}
             </div>
-            <a class="cta" target="_blank">IMDB</a>
+            <a class="cta" href="{{data['Url']}}">IMDB</a>
             <a class="cta" id="edit_button">Edit</a>
 
             <div class="text">{% for key, value in data['Filmography'].items() %}

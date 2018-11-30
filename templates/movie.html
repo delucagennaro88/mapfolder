@@ -31,7 +31,7 @@ $(document).ready(function(){
 
                 {{data['Movie Title']}}
             </div>
-            <a class="cta" target="_blank">IMDB</a>
+            <a class="cta" href="{{data['Movie Url']}}">IMDB</a>
             <a class="cta" href="{{ url_for('show_movie_views', movie_id=data['Movie Id']) }}">Save Video</a>
             <a class="cta" id="edit_button">Edit</a>
             <div class="text">

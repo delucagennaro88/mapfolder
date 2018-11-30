@@ -102,6 +102,8 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
         actor_id = actor.personID
         actor_identifier = ia.get_person(actor_id)
 
+        URL = ia.get_imdbURL(actor)
+
         dates = define_dates(actor_identifier)
 
         filmography = actor_identifier['filmography']
@@ -114,7 +116,7 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
 
         actor_collection[actor_name_str] = []
         actor_collection[actor_name_str].append(
-            {'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Gif': actor_gif, 'Poster': actor_poster, 'Filmography': filmography_box})
+            {'Name': actor_name_str, 'Id': actor_id, 'Date': dates, 'Gif': actor_gif, 'Poster': actor_poster, 'Filmography': filmography_box, 'Url': URL})
 
         #UPDATE presences nei cast dei film
         check_filmographies(actor_id)

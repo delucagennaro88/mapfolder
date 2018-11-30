@@ -139,7 +139,7 @@ def open_json_data(json_dir):
         for i, (key, value) in enumerate(movie_json.items()):
             for a in value:
                 film[a['Name']] = []
-                film[a['Name']].append({'Name': a['Name'], 'Id': a['Id'], 'Date': a['Date'], 'Gif': a['Gif'], 'Poster': a['Poster'], 'Filmography': a['Filmography']})
+                film[a['Name']].append({'Name': a['Name'], 'Id': a['Id'], 'Date': a['Date'], 'Gif': a['Gif'], 'Poster': a['Poster'], 'Filmography': a['Filmography'], 'Url':a['Url']})
         return film
 
 

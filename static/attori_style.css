@@ -153,10 +153,11 @@ form div p.form input#actor_name{
     float: left;
     margin-right:10px;
     border-radius: 3px 0 0 3px;
+
     }
 
 form div p.form input#actor_name:focus{
-outline: 0;background:transparent;
+outline: 0;
 }
 
 form div p.buttons input#submit{

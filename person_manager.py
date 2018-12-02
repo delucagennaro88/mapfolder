@@ -111,7 +111,7 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
 
         actor_name_str = str(actor)
 
-        actor_gif = "static/" + actor_name_str.lower().replace(" ", "") + ".gif"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione gif
+        actor_gif = "static/res/" + actor_name_str.lower().replace(" ", "") + ".gif"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione gif
         actor_poster = actor_name_str.lower().replace(" ", "") + "_poster.jpg"
 
         actor_collection[actor_name_str] = []

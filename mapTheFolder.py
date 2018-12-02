@@ -113,10 +113,25 @@ def start():
     else:
         update = True
         print('Il file esiste!')
-
         file_modified = os.stat(json_dir).st_mtime
         save_info(directory, file_modified, update, json_dir)
 
+
+current_dic = {}
+
+def current_movie():
+    with open(json_views_dir, 'r') as outfile:
+        data = json.load(outfile)
+
+    a_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
+
+    for view, (key, value) in enumerate(data.items()):
+        for alfa in value:
+            if int(alfa['Views']) == 0 or datetime.datetime.strptime(alfa['Data Views'], "%Y-%m-%d %H:%M:%S.%f") <= a_year_ago:
+                current_dic[key] = []
+                current_dic[key].append({'Title': alfa['Title'], 'Data Views': alfa['Data Views'], 'Views': alfa['Views'], 'Home path': alfa['Home path'], 'Movie plot': alfa['Movie plot']})
+
+    return current_dic
 
 # Qui comincia il programma
 
@@ -125,8 +140,15 @@ app.config['SECRET_KEY'] = 'XMLZODSHE8N6NFOZDPZA2HULWSIYJU45K6N4ZO9M'
 
 
 @app.route('/')
-def show_all():
+def home():
     start()
+    data_collection = current_movie()
+    data = data_collection.values()
+
+    return render_template('home.html', data=data)
+
+@app.route('/show')
+def show_all():
     form = QueryForm()
     data_collection = open_json(json_dir)
     data = data_collection.values()

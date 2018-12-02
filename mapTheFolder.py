@@ -129,7 +129,7 @@ def current_movie():
         for alfa in value:
             if int(alfa['Views']) == 0 or datetime.datetime.strptime(alfa['Data Views'], "%Y-%m-%d %H:%M:%S.%f") <= a_year_ago:
                 current_dic[key] = []
-                current_dic[key].append({'Title': alfa['Title'], 'Data Views': alfa['Data Views'], 'Views': alfa['Views'], 'Home path': alfa['Home path'], 'Movie plot': alfa['Movie plot']})
+                current_dic[key].append({'Id': alfa['Id'], 'Title': alfa['Title'], 'Data Views': alfa['Data Views'], 'Views': alfa['Views'], 'Home path': alfa['Home path'], 'Movie plot': alfa['Movie plot'], 'Image One': alfa['Image One'], 'Image Two': alfa['Image Two']})
 
     return current_dic
 

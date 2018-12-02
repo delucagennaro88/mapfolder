@@ -232,10 +232,12 @@ def create_json_views(movie_id, movie_title, movie_dir, movie_plot):
     # salva le views
 
     movie_gif = movie_title.lower().replace(" ", "") + ".gif"
+    image_one = "static/" + movie_title.lower().replace(" ", "") + "_image_one.jpg"
+    image_two = "static/" + movie_title.lower().replace(" ", "") + "_image_two.jpg"
 
     if not os.path.exists(json_views_dir):
         views_collection[movie_id] = []
-        views_collection[movie_id].append({"Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif, 'Movie plot': movie_plot, 'Home path': movie_dir})
+        views_collection[movie_id].append({'Id': movie_id, "Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif, 'Movie plot': movie_plot, 'Home path': movie_dir, 'Image One': image_one, 'Image Two': image_two})
         print(views_collection)
         with open(json_views_dir, 'a') as outfile:
             json.dump(views_collection, outfile, sort_keys=True, indent=4, ensure_ascii=False)
@@ -247,8 +249,8 @@ def create_json_views(movie_id, movie_title, movie_dir, movie_plot):
 
         json_views_dic[movie_id] = []
         json_views_dic[movie_id].append(
-            {"Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif, 'Movie plot': movie_plot,
-             'Home path': movie_dir})
+            {'Id': movie_id, "Title": movie_title, "Views": 0, "Data Views": 0, "Gif": movie_gif, 'Movie plot': movie_plot,
+             'Home path': movie_dir, 'Image One': image_one, 'Image Two': image_two})
 
         with open(json_views_dir, 'r') as outfile:
             data = json.load(outfile)
@@ -314,7 +316,7 @@ def update_views(movie_id):
 
                 b['Data Views'] = datetime.datetime.now()
 
-                current_movie = {"Title": b['Title'], "Views": b['Views'], "Data Views": b['Data Views'], "Gif": b['Gif'], 'Movie plot': b['Movie plot'], 'Home path': b['Home path']}
+                current_movie = {"Title": b['Title'], "Views": b['Views'], "Data Views": b['Data Views'], "Gif": b['Gif'], 'Movie plot': b['Movie plot'], 'Home path': b['Home path'], 'Image One': b['Image One'], 'Image Two': b['Image Two']}
 
     # 3. Salvare
     with open(json_views_dir, 'w') as outfile:

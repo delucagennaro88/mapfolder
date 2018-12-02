@@ -25,15 +25,15 @@
 
                 <div class="swiper-slide swiper-slide-one">
                     <div class="swiper-image" data-swiper-parallax-y="-20%">
-                        <div class="swiper-image-inner swiper-image-left swiper-image-one">
-                            <h1>{{b['Title']}}</h1>
-                            <p>Chapter I, page XV</p>
+                        <div style="background-image: url('{{b['Image One']}}')" class="swiper-image-inner swiper-image-left">
                         </div>
                     </div>
                     <div class="swiper-image" data-swiper-parallax-y="35%">
-                        <div class="swiper-image-inner swiper-image-right swiper-image-two">
+                        <div style="background-image: url('{{b['Image Two']}}')" class="swiper-image-inner swiper-image-right">
+                            <h2>{{b['Title']}}</h2>
                             <p class="paragraph">{{b['Movie plot']}}
                             </p>
+                            <a class="link" href="{{ url_for('show_movie_views', movie_id=b['Id']) }}">Save Video</a>
                         </div>
                     </div>
                 </div>

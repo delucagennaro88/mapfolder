@@ -7,17 +7,18 @@
 <body>
 
 <nav>
-      <p><a href="{{ url_for('show_all') }}">Film</a></p>
-      <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+    <p><a href="{{ url_for('show_all') }}">Film</a></p>
+    <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
 </nav>
 
 <form action="{{ url_for('edit_movie_info', movie_id=movie_id) }}" method="post">
-        {{ form.hidden_tag() }}
-        <div>
-            <p class="label">{{ form.movie_plot.label }}</p>
-            <p class="form">{{ form.movie_plot(size=2232, value=data)  }}</p>
-            <p class="buttons">{{ form.submit() }}</p>
-		</div>
+    {{ form.hidden_tag() }}
+    <div>
+        <p class="label">{{ form.movie_plot.label }}</p>
+        <p class="form">{{ form.movie_plot(size=2232, value=data) }}</p>
+        <p class="buttons">{{ form.submit() }}</p>
+    </div>
 </form>
 
 

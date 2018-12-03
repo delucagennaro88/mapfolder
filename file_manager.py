@@ -45,8 +45,8 @@ def save_info(directory, last_update, update, json_dir):
 
                 a = os.stat(os.path.join(directory, i))
 
-                movie_banner = "static/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
-                movie_poster = filename.lower().replace(" ", "") + "_poster.jpg"
+                movie_banner = "static/res/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                movie_poster = "res/" + filename.lower().replace(" ", "") + "_poster.jpg"
 
                 collection[filename] = []
                 collection[filename].append(
@@ -96,8 +96,8 @@ def save_info(directory, last_update, update, json_dir):
                     filename, file_extension = os.path.splitext(name_file)
                     film = movie_name(filename)
 
-                    movie_banner = "static/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
-                    movie_poster = filename.lower().replace(" ", "") + "_poster.jpg"
+                    movie_banner = "static/res/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                    movie_poster = "res/" + filename.lower().replace(" ", "") + "_poster.jpg"
 
                     collection[filename] = []
                     collection[filename].append(

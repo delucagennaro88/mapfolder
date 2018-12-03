@@ -7,23 +7,24 @@
 <body>
 
 <nav>
-      <p><a href="{{ url_for('show_all') }}">Film</a></p>
-      <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+    <p><a href="{{ url_for('show_all') }}">Film</a></p>
+    <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
 </nav>
 
 <form action="{{ url_for('edit_filmography', movie_id=movie_id) }}" method="post">
-        {{ form.hidden_tag() }}
-        <div>
-            <p class="label">{{ form.movie_title.label }}</p>
-            <p class="form">{{ form.movie_title(size=2232, value=title)  }}</p>
-            <p class="label">{{ form.movie_original.label }}</p>
-            <p class="form">{{ form.movie_original(size=2232, value=original)  }}</p>
-            <p class="label">{{ form.movie_id.label }}</p>
-            <p class="form">{{ form.movie_id(size=2232, value=id)  }}</p>
-            <p class="label">{{ form.movie_year.label }}</p>
-            <p class="form">{{ form.movie_year(size=2232, value=year)  }}</p>
-            <p class="buttons">{{ form.submit() }}</p>
-		</div>
+    {{ form.hidden_tag() }}
+    <div>
+        <p class="label">{{ form.movie_title.label }}</p>
+        <p class="form">{{ form.movie_title(size=2232, value=title) }}</p>
+        <p class="label">{{ form.movie_original.label }}</p>
+        <p class="form">{{ form.movie_original(size=2232, value=original) }}</p>
+        <p class="label">{{ form.movie_id.label }}</p>
+        <p class="form">{{ form.movie_id(size=2232, value=id) }}</p>
+        <p class="label">{{ form.movie_year.label }}</p>
+        <p class="form">{{ form.movie_year(size=2232, value=year) }}</p>
+        <p class="buttons">{{ form.submit() }}</p>
+    </div>
 </form>
 
 

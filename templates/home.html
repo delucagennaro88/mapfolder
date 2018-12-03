@@ -9,8 +9,9 @@
 <body>
 
 <nav>
-      <p><a href="{{ url_for('show_all') }}">Film</a></p>
-      <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
+    <p><a href="{{ url_for('home') }}">Home</a></p>
+    <p><a href="{{ url_for('show_all') }}">Film</a></p>
+    <p><a href="{{ url_for('show_all_people') }}">Attori amati</a></p>
 </nav>
 
 <!-- Page Wrap -->
@@ -25,11 +26,13 @@
 
                 <div class="swiper-slide swiper-slide-one">
                     <div class="swiper-image" data-swiper-parallax-y="-20%">
-                        <div style="background-image: url('{{b['Image One']}}')" class="swiper-image-inner swiper-image-left">
+                        <div style="background-image: url('{{b['Image One']}}')"
+                             class="swiper-image-inner swiper-image-left">
                         </div>
                     </div>
                     <div class="swiper-image" data-swiper-parallax-y="35%">
-                        <div style="background-image: url('{{b['Image Two']}}')" class="swiper-image-inner swiper-image-right">
+                        <div style="background-image: url('{{b['Image Two']}}')"
+                             class="swiper-image-inner swiper-image-right">
                             <h2>{{b['Title']}}</h2>
                             <p class="paragraph">{{b['Movie plot']}}
                             </p>

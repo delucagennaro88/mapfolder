@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500,500i,600,600i,700,700i |Cormorant+SC:400,500,600,700');
 
 body {
-  background-color: #fff;
+  background-color: #dce1e5;
 }
 
 .page-wrap {
@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right bottom, #2a1f30 50%, #383d44 50%);
+  background-color: #dce1e5;
 }
 
 #home-slider {
@@ -40,27 +40,14 @@ body {
   width: 100%;
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.2);
-  background-blend-mode: overlay;
 }
-.swiper-image-inner.swiper-image-left {
-  padding: 4rem;
-}
-.swiper-image-left {
-  -webkit-filter: sepia(100%);
-          filter: sepia(100%);
-  transition: all 1s linear;
-  transition-delay: 1s;
-}
-.swiper-slide.swiper-slide-active .swiper-image-left {
-  -webkit-filter: sepia(0%);
-          filter: sepia(0%);
-}
+
 .swiper-image-inner.swiper-image-right {
   -webkit-filter: hue-rotate(-60deg);
           filter: hue-rotate(-60deg);
   transition: all 1s linear;
   transition-delay: 1s;
-  background-color: hsla(0, 0%, 0%, 0.5);
+  background-color: hsla(0, 0%, 0%, 0.7);
   background-blend-mode: multiply;
 }
 p.paragraph {
@@ -629,7 +616,7 @@ nav {
     margin: 0;
     padding: 15px;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgba(33, 33, 32, 1);
 }
 
 nav p {
@@ -638,12 +625,12 @@ nav p {
 
 nav p a {
     display: block;
-    color: white;
+    color: #cfd6e1;
     text-align: center;
     margin: 0 20px 0 30px;
     text-decoration: none;
 }
 
 nav p a:hover:not(.active) {
-    background-color: #111;
+    background-color: rgb(42, 159, 255);
 }

@@ -123,14 +123,16 @@ def current_movie():
     with open(json_views_dir, 'r') as outfile:
         data = json.load(outfile)
 
+    counter = 0
     a_year_ago = datetime.datetime.now() - datetime.timedelta(days=365)
 
     for view, (key, value) in enumerate(data.items()):
         for alfa in value:
             if int(alfa['Views']) == 0 or datetime.datetime.strptime(alfa['Data Views'], "%Y-%m-%d %H:%M:%S.%f") <= a_year_ago:
-                current_dic[key] = []
-                current_dic[key].append({'Id': alfa['Id'], 'Title': alfa['Title'], 'Data Views': alfa['Data Views'], 'Views': alfa['Views'], 'Home path': alfa['Home path'], 'Movie plot': alfa['Movie plot'], 'Image One': alfa['Image One'], 'Image Two': alfa['Image Two']})
-
+                if counter <= 25:
+                    current_dic[key] = []
+                    current_dic[key].append({'Id': alfa['Id'], 'Title': alfa['Title'], 'Data Views': alfa['Data Views'], 'Views': alfa['Views'], 'Home path': alfa['Home path'], 'Movie plot': alfa['Movie plot'], 'Image One': alfa['Image One'], 'Image Two': alfa['Image Two']})
+                    counter+=1
     return current_dic
 
 # Qui comincia il programma

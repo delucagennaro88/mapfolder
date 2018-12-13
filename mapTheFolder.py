@@ -229,6 +229,7 @@ def edit_movie_info(movie_id):
     if form.validate_on_submit():
         linked_movie_plot = form.movie_plot.data
 
+        #aggiorna la TRAMA in cinema.json
         with open(json_dir) as data_file:
             movie_data_json = json.load(data_file)
 
@@ -239,6 +240,18 @@ def edit_movie_info(movie_id):
 
         with open(json_dir, 'w') as outfile:
             json.dump(movie_data_json, outfile, indent=4, ensure_ascii=False)
+
+        #aggiorna la TRAMA in views.json
+        with open(json_views_dir) as data_file:
+            movie_views_json = json.load(data_file)
+
+        for y in movie_views_json.values():
+            for z in y:
+                if z['Id'] == movie_id:
+                    z['Movie plot'] = linked_movie_plot
+
+        with open(json_views_dir, 'w') as outfile:
+            json.dump(movie_views_json, outfile, indent=4, ensure_ascii=False)
 
     return render_template("edit.html", data=linked_movie_plot, movie_id=linked_movie_id, form=form)
 

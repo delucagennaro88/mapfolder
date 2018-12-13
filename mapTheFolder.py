@@ -11,6 +11,7 @@ from file_manager import save_info
 from json_manager import open_json, open_json_data, query_actor, update_views
 from person_manager import check_presence, attori_amati
 
+#directory = "F:\\CINEMA"
 directory = "C:\\Users\\Utente\\Desktop\\FILM"
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 
@@ -23,7 +24,6 @@ json_views = "views.json"
 json_views_dir = os.path.join(json_directory, json_views)
 
 query_dic = {}
-
 
 def show_movie_linked(json_dir, movie_id):
     movie_link = {}

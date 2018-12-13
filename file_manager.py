@@ -8,8 +8,13 @@ from movie_manager import movie_name
 
 collection = {}
 
+json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
+cinema_json_file = "cinema.json"
+json_dir = os.path.join(json_directory, cinema_json_file)
 
 def check_updates(dir, last_update):
+
+    '''
     dir_box = []
 
     for i in os.listdir(dir):
@@ -17,7 +22,30 @@ def check_updates(dir, last_update):
         if last_update < os.stat(directory).st_mtime:
             dir_box.append(directory)
     return dir_box
+    '''
 
+    list_original = []
+    list_add = []
+    updated_list = []
+
+    for i in os.listdir(dir):
+        filename, file_extension = os.path.splitext(i)
+        list_add.append(filename)
+
+    with open(json_dir, 'r') as outfile:
+        movie_data = json.load(outfile)
+
+    for key, value in movie_data.items():
+        list_original.append(key)
+
+    selected_list = list(set(list_add) - set(list_original))
+
+    for zeta in selected_list:
+        for omega in os.listdir(dir):
+            if zeta in omega:
+                updated_list.append(omega)
+
+    return updated_list
 
 def save_info(directory, last_update, update, json_dir):
     if os.path.exists(directory):

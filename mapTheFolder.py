@@ -10,9 +10,10 @@ from wtforms.validators import DataRequired
 from file_manager import save_info
 from json_manager import open_json, open_json_data, query_actor, update_views
 from person_manager import check_presence, attori_amati
+from movie_manager import correct_movie_name
 
-#directory = "F:\\CINEMA"
-directory = "C:\\Users\\Utente\\Desktop\\FILM"
+directory = "F:\\CINEMA"
+#directory = "C:\\Users\\Utente\\Desktop\\FILM"
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 
 cinema_json_file = "cinema.json"
@@ -102,6 +103,10 @@ class EditFilmography(FlaskForm):
     movie_year = StringField('Anno', validators=[DataRequired()])
     submit = SubmitField('Salva')
 
+class CorrectMovieForm(FlaskForm):
+    movie_title = StringField('Titolo', validators=[DataRequired()])
+    movie_year = StringField('Anno', validators=[DataRequired()])
+    submit = SubmitField('Cerca')
 
 def start():
     if not os.path.exists(json_dir):
@@ -293,6 +298,23 @@ def edit_filmography(movie_id):
     return render_template("edit_film.html", title=film_title, original=film_original, id=film_id, year=film_year,
                            movie_id=movie_id, form=form)
 
+@app.route('/correct', methods=['GET', 'POST'])
+def correct_movie():
+    correct_movie_json = 'correct.json'
+    json_correct_dir = os.path.join(json_directory, correct_movie_json)
+
+    correct_movie_box = {}
+    form = CorrectMovieForm()
+
+    if form.validate_on_submit():
+        movie_title = form.movie_title.data
+        movie_year = form.movie_year.data
+        correct_movie_box = correct_movie_name(movie_title, movie_year)
+
+        with open(json_correct_dir, 'w') as outfile:
+            json.dump(correct_movie_box, outfile, indent=4, ensure_ascii=False)
+
+    return render_template('correct.html', form=form, data=correct_movie_box)
 
 if __name__ == '__main__':
     app.run(debug=True)

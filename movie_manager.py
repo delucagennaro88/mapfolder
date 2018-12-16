@@ -96,3 +96,41 @@ def search_writer(movie_identifier):
             presence = False
         movie_dic['Writer'].append({'Name': writer_name, 'Id': writer_id, 'Present': presence})
     return movie_dic['Writer']
+
+
+def correct_movie_name(i, year):
+    correct_movie_container = {}
+    filename = i
+    movies = ia.search_movie(filename)
+    year = int(year)
+
+    for film in movies:
+        movie = film
+        movie_id = movie.movieID
+        movie_identifier = ia.get_movie(movie_id)
+        movie_year = movie_identifier.get('year')
+        if movie_year == year:
+            movie_title = str(i)
+            print(movie_title)
+            imdbURL = ia.get_imdbURL(movie)
+
+            plot = movie_identifier.get('plot', [''])[0]
+            plot = plot.split('::')[0]
+
+            director_box = search_director(movie_identifier)
+            actor_box = search_cast(movie_identifier)
+            writer_box = search_writer(movie_identifier)
+
+            genre = movie_identifier.get('kind')
+            if genre == 'tv series' or genre == 'tv mini series':
+                movie_year = movie_identifier.get('series years')
+                seasons = movie_identifier.get('number of seasons')
+            else:
+                movie_year = movie_identifier.get('year')
+                seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
+
+            correct_movie_container[i] = []
+            correct_movie_container[i].append({'Movie Title': movie_title, 'Movie Url': imdbURL, 'Movie Id': movie_id, 'Movie Year': movie_year,
+                               'Seasons': seasons, 'Movie plot': plot, 'Director List': director_box, 'Actor List': actor_box, 'Writer List': writer_box})
+
+    return correct_movie_container

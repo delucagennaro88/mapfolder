@@ -1,0 +1,17 @@
+    <form action="{{ url_for('correct_movie') }}" method="post">
+        {{ form.hidden_tag() }}
+
+        <div>
+            <p class="label">{{ form.movie_title.label }}
+            <p>
+            <p class="form">{{ form.movie_title(size=32) }}
+            <p>
+			<p class="label">{{ form.movie_year.label }}
+            <p>
+            <p class="form">{{ form.movie_year(size=32) }}
+            <p>
+            <p class="buttons">{{ form.submit() }}</p>
+        </div>
+    </form>
+
+{{data}}

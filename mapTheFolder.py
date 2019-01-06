@@ -12,8 +12,8 @@ from json_manager import open_json, open_json_data, query_actor, update_views
 from person_manager import check_presence, attori_amati
 from movie_manager import correct_movie_name
 
-directory = "F:\\CINEMA"
-#directory = "C:\\Users\\Utente\\Desktop\\FILM"
+#directory = "F:\\CINEMA"
+directory = "C:\\Users\\Utente\\Desktop\\FILM"
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 
 cinema_json_file = "cinema.json"

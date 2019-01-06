@@ -111,8 +111,16 @@ def attori_amati(cinema_json, json_actor_dir, actor_name):
 
         actor_name_str = str(actor)
 
-        actor_gif = "static/res/" + actor_name_str.lower().replace(" ", "") + ".gif"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione gif
-        actor_poster = "res/" + actor_name_str.lower().replace(" ", "") + "_poster.jpg"
+        if "'" in actor_name_str:
+            # se c'è l'apostrofo
+            new_actor_str = actor_name_str.replace("'", "")
+            print(new_actor_str)
+        else:
+            # se non c'è l'apostrofo
+            new_actor_str = actor_name_str
+
+        actor_gif = "static/res/" + new_actor_str.lower().replace(" ", "") + ".gif"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione gif
+        actor_poster = "res/" + new_actor_str.lower().replace(" ", "") + "_poster.jpg"
 
         actor_collection[actor_name_str] = []
         actor_collection[actor_name_str].append(

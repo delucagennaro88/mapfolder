@@ -6,58 +6,97 @@ ia = imdb.IMDb()
 movie_container = {}
 movie_dic = {}
 
-
 def movie_name(i):
     if not i:
         print("Il file è vuoto")
     else:
-        try:
-            filename = i
+        filename = i
+        movies = ia.search_movie(filename)
+        movie = movies[0]
+        imdbURL = ia.get_imdbURL(movie)
+        movie_id = movie.movieID
+        movie_identifier = ia.get_movie(movie_id)
 
-            movies = ia.search_movie(filename)
-            movie = movies[0]
-            imdbURL = ia.get_imdbURL(movie)
-            movie_id = movie.movieID
-            movie_identifier = ia.get_movie(movie_id)
+        genre = movie_identifier.get('kind')
 
-            genre = movie_identifier.get('kind')
+        if genre == 'tv series' or genre == 'tv mini series':
+            movie_year = movie_identifier.get('series years')
+            seasons = movie_identifier.get('number of seasons')
+        else:
+            movie_year = movie_identifier.get('year')
+            seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
 
-            if genre == 'tv series' or genre == 'tv mini series':
-                movie_year = movie_identifier.get('series years')
-                seasons = movie_identifier.get('number of seasons')
-            else:
-                movie_year = movie_identifier.get('year')
-                seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
+        movie_title = filename
+        '''
+        if lingua != "Italian":
+            movie_title = title + ' (' + filename + ')'
 
-            movie_title = filename
-            '''
-            if lingua != "Italian":
-                movie_title = title + ' (' + filename + ')'
+        else:
+            movie_title = title
+        '''
+        plot = movie_identifier.get('plot', [''])[0]
+        plot = plot.split('::')[0]
 
-            else:
-                movie_title = title
-            '''
-            plot = movie_identifier.get('plot', [''])[0]
-            plot = plot.split('::')[0]
-
-            director_box = search_director(movie_identifier)
-            actor_box = search_cast(movie_identifier)
-            writer_box = search_writer(movie_identifier)
-
-        except imdb.IMDbError as e:
-            print("Probably you're not connected to Internet.  Complete error report:")
-            print(e)
-            sys.exit(3)
-
-        if not movie:
-            print('It seems that there\'s no movie with movie_id "%s"' % movie_title)
-            sys.exit(4)
+        director_box = search_director(movie_identifier)
+        actor_box = search_cast(movie_identifier)
+        writer_box = search_writer(movie_identifier)
 
         movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Seasons': seasons, 'Plot': plot,
                            'DirectorBox': director_box, 'ActorBox': actor_box, 'WriterBox': writer_box}
 
         return movie_container
 
+def movie_name_with(i):
+    if not i:
+        print("Il file è vuoto")
+    else:
+
+        filename = i
+        year = int(filename[filename.find("(") + 1:filename.find(")")])
+        title = filename
+        #title = filename.partition("(")[0]
+
+        # da qui risalire al FILM preciso
+        movies = ia.search_movie(title)
+        for film in movies:
+            movie = film
+            movie_id = movie.movieID
+            movie_identifier = ia.get_movie(movie_id)
+            movie_year = movie_identifier.get('year')
+            if movie_year == year:
+                movie_title = str(title)
+                imdbURL = ia.get_imdbURL(movie)
+
+                plot = movie_identifier.get('plot', [''])[0]
+                plot = plot.split('::')[0]
+
+                genre = movie_identifier.get('kind')
+
+                if genre == 'tv series' or genre == 'tv mini series':
+                    movie_year = movie_identifier.get('series years')
+                    seasons = movie_identifier.get('number of seasons')
+                else:
+                    movie_year = movie_identifier.get('year')
+                    seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
+
+                movie_title = filename
+                '''
+                if lingua != "Italian":
+                    movie_title = title + ' (' + filename + ')'
+    
+                else:
+                    movie_title = title
+                '''
+
+                director_box = search_director(movie_identifier)
+                actor_box = search_cast(movie_identifier)
+                writer_box = search_writer(movie_identifier)
+
+                movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year,
+                                   'Seasons': seasons, 'Plot': plot,
+                                   'DirectorBox': director_box, 'ActorBox': actor_box, 'WriterBox': writer_box}
+
+                return movie_container
 
 
 def search_director(movie_identifier):

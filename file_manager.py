@@ -4,7 +4,7 @@ import time
 
 from bytes_converter import bytes_converter
 from json_manager import createJsonFile, read_saved_files, updateJsonFile, create_json_views
-from movie_manager import movie_name
+from movie_manager import movie_name, movie_name_with
 
 collection = {}
 
@@ -55,9 +55,14 @@ def save_info(directory, last_update, update, json_dir):
             for i in os.listdir(directory):
 
                 filename, file_extension = os.path.splitext(i)
-                film = movie_name(filename)
+
+                if "(" in filename:
+                    film = movie_name_with(filename)
+                else:
+                    film = movie_name(filename)
 
                 dir = os.path.join(directory, i)
+                print(dir)
 
                 if os.path.isfile(dir):
                     ext = os.path.splitext(dir)[1]
@@ -73,8 +78,16 @@ def save_info(directory, last_update, update, json_dir):
 
                 a = os.stat(os.path.join(directory, i))
 
-                movie_banner = "static/res/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
-                movie_poster = "res/" + filename.lower().replace(" ", "") + "_poster.jpg"
+                if "'" in filename:
+                    # se c'è l'apostrofo
+                    new_filename = filename.replace("'", "")
+                    print(new_filename)
+                else:
+                    # se non c'è l'apostrofo
+                    new_filename = filename
+
+                movie_banner = "static/res/" + new_filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                movie_poster = "res/" + new_filename.lower().replace(" ", "") + "_poster.jpg"
 
                 collection[filename] = []
                 collection[filename].append(
@@ -105,6 +118,7 @@ def save_info(directory, last_update, update, json_dir):
                 for i in updated_folder:
 
                     dir = os.path.join(directory, i)
+                    print(dir)
 
                     if os.path.isfile(dir):
                         ext = os.path.splitext(dir)[1]
@@ -122,14 +136,25 @@ def save_info(directory, last_update, update, json_dir):
 
                     name_file = os.path.basename(i)
                     filename, file_extension = os.path.splitext(name_file)
-                    film = movie_name(filename)
+                    if "(" in filename:
+                        film = movie_name_with(filename)
+                    else:
+                        film = movie_name(filename)
 
-                    movie_banner = "static/res/" + filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
-                    movie_poster = "res/" + filename.lower().replace(" ", "") + "_poster.jpg"
+                    if "'" in filename:
+                        # se c'è l'apostrofo
+                        new_filename = filename.replace("'", "")
+                        print(new_filename)
+                    else:
+                        # se non c'è l'apostrofo
+                        new_filename = filename
+
+                    movie_banner = "static/res/" + new_filename.lower().replace(" ", "") + "_banner.jpg"  # eliminiamo maiuscole e spazi e aggiungiamo l'estensione jpeg
+                    movie_poster = "res/" + new_filename.lower().replace(" ", "") + "_poster.jpg"
 
                     collection[filename] = []
                     collection[filename].append(
-                        {'Home path': directory, 'Id': filename, 'File Name': i, 'Atime': time.ctime(a.st_atime),
+                        {'Home path': directory, 'Id': filename, 'File Name': dir, 'Atime': time.ctime(a.st_atime),
                          'Ctime': time.ctime(a.st_ctime), 'Size': size, 'Extension': ext, 'Banner Pic': movie_banner, 'Movie Poster': movie_poster, 'Movie Id': film['Id'],
                          'Movie Url': film['Url'], 'Movie Title': film['Title'], 'Movie Year': film['Year'], 'Seasons': film['Seasons'],
                          'Movie plot': film['Plot'], 'Director List': film['DirectorBox'],

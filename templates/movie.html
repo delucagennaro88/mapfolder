@@ -11,6 +11,7 @@ $(document).ready(function(){
     });
 });
 
+
     </script>
 </head>
 <body>
@@ -29,7 +30,12 @@ $(document).ready(function(){
                 <small>{{data['Seasons']}}:stagioni</small>
                 {% endif %}
 
+                {% if data['Movie Title'].endswith(')') %}
+                {{data['Movie Title'].split('(')[0]}}
+                {% else %}
                 {{data['Movie Title']}}
+                {% endif %}
+
             </div>
             <a class="cta" href="{{data['Movie Url']}}">IMDB</a>
             <a class="cta" href="{{ url_for('show_movie_views', movie_id=data['Movie Id']) }}">Save Video</a>

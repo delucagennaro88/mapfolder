@@ -47,13 +47,17 @@
                 <div class="movie-header">
 
                     {% if b['Movie Title'] | length > 21 %}
-
-                    <h1 class="long-title">{{ b['Movie Title']}}</h1>
-
+                    {% if b['Movie Title'].endswith(')') %}
+                    <h1 class="long-title">{{b['Movie Title'].split('(')[0]}}</h1>
                     {% else %}
-
+                    <h1 class="long-title">{{ b['Movie Title']}}</h1>
+                    {% endif %}
+                    {% else %}
+                    {% if b['Movie Title'].endswith(')') %}
+                    <h1 class="movie-title">{{b['Movie Title'].split('(')[0]}}</h1>
+                    {% else %}
                     <h1 class="movie-title">{{b['Movie Title']}}</h1>
-
+                    {% endif %}
                     {% endif %}
 
                     <h4 class="movie-info">({{b['Movie Year']}}) {% for director in b['Director List'] %}
@@ -96,13 +100,17 @@
                 <div class="movie-header">
 
                     {% if b['Movie Title'] | length > 21 %}
-
-                    <h1 class="long-title">{{ b['Movie Title']}}</h1>
-
+                    {% if b['Movie Title'].endswith(')') %}
+                    <h1 class="long-title">{{b['Movie Title'].split('(')[0]}}</h1>
                     {% else %}
-
+                    <h1 class="long-title">{{ b['Movie Title']}}</h1>
+                    {% endif %}
+                    {% else %}
+                    {% if b['Movie Title'].endswith(')') %}
+                    <h1 class="movie-title">{{b['Movie Title'].split('(')[0]}}</h1>
+                    {% else %}
                     <h1 class="movie-title">{{b['Movie Title']}}</h1>
-
+                    {% endif %}
                     {% endif %}
 
                     <h4 class="movie-info">({{b['Movie Year']}}) {% for director in b['Director List'] %}

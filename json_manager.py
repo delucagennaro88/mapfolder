@@ -231,9 +231,17 @@ def check_filmographies(actor_id):
 def create_json_views(movie_id, movie_title, movie_dir, movie_plot):
     # salva le views
 
-    movie_gif = "res/" + movie_title.lower().replace(" ", "") + ".gif"
-    image_one = "static/res/" + movie_title.lower().replace(" ", "") + "_image_one.jpg"
-    image_two = "static/res/" + movie_title.lower().replace(" ", "") + "_image_two.jpg"
+    if "'" in movie_title:
+        # se c'è l'apostrofo
+        new_movie_title = movie_title.replace("'", "")
+        print(movie_title)
+    else:
+        # se non c'è l'apostrofo
+        new_movie_title = movie_title
+
+    movie_gif = "res/" + new_movie_title.lower().replace(" ", "") + ".gif"
+    image_one = "static/res/" + new_movie_title.lower().replace(" ", "") + "_image_one.jpg"
+    image_two = "static/res/" + new_movie_title.lower().replace(" ", "") + "_image_two.jpg"
 
     if not os.path.exists(json_views_dir):
         views_collection[movie_id] = []
@@ -245,7 +253,7 @@ def create_json_views(movie_id, movie_title, movie_dir, movie_plot):
         print('Creato il file VIEWS')
 
     else:
-        movie_gif = "res/" + movie_title.lower().replace(" ", "") + ".gif"
+        movie_gif = "res/" + new_movie_title.lower().replace(" ", "") + ".gif"
 
         json_views_dic[movie_id] = []
         json_views_dic[movie_id].append(
@@ -272,7 +280,7 @@ def create_json_views(movie_id, movie_title, movie_dir, movie_plot):
         with open(json_views_dir, 'w') as outfile:
             json.dump(dict1, outfile, indent=4, ensure_ascii=False)
 
-        print('Aggiornato il file VIEWS')
+        print('Aggiornato il file VIEWS: ' + movie_title)
 
 #Aggiorna il nr di Views e la Data di Visione
 def update_views(movie_id):
@@ -292,7 +300,7 @@ def update_views(movie_id):
                 if os.path.isdir(file_dir):
                     file = os.path.basename(file_dir) #estrapoliamo nome cartella dalla Directory
                     dest_file_dir = os.path.join(destination_directory, file) #creaiamo directory con destinazione e nome vecchia cartella
-                    os.mkdir(dest_file_dir) #creiamo effetticamente la cartella
+                    os.mkdir(dest_file_dir) #creiamo effettivamente la cartella
 
                     for i in os.listdir(file_dir): #per ogni file contenuto, creiamo una copia
                         current_file_dir = os.path.join(file_dir, i)

@@ -33,7 +33,11 @@
                     <div class="swiper-image" data-swiper-parallax-y="35%">
                         <div style="background-image: url('{{b['Image Two']}}')"
                              class="swiper-image-inner swiper-image-right">
+                            {% if b['Title'].endswith(')') %}
+                            <h2>{{b['Title'].split('(')[0]}}</h2>
+                            {% else %}
                             <h2>{{b['Title']}}</h2>
+                            {% endif %}
                             <p class="paragraph">{{b['Movie plot']}}
                             </p>
                             <a class="link" href="{{ url_for('show_movie_views', movie_id=b['Id']) }}">Save Video</a>

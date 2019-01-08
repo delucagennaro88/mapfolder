@@ -6,6 +6,7 @@ ia = imdb.IMDb()
 movie_container = {}
 movie_dic = {}
 
+
 def movie_name(i):
     if not i:
         print("Il file è vuoto")
@@ -41,10 +42,12 @@ def movie_name(i):
         actor_box = search_cast(movie_identifier)
         writer_box = search_writer(movie_identifier)
 
-        movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Seasons': seasons, 'Plot': plot,
+        movie_container = {'Title': movie_title, 'Url': imdbURL, 'Id': movie_id, 'Year': movie_year, 'Seasons': seasons,
+                           'Plot': plot,
                            'DirectorBox': director_box, 'ActorBox': actor_box, 'WriterBox': writer_box}
 
         return movie_container
+
 
 def movie_name_with(i):
     if not i:
@@ -54,7 +57,7 @@ def movie_name_with(i):
         filename = i
         year = int(filename[filename.find("(") + 1:filename.find(")")])
         title = filename
-        #title = filename.partition("(")[0]
+        # title = filename.partition("(")[0]
 
         # da qui risalire al FILM preciso
         movies = ia.search_movie(title)
@@ -83,7 +86,7 @@ def movie_name_with(i):
                 '''
                 if lingua != "Italian":
                     movie_title = title + ' (' + filename + ')'
-    
+
                 else:
                     movie_title = title
                 '''
@@ -123,6 +126,7 @@ def search_cast(movie_identifier):
             presence = False
         movie_dic['Actor'].append({'Name': actor_name, 'Id': actor_id, 'Present': presence})
     return movie_dic['Actor']
+
 
 def search_writer(movie_identifier):
     writers = movie_identifier['writer']
@@ -168,8 +172,9 @@ def correct_movie_name(i, year):
                 movie_year = movie_identifier.get('year')
                 seasons = 0  # quando si va a stampare, si può aggiungere un if che non mostra 'seasons==0'
 
-            correct_movie_container[i] = []
-            correct_movie_container[i].append({'Movie Title': movie_title, 'Movie Url': imdbURL, 'Movie Id': movie_id, 'Movie Year': movie_year,
-                               'Seasons': seasons, 'Movie plot': plot, 'Director List': director_box, 'Actor List': actor_box, 'Writer List': writer_box})
+            correct_movie_container = {'Movie Title': movie_title, 'Movie Url': imdbURL, 'Movie Id': movie_id,
+                                       'Movie Year': movie_year,
+                                       'Seasons': seasons, 'Movie plot': plot, 'Director List': director_box,
+                                       'Actor List': actor_box, 'Writer List': writer_box}
 
     return correct_movie_container

@@ -12,8 +12,8 @@ from json_manager import open_json, open_json_data, query_actor, update_views
 from person_manager import check_presence, attori_amati
 from movie_manager import correct_movie_name
 
-#directory = "F:\\CINEMA"
-directory = "C:\\Users\\Utente\\Desktop\\FILM"
+directory = "G:\\CINEMA"
+#directory = "C:\\Users\\Utente\\Desktop\\FILM"
 json_directory = "C:\\Users\\Utente\\Dropbox\\Map the Movie"
 
 cinema_json_file = "cinema.json"
@@ -298,10 +298,12 @@ def edit_filmography(movie_id):
     return render_template("edit_film.html", title=film_title, original=film_original, id=film_id, year=film_year,
                            movie_id=movie_id, form=form)
 
-@app.route('/correct', methods=['GET', 'POST'])
-def correct_movie():
-    correct_movie_json = 'correct.json'
-    json_correct_dir = os.path.join(json_directory, correct_movie_json)
+
+@app.route('/correct/<string:movie_id>', methods=['GET', 'POST'])
+def correct_movie_info(movie_id):
+    linked_movie = show_movie_linked(json_dir, movie_id)
+    linked_movie_title = linked_movie['Movie Title']
+    linked_movie_year = linked_movie['Movie Year']
 
     correct_movie_box = {}
     form = CorrectMovieForm()
@@ -311,10 +313,42 @@ def correct_movie():
         movie_year = form.movie_year.data
         correct_movie_box = correct_movie_name(movie_title, movie_year)
 
-        with open(json_correct_dir, 'w') as outfile:
-            json.dump(correct_movie_box, outfile, indent=4, ensure_ascii=False)
+        # aggiorna la TRAMA in cinema.json
+        with open(json_dir) as data_file:
+            movie_data_json = json.load(data_file)
 
-    return render_template('correct.html', form=form, data=correct_movie_box)
+        for i in movie_data_json.values():
+            for x in i:
+                if x['Movie Id'] == movie_id:
+                    x['Movie plot'] = correct_movie_box['Movie plot']
+                    x['Movie Url'] = correct_movie_box['Movie Url']
+                    x['Director List'] = correct_movie_box['Director List']
+                    x['Seasons'] = correct_movie_box['Seasons']
+                    x['Movie Year'] = correct_movie_box['Movie Year']
+                    x['Writer List'] = correct_movie_box['Writer List']
+                    x['Actor List'] = correct_movie_box['Actor List']
+                    x['Movie Id'] = correct_movie_box['Movie Id']
+
+        with open(json_dir, 'w') as outfile:
+            json.dump(movie_data_json, outfile, indent=4, ensure_ascii=False)
+
+        # aggiorna la TRAMA in views.json
+        with open(json_views_dir) as data_file:
+            movie_views_json = json.load(data_file)
+
+        for m, n in movie_views_json.items():
+            for o in n:
+                if o['Id'] == movie_id:
+                    correct_id = correct_movie_box['Movie Id']
+                    o['Movie plot'] = correct_movie_box['Movie plot']
+                    o['Id'] = correct_movie_box['Movie Id']
+                    movie_views_json[correct_id] = movie_views_json.pop(m) # questo è il valore dell'ID da correggere
+
+        with open(json_views_dir, 'w') as outfile:
+            json.dump(movie_views_json, outfile, indent=4, ensure_ascii=False)
+
+    return render_template("correct.html", data=correct_movie_box, movie_id=movie_id, form=form, title=linked_movie_title, year=linked_movie_year)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

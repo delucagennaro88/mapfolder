@@ -8,6 +8,7 @@
 $(document).ready(function(){
     $("a#edit_button").click(function(){
         $("span#edit").toggle();
+        $("span#correct").toggle();
     });
 });
 
@@ -26,10 +27,6 @@ $(document).ready(function(){
             <div class="title">
                 <small>{{data['Movie Year']}}</small>
 
-                {% if data['Seasons'] %}
-                <small>{{data['Seasons']}}:stagioni</small>
-                {% endif %}
-
                 {% if data['Movie Title'].endswith(')') %}
                 {{data['Movie Title'].split('(')[0]}}
                 {% else %}
@@ -45,6 +42,7 @@ $(document).ready(function(){
                 <div class="plot">
                     {{data['Movie plot']}}<span id="edit" style="display:none">[<a
                         href="{{ url_for('edit_movie_info', movie_id=data['Movie Id']) }}">Edit</a>]</span>
+                    <span id="correct" style="display:none">[<a href="{{ url_for('correct_movie_info', movie_id=data['Movie Id']) }}">Correct</a>]</span>
                 </div>
 
                 <div class="cast">

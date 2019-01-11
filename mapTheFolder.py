@@ -8,7 +8,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 from file_manager import save_info
-from json_manager import open_json, open_json_data, query_actor, update_views
+from json_manager import open_json, open_json_data, query_actor, update_views, read_saved_files
 from person_manager import check_presence, attori_amati, uncheck_presence
 from movie_manager import correct_movie_name
 
@@ -152,7 +152,9 @@ def home():
     data_collection = current_movie()
     data = data_collection.values()
 
-    return render_template('home.html', data=data)
+    nr_films = int(read_saved_files())
+
+    return render_template('home.html', data=data, nr_films=nr_films)
 
 @app.route('/show')
 def show_all():

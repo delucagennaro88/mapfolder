@@ -39,9 +39,9 @@
     <div style="background-image: url('{{b['Banner Pic']}}')" class="movie-card">
         <div class="color-overlay">
             <div class="movie-share">
-                <a class="movie-share__icon" href="{{b['Movie Url']}}">
-                    <i class="material-icons">IMDB</i>
-                </a>
+                <div class="movie-share">
+                <a class="movie-share__icon" href="{{ url_for('delete_movie', movie_id=b['Movie Id']) }}"><i class="material-icons">[X]</i></a>
+            </div>
             </div>
             <div class="movie-content">
                 <div class="movie-header">
@@ -92,9 +92,7 @@
     <div style="background-image: url('{{b['Banner Pic']}}')" class="movie-card">
         <div class="color-overlay">
             <div class="movie-share">
-                <a class="movie-share__icon" href="{{b['Movie Url']}}">
-                    <i class="material-icons">IMDB</i>
-                </a>
+                <a class="movie-share__icon" href="{{ url_for('delete_movie', movie_id=b['Movie Id']) }}"><i class="material-icons">[X]</i></a>
             </div>
             <div class="movie-content">
                 <div class="movie-header">

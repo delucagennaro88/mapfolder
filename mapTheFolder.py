@@ -9,7 +9,7 @@ from wtforms.validators import DataRequired
 
 from file_manager import save_info
 from json_manager import open_json, open_json_data, query_actor, update_views
-from person_manager import check_presence, attori_amati
+from person_manager import check_presence, attori_amati, uncheck_presence
 from movie_manager import correct_movie_name
 
 directory = "G:\\CINEMA"
@@ -159,6 +159,7 @@ def show_all():
     form = QueryForm()
     data_collection = open_json(json_dir)
     data = data_collection.values()
+
     return render_template('show_all.html', form=form, data=data)
 
 
@@ -342,13 +343,64 @@ def correct_movie_info(movie_id):
                     correct_id = correct_movie_box['Movie Id']
                     o['Movie plot'] = correct_movie_box['Movie plot']
                     o['Id'] = correct_movie_box['Movie Id']
-                    movie_views_json[correct_id] = movie_views_json.pop(m) # questo è il valore dell'ID da correggere
+                    movie_views_json[correct_id] = movie_views_json.pop(m) #questo è il valore dell'ID da correggere
 
         with open(json_views_dir, 'w') as outfile:
             json.dump(movie_views_json, outfile, indent=4, ensure_ascii=False)
 
     return render_template("correct.html", data=correct_movie_box, movie_id=movie_id, form=form, title=linked_movie_title, year=linked_movie_year)
 
+def catch_title_by_ID(id):
+    movie_title = ""
+    with open(json_dir) as data_file:
+        movie_data_json = json.load(data_file)
+
+    for i in movie_data_json.values():
+        for x in i:
+            if x['Movie Id'] == id:
+                movie_title = x['Movie Title']
+
+    return movie_title
+
+@app.route('/delete/<string:movie_id>', methods=['GET', 'POST'])
+def delete_movie(movie_id):
+    form = QueryForm()
+
+    # Aggiorniamo il file Cinema.json
+    movie_title = catch_title_by_ID(movie_id)
+
+    with open(json_dir) as data_file:
+        movie_data_json = json.load(data_file)
+
+    if movie_data_json[movie_title]:
+        del movie_data_json[movie_title]
+
+    with open(json_dir, 'w') as outfile:
+        json.dump(movie_data_json, outfile, indent=4, ensure_ascii=False)
+
+    # Aggiorniamo il file Views.json
+    with open(json_views_dir) as data_file:
+        movie_views_json = json.load(data_file)
+
+    if movie_views_json[movie_id]:
+        print(movie_views_json[movie_id])
+        del movie_views_json[movie_id]
+
+    with open(json_views_dir, 'w') as outfile:
+        json.dump(movie_views_json, outfile, indent=4, ensure_ascii=False)
+
+    if os.path.exists(json_actor_dir):
+        uncheck_presence(movie_id, json_actor_dir)
+
+    print('Eliminato il film: ' + movie_title)
+
+    #apriamo il file aggiornato
+    with open(json_dir) as data_file:
+        movie_data_json = json.load(data_file)
+
+    data = movie_data_json.values()
+
+    return render_template('show_all.html', form=form, data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

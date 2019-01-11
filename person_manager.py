@@ -91,6 +91,28 @@ def check_presence(cinema_json, json_actor_dir):
         print("Non ci sono cambiamenti")
         return
 
+def uncheck_presence(movie_id, json_actor_dir):
+    change = False
+    attori_file = open_json_data(json_actor_dir)  # Occorre creare una funzione apposita per aprire il File. OPEN_JSON non va bene!
+
+    for z in attori_file.values():
+        for w in z:
+            # print(w['Name'])
+            for y, (key, value) in enumerate(w['Filmography'].items()):
+                for x in value:
+                    if x['Id'] == movie_id and x['Present'] == True:
+                        print(x['Title'])
+                        x['Present'] = False
+                        change = True
+
+    if change == True:
+        print('Updated')
+        with open(json_actor_dir, 'w') as outfile:
+            json.dump(attori_file, outfile, indent=4, ensure_ascii=False)
+    else:
+        print("Non ci sono cambiamenti")
+        return
+
 
 def attori_amati(cinema_json, json_actor_dir, actor_name):
     # 1. Dato il nome di un attore, restituisce l'elenco di tutti i suoi film (solo titoli e date)

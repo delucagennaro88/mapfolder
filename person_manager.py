@@ -37,31 +37,33 @@ def define_dates(actor_identifier):
 
     return dates
 
-
 def search_filmography(filmography):
     actor_dictionary = {}
     for a in filmography:
         for key, value in a.items():
             key_index = str(key)  # qui va salvato l'indice della categoria
-            if key_index == "director" or key_index == "writer" or key_index == "actor":
+            if key_index == "director" or key_index == "writer" or key_index == "actor" or key_index == "actress":
                 actor_dictionary[key_index] = []
-                time.sleep(5)
-                for b in value:
-                    print(b)
-                    movie_film = ia.search_movie(str(b))
-                    print(movie_film)
-                    movie = movie_film[0]
-                    print(movie)
-                    movie_id = movie.movieID
-                    title = movie.get('title')
-                    movie_year = movie['year']
+                for b in enumerate(value):
+                    b_str = str(b)
+
+                    # ID
+                    movie_id = b_str.split(' id:', 1)[1].split('[')[0]
+                    movie_identifier = ia.get_movie(movie_id)
+
+                    # YEAR
+                    movie_year = movie_identifier.get('year')
+
+                    # TITLE
+                    movie_title = movie_identifier.get('title')
+                    print(movie_title)
+
                     actor_dictionary[key_index].append(
-                        {'Title': title, 'Year': movie_year, 'Id': movie_id, 'Original': str(b), 'Present': False})
+                        {'Title': movie_title, 'Year': movie_year, 'Id': movie_id, 'Original': movie_title, 'Present': False})
                     time.sleep(5)
             else:
                 pass
     return actor_dictionary
-
 
 def check_presence(cinema_json, json_actor_dir):
     change = False
